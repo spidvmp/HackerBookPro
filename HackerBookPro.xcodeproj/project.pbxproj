@@ -13,17 +13,25 @@
 		2B9825E21C33E19E0004F1AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9825E01C33E19E0004F1AE /* Main.storyboard */; };
 		2B9825E41C33E19E0004F1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9825E31C33E19E0004F1AE /* Assets.xcassets */; };
 		2B9825E71C33E19E0004F1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9825E51C33E19E0004F1AE /* LaunchScreen.storyboard */; };
+		2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825F21C33E5930004F1AE /* Hacker.xcdatamodeld */; };
+		2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */; };
+		2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC61C33FB29009C4F25 /* AGTSimpleCoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B9825D71C33E19D0004F1AE /* HackerBookPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBookPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = Controllers/MasterViewController.swift; sourceTree = "<group>"; };
+		2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controllers/DetailViewController.swift; sourceTree = "<group>"; };
 		2B9825E11C33E19E0004F1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B9825E31C33E19E0004F1AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B9825E61C33E19E0004F1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B9825E81C33E19E0004F1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B9825F31C33E5930004F1AE /* Hacker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hacker.xcdatamodel; sourceTree = "<group>"; };
+		2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookModel.swift; path = Model/BookModel.swift; sourceTree = "<group>"; };
+		2BDCCEC41C33FB28009C4F25 /* HackerBookPro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerBookPro-Bridging-Header.h"; sourceTree = "<group>"; };
+		2BDCCEC51C33FB29009C4F25 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGTSimpleCoreDataStack.h; path = Model/AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
+		2BDCCEC61C33FB29009C4F25 /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGTSimpleCoreDataStack.m; path = Model/AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +65,43 @@
 			isa = PBXGroup;
 			children = (
 				2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */,
-				2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */,
-				2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */,
+				2BDCCEC41C33FB28009C4F25 /* HackerBookPro-Bridging-Header.h */,
+				2B9825F51C33E5B50004F1AE /* Controllers */,
+				2BDCCEC11C33F323009C4F25 /* Model */,
+				2B9825F11C33E5670004F1AE /* CoreData */,
 				2B9825E01C33E19E0004F1AE /* Main.storyboard */,
 				2B9825E31C33E19E0004F1AE /* Assets.xcassets */,
 				2B9825E51C33E19E0004F1AE /* LaunchScreen.storyboard */,
 				2B9825E81C33E19E0004F1AE /* Info.plist */,
 			);
 			path = HackerBookPro;
+			sourceTree = "<group>";
+		};
+		2B9825F11C33E5670004F1AE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2BDCCEC51C33FB29009C4F25 /* AGTSimpleCoreDataStack.h */,
+				2BDCCEC61C33FB29009C4F25 /* AGTSimpleCoreDataStack.m */,
+				2B9825F21C33E5930004F1AE /* Hacker.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		2B9825F51C33E5B50004F1AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */,
+				2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2BDCCEC11C33F323009C4F25 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */,
 				2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */,
+				2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */,
+				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 			);
@@ -253,10 +293,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = HackerBookPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nicatec.HackerBookPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackerBookPro/HackerBookPro-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -264,10 +308,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = HackerBookPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nicatec.HackerBookPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackerBookPro/HackerBookPro-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -290,8 +337,22 @@
 				2B9825ED1C33E19E0004F1AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2B9825F21C33E5930004F1AE /* Hacker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2B9825F31C33E5930004F1AE /* Hacker.xcdatamodel */,
+			);
+			currentVersion = 2B9825F31C33E5930004F1AE /* Hacker.xcdatamodel */;
+			path = Hacker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2B9825CF1C33E19D0004F1AE /* Project object */;
 }
