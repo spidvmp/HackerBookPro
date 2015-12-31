@@ -13,15 +13,20 @@ import UIKit
 @objc class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+    var stack : AGTSimpleCoreDataStack!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         
         //creamos el stack del coredata
-        let stack = AGTSimpleCoreDataStack.persistentStoreCoordinatorErrorNotificationName()
-        let a = AGTSimpleCoreDataStack
+        stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
+        
+        
+        //let b = BookModel(managedObjectContext: stack.context)
+        let c = BookModel(title: "hola", context: stack.context)
+        
+        
         
         
         
@@ -36,6 +41,12 @@ import UIKit
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        
+        //grabo los datos en BD
+//        stack.saveWithErrorBlock { (NSError!) -> Void in
+//            print("Error al grabar")
+//        }
+        
     }
 
     func applicationDidEnterBackground(application: UIApplication) {

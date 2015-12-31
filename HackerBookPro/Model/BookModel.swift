@@ -8,27 +8,21 @@
 
 import Foundation
 
-class BookModel {
+class BookModel : _BookModel {
     
     //definos las propiedades
-    let title : String!
+    //var title : String!
     
     
     //MARK: - Inicializadores
-    init (title: String) {
-        self.title = title
+    convenience init (title t: String, context c: NSManagedObjectContext) {
+        let b = BookModel(managedObjectContext: c)
+        //let b  = NSEntityDescription.insertNewObjectForEntityForName(BookModel.entityName(), inManagedObjectContext: c)
+        b.title = t
+
     }
     
     
     
 }
 
-//MARK: - Extensiones
-extension BookModel: CustomStringConvertible {
-    
-    var description: String {
-        get {
-            return "<\(self.dynamicType): \(title)"
-        }
-    }
-}

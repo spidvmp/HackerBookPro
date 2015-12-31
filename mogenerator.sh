@@ -1,3 +1,3 @@
 #mogenerator  --template-var arc=true -m MedicalKit/MedicalKit.xcdatamodeld/MedicalKit.xcdatamodel/  -O MedicalKit/Class
 
-mogenerator --swif -m HackerBookPro/Hacker.xcdatamodeld/Model.xcdatamodel/ -O HackerBookPro/Model
+mogenerator --v2 --swif --model HackerBookPro/Hacker.xcdatamodeld -O HackerBookPro/Model
