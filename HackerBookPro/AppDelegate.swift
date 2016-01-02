@@ -18,17 +18,16 @@ import UIKit
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
+        print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
         
         
         //let b = BookModel(managedObjectContext: stack.context)
-        let c = BookModel(title: "hola", context: stack.context)
         
-        
-        
-        
+        //_ = BookModel(title: "2", context: stack.context)
+        let z = BookModel(title: "dd", context: stack.context)
+//        let x = BookModel.crear()
         
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController

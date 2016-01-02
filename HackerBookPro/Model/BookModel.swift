@@ -11,18 +11,31 @@ import Foundation
 class BookModel : _BookModel {
     
     //definos las propiedades
-    //var title : String!
+    
+    
     
     
     //MARK: - Inicializadores
-    convenience init (title t: String, context c: NSManagedObjectContext) {
-        let b = BookModel(managedObjectContext: c)
-        //let b  = NSEntityDescription.insertNewObjectForEntityForName(BookModel.entityName(), inManagedObjectContext: c)
-        b.title = t
-
+    //func init(title t: String, context c: NSManagedObjectContext) -> BookModel {
+    init(title t: String, context c: NSManagedObjectContext) {
+        //var x = super.init(managedObjectContext: c)
+        
+        super.init(entity: _BookModel.entity(c), insertIntoManagedObjectContext: c)
+        self.title = t
+        //let b : BookModel = _BookModel(managedObjectContext: c) as! BookModel
+        //b.title = t
+        //return b
     }
     
     
-    
+//    func crear(title t: String, context c: NSManagedObjectContext) -> _BookModel {
+//        //let b : BookModel = _BookModel(managedObjectContext: c) as! BookModel
+//        let b = BookModel(context: c)
+//        
+//
+//        b.title = t
+//    
+//        return b
+//    }
 }
 

@@ -7,13 +7,6 @@ public enum BookModelAttributes: String {
     case title = "title"
 }
 
-public enum BookModelRelationships: String {
-    case authors = "authors"
-    case pdf = "pdf"
-    case photo = "photo"
-    case tags = "tags"
-}
-
 @objc public
 class _BookModel: NSManagedObject {
 
@@ -46,78 +39,6 @@ class _BookModel: NSManagedObject {
     // func validateTitle(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
-
-    @NSManaged public
-    var authors: NSSet
-
-    @NSManaged public
-    var pdf: PdfModel?
-
-    // func validatePdf(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var photo: PhotoModel?
-
-    // func validatePhoto(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var tags: NSSet
-
-}
-
-extension _BookModel {
-
-    func addAuthors(objects: NSSet) {
-        let mutable = self.authors.mutableCopy() as! NSMutableSet
-        mutable.unionSet(objects as! Set<NSObject>)
-        self.authors = mutable.copy() as! NSSet
-    }
-
-    func removeAuthors(objects: NSSet) {
-        let mutable = self.authors.mutableCopy() as! NSMutableSet
-        mutable.minusSet(objects as! Set<NSObject>)
-        self.authors = mutable.copy() as! NSSet
-    }
-
-    func addAuthorsObject(value: AuthorModel!) {
-        let mutable = self.authors.mutableCopy() as! NSMutableSet
-        mutable.addObject(value)
-        self.authors = mutable.copy() as! NSSet
-    }
-
-    func removeAuthorsObject(value: AuthorModel!) {
-        let mutable = self.authors.mutableCopy() as! NSMutableSet
-        mutable.removeObject(value)
-        self.authors = mutable.copy() as! NSSet
-    }
-
-}
-
-extension _BookModel {
-
-    func addTags(objects: NSSet) {
-        let mutable = self.tags.mutableCopy() as! NSMutableSet
-        mutable.unionSet(objects as! Set<NSObject>)
-        self.tags = mutable.copy() as! NSSet
-    }
-
-    func removeTags(objects: NSSet) {
-        let mutable = self.tags.mutableCopy() as! NSMutableSet
-        mutable.minusSet(objects as! Set<NSObject>)
-        self.tags = mutable.copy() as! NSSet
-    }
-
-    func addTagsObject(value: TagModel!) {
-        let mutable = self.tags.mutableCopy() as! NSMutableSet
-        mutable.addObject(value)
-        self.tags = mutable.copy() as! NSSet
-    }
-
-    func removeTagsObject(value: TagModel!) {
-        let mutable = self.tags.mutableCopy() as! NSMutableSet
-        mutable.removeObject(value)
-        self.tags = mutable.copy() as! NSSet
-    }
 
 }
 
