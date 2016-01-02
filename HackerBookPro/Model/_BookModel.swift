@@ -1,9 +1,11 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to BookModel.swift instead.
+// Make changes to .BookModel.swift instead.
 
 import CoreData
 
-public enum BookModelAttributes: String {
+public enum _BookModelAttributes: String {
+    case imageUrl = "imageUrl"
+    case pdfUrl = "pdfUrl"
     case title = "title"
 }
 
@@ -32,6 +34,16 @@ class _BookModel: NSManagedObject {
     }
 
     // MARK: - Properties
+
+    @NSManaged public
+    var imageUrl: String?
+
+    // func validateImageUrl(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
+    @NSManaged public
+    var pdfUrl: String?
+
+    // func validatePdfUrl(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
     var title: String?

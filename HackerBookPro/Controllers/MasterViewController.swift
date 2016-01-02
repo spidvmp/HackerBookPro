@@ -17,18 +17,15 @@ class MasterViewController: AGTCoreDataTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //cojo la referencia del delegate para acceder al context
-        let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
-
+        //me genero un stack para acceder a la BD
+        let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
         
         
         //let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
         let fet = NSFetchRequest(entityName: BookModel.entityName())
         let s = (NSSortDescriptor(key: "title", ascending: true))
-//        var sort : [NSSortDescriptor]? = nil
-//        sort?.append(s)
         fet.sortDescriptors = [s]
-        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: appDel.stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
@@ -94,7 +91,7 @@ class MasterViewController: AGTCoreDataTableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+*/
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             objects.removeAtIndex(indexPath.row)
@@ -103,7 +100,7 @@ class MasterViewController: AGTCoreDataTableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-*/
+
 
 }
 

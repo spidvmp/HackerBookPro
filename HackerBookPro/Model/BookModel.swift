@@ -15,10 +15,12 @@ class BookModel : _BookModel {
     }
     
     //MARK: - Inicializadores
-    init(title t: String, context c: NSManagedObjectContext) {
+    init(title t: String, imageUrl i:String, pdfUrl p: String, context c: NSManagedObjectContext) {
         
         super.init(entity: _BookModel.entity(c), insertIntoManagedObjectContext: c)
         self.title = t
+        self.imageUrl = i
+        self.pdfUrl = p
 
     }
     

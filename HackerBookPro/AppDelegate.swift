@@ -105,11 +105,13 @@ import UIKit
         
         
         if !def.boolForKey(FIRST_TIME) {
+            
+            //tengo que cargar, lo hago en background
+            
             //es la primera vez, me tengo que bajar todo y tratarlo
             //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
             if let arrayLibros = downloadJSON() {
                 //aqui tengo un array de Book, ahora deberia guardar cada libro en coredata
-                print(arrayLibros)
                 //saveModel(datos: arrayLibros, inKey: MODELO_LIBROS)
                 for l in arrayLibros {
                     l.saveToCoreData(context: stack.context)

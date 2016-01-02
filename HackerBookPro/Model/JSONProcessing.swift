@@ -124,43 +124,7 @@ func decodeJSONDictionaryToStructBook(libro l:JSONDictionary) throws -> StructBo
         print("error con el pdf")
         throw JSONProcessingError.ResourcePointedByURLNotReachable
     }
-    //tengo el pdf, lo troceo separado por /
-//    let pdfRip = pdfUrl.componentsSeparatedByString("/")
-//    let nombrePdf : String? = pdfRip.last
-
-    
-    //aqui tengo el dato completo de lo que me tengo que bajar, asi que es aqui donde me lo bajo
-    
-    //primero tengo que crear el directorio, que sera el nombre del libro sin espacion e ira dentro de info, que ya deberia existir, se creo al principio en appdelegate
-    
-    //genero el path corto sin el camino principal, que lo ponga cada vez ios, solo me quedo desde  info en adelante
-//    let shortPath = "/info/".stringByAppendingString((titulo?.removeWhitespaces())!).stringByAppendingString("/")
-//    let path = docsDir.stringByAppendingString(shortPath)
-//    do {
-//        try filemgr.createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil)
-//    } catch let error as NSError {
-//        print(error.localizedDescription);
-//    }
-//    
-//
-//
-//    //Me bajo la imagen y la guardo en /info/img/nombr
-//    let iurl = NSURL(string: imageUrl)
-//    let imgdata = NSData(contentsOfURL: iurl!)
-//    let imgpth = path.stringByAppendingString(nombreImagen!)
-//    let imagenPath = shortPath.stringByAppendingString(nombreImagen!)
-//  
-//    imgdata?.writeToFile(imgpth, atomically: true)
-//    
-//    //bajo el pdf y lo guardo en /info/pdf/nombreImagen
-//    let purl = NSURL(string: pdfUrl)
-//    let pdfdata = NSData(contentsOfURL: purl!)
-//    let pdfpth = path.stringByAppendingString(nombrePdf!)
-//    let pdfPath = shortPath.stringByAppendingString(nombrePdf!)
-//    
-//    pdfdata?.writeToFile(pdfpth, atomically: true)
-
-    
+   
  
     return StructBook (titulo: titulo,
         autores: autores,
@@ -189,7 +153,9 @@ extension Book {
         
         //aqui tengo los datos a tal y como se van a guardar
         
-        self.init(title : l.titulo
+        self.init(title : l.titulo,
+            imageUrl: l.urlImagen,
+            pdfUrl: l.urlPdf
             )
     }
 }

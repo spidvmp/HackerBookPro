@@ -15,17 +15,22 @@ import Foundation
 class Book : NSObject {
     
     let title : String!
+    let imageUrl : String?
+    let pdfUrl : String?
     
     
     //MARK: - Inicializadores
-    init(title: String!) {
+    init(title: String!, imageUrl: String?, pdfUrl: String?) {
         self.title = title
+        self.imageUrl = imageUrl
+        self.pdfUrl = pdfUrl
     }
     
     
     //grabo el libro en coredata
     func saveToCoreData(context c : NSManagedObjectContext) {
-        let b = BookModel(title: title, context: c)
+        //el resultado me da lo mismo, no lo tengo que devolver
+        _ = BookModel(title: title, imageUrl: imageUrl!, pdfUrl: pdfUrl!, context: c)
     }
     
 }
