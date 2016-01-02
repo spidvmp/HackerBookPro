@@ -21,19 +21,32 @@ import UIKit
         print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
+        print("borro la BD")
+        stack.zapAllData()
         
         //comprobamos si es la primera vez y hay que bajar el json
         checkDownloadedJSON()
 
         //let z = BookModel(title: "dd", context: stack.context)
-
         
-
+        //genero el fetch
+//        let fet = NSFetchRequest(entityName: BookModel.entityName())
+//        fet.fetchBatchSize = 20
+        
+        //fet.sortDescriptors={NSSortDescri
+        //self.fetchedResultsController.fetchRequest = fet
+        
+        
+        
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
+        
+        
+        
+        
         return true
     }
 

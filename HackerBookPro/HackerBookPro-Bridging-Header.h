@@ -3,3 +3,4 @@
 //
 
 #import "AGTSimpleCoreDataStack.h"
+#import "AGTCoreDataTableViewController.h"

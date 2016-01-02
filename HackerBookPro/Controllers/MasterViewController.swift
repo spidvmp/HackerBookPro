@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: AGTCoreDataTableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
@@ -16,6 +16,19 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //cojo la referencia del delegate para acceder al context
+        let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
+
+        
+        
+        //let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
+        let fet = NSFetchRequest(entityName: BookModel.entityName())
+        let s = (NSSortDescriptor(key: "title", ascending: true))
+//        var sort : [NSSortDescriptor]? = nil
+//        sort?.append(s)
+        fet.sortDescriptors = [s]
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: appDel.stack.context, sectionNameKeyPath: nil, cacheName: nil)
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
@@ -36,13 +49,13 @@ class MasterViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+/*
     func insertNewObject(sender: AnyObject) {
         objects.insert(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
-
+*/
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -58,7 +71,15 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Table View
-
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        
+        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
+        cell.textLabel!.text = object.title
+        return cell
+    }
+/*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -67,13 +88,7 @@ class MasterViewController: UITableViewController {
         return objects.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
-        return cell
-    }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -88,7 +103,7 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
+*/
 
 }
 

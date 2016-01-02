@@ -10,7 +10,9 @@ import Foundation
 
 class BookModel : _BookModel {
     
-    
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
     
     //MARK: - Inicializadores
     init(title t: String, context c: NSManagedObjectContext) {
