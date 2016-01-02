@@ -22,4 +22,10 @@ class Book : NSObject {
         self.title = title
     }
     
+    
+    //grabo el libro en coredata
+    func saveToCoreData(context c : NSManagedObjectContext) {
+        let b = BookModel(title: title, context: c)
+    }
+    
 }

@@ -95,9 +95,21 @@ import UIKit
             //es la primera vez, me tengo que bajar todo y tratarlo
             //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
             if let arrayLibros = downloadJSON() {
-                //aqui tengo un array de StructBook, ahora deberia guardar cada libro en coredata
-                
+                //aqui tengo un array de Book, ahora deberia guardar cada libro en coredata
+                print(arrayLibros)
                 //saveModel(datos: arrayLibros, inKey: MODELO_LIBROS)
+                for l in arrayLibros {
+                    l.saveToCoreData(context: stack.context)
+                    
+                }
+                
+                //lo suyo es grabar todo coredata
+                do {
+                    try stack.context.save()
+                    print ("grabado")
+                }    catch {
+                    print ("error al grabar")
+                }
                 
             }
             
