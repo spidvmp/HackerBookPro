@@ -14,6 +14,8 @@
 		2B9825E41C33E19E0004F1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9825E31C33E19E0004F1AE /* Assets.xcassets */; };
 		2B9825E71C33E19E0004F1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9825E51C33E19E0004F1AE /* LaunchScreen.storyboard */; };
 		2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825F21C33E5930004F1AE /* Hacker.xcdatamodeld */; };
+		2BCB7B5F1C37BF23008D4CBA /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B5E1C37BF23008D4CBA /* Book.swift */; };
+		2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */; };
 		2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */; };
 		2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC61C33FB29009C4F25 /* AGTSimpleCoreDataStack.m */; };
 		2BDCCEC91C341993009C4F25 /* AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC81C341993009C4F25 /* AnnotationModel.swift */; };
@@ -35,6 +37,8 @@
 		2B9825E61C33E19E0004F1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B9825E81C33E19E0004F1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B9825F31C33E5930004F1AE /* Hacker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hacker.xcdatamodel; sourceTree = "<group>"; };
+		2BCB7B5E1C37BF23008D4CBA /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = Model/Book.swift; sourceTree = "<group>"; };
+		2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONProcessing.swift; path = Model/JSONProcessing.swift; sourceTree = "<group>"; };
 		2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookModel.swift; path = Model/BookModel.swift; sourceTree = "<group>"; };
 		2BDCCEC41C33FB28009C4F25 /* HackerBookPro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerBookPro-Bridging-Header.h"; sourceTree = "<group>"; };
 		2BDCCEC51C33FB29009C4F25 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGTSimpleCoreDataStack.h; path = Model/AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */,
 				2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */,
 				2BDCCED01C341A0E009C4F25 /* TagModel.swift */,
+				2BCB7B5E1C37BF23008D4CBA /* Book.swift */,
+				2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,12 +212,14 @@
 			files = (
 				2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */,
 				2BDCCED11C341A0E009C4F25 /* TagModel.swift in Sources */,
+				2BCB7B5F1C37BF23008D4CBA /* Book.swift in Sources */,
 				2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */,
 				2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */,
 				2BDCCEE21C353517009C4F25 /* _BookModel.swift in Sources */,
 				2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */,
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
+				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
 				2BDCCEC91C341993009C4F25 /* AnnotationModel.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,

@@ -22,13 +22,13 @@ import UIKit
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
         
+        //comprobamos si es la primera vez y hay que bajar el json
+        checkDownloadedJSON()
+
+        //let z = BookModel(title: "dd", context: stack.context)
+
         
-        //let b = BookModel(managedObjectContext: stack.context)
-        
-        //_ = BookModel(title: "2", context: stack.context)
-        let z = BookModel(title: "dd", context: stack.context)
-//        let x = BookModel.crear()
-        
+
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
@@ -42,6 +42,12 @@ import UIKit
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
         //grabo los datos en BD
+        do {
+            try stack.context.save()
+            print ("grabado")
+        }    catch {
+            print ("error al grabar")
+        }
 //        stack.saveWithErrorBlock { (NSError!) -> Void in
 //            print("Error al grabar")
 //        }
@@ -76,6 +82,67 @@ import UIKit
         }
         return false
     }
+    
+    
+    //MARK: - Bajar JSON
+    func checkDownloadedJSON () {
+        //comprueba si ya se ha bajado la primera vez el json, si es que no, se lo baja, lo trata y lo guarda en coredata. Las imagenes se deberian ir cargando segun se necesitasen
+        let def = NSUserDefaults.standardUserDefaults()
+        //print("Puesto a piñon fijo que es la primera vez")
+        
+        
+        if !def.boolForKey(FIRST_TIME) {
+            //es la primera vez, me tengo que bajar todo y tratarlo
+            //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
+            if let arrayLibros = downloadJSON() {
+                //aqui tengo un array de StructBook, ahora deberia guardar cada libro en coredata
+                
+                //saveModel(datos: arrayLibros, inKey: MODELO_LIBROS)
+                
+            }
+            
+            //es la primera y unica vez que se supone que pasara por aqui. Lo marcomo como que ya ha pasado
+            print("comentado el FIRST_TIME")
+            //def.setBool(true, forKey: FIRST_TIME)
+            //ademas pongo por defecto un valor al utlimo libro leido para que aparezca algo. Pongo el primer libro que se sacara del array de libros, asi que el 0
+            //def.setInteger(0, forKey: LAST_BOOK)
+
+        }
+        
+        
+    }
+    
+    
+    //func downloadJSON() -> [StructBook]? {
+    func downloadJSON() -> [Book]? {
+        //me bajo el json de forma sincrona
+        
+        //necesito un array de los libros estructurados, que podria dar error si no hay nada
+        var resultStructBooks : [StructBook]? = nil
+        var resultBooksArray: [Book]? = nil
+        
+        let url = NSURL(string: JSON_URL)!
+        //me bajo los datos, se los enchufo al JSONSerializartion y si todo va bien devuelvo un JSONArray
+        do {
+            if let data = NSData(contentsOfURL: url),
+                libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
+                    
+                    //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
+                    //dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
+                    //})
+                    
+                    //ahora transformo el array de Struct en array de NCTBook
+                    resultBooksArray = decodeStructBooksToNCTBooksArray(books: resultStructBooks!)
+                    
+            }
+        } catch {
+            print("Error al descargar el json")
+        }
+        //return resultStructBooks
+        return resultBooksArray
+    }
+
 
 }
 
