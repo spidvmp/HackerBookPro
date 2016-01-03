@@ -115,9 +115,6 @@ func decodeJSONDictionaryToStructBook(libro l:JSONDictionary) throws -> StructBo
             print("error con la imagen")
             throw JSONProcessingError.ResourcePointedByURLNotReachable
     }
-    //tengo la imagenUrl, necesito solo el nombre, lo troceo separado por /
-//    let imagenRip = imageUrl.componentsSeparatedByString("/")
-//    let nombreImagen :String? = imagenRip.last
     
     //troceo el pdf para quedarme solo con el nombre del pdf
     guard let urlPdf = l[JSONKeys.pdf.rawValue] as? String else {
@@ -134,7 +131,7 @@ func decodeJSONDictionaryToStructBook(libro l:JSONDictionary) throws -> StructBo
 }
 
 
-func decodeStructBooksToNCTBooksArray(books l:[StructBook]) -> [Book]?{
+func decodeStructBooksToBooksArray(books l:[StructBook]) -> [Book]?{
     //recibo el array de structbook y genero el array de Book
     
     let res = l.map({Book.init(structBook: $0)})
@@ -151,9 +148,9 @@ extension Book {
     //inicializador de conveniencia de libros, recibe un struct y lo convierte a objeto NCTBook para que se guarde en el array de libros
     convenience init (structBook l:StructBook) {
         
-        //aqui tengo los datos a tal y como se van a guardar
-        
+        //aqui tengo los datos a tal y como se van a guardar en Book
         self.init(title : l.titulo,
+            authors: l.autores,
             imageUrl: l.urlImagen,
             pdfUrl: l.urlPdf
             )

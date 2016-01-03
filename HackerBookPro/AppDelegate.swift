@@ -21,8 +21,11 @@ import UIKit
         print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
-//        print("borro la BD")
-//        stack.zapAllData()
+        print("borro la BD")
+        stack.zapAllData()
+        print("userdefaults a false para volver a cargar")
+        let def = NSUserDefaults.standardUserDefaults()
+        def.setBool(false, forKey: FIRST_TIME)
         
         //comprobamos si es la primera vez y hay que bajar el json
         checkDownloadedJSON()
@@ -96,15 +99,12 @@ import UIKit
         
         if !def.boolForKey(FIRST_TIME) {
             
-            //tengo que cargar, lo hago en background
-            //let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            //dispatch_async(dispatch_get_global_queue(priority, 0)){
             //es la primera vez, me tengo que bajar todo y tratarlo
             //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
             if let arrayLibros = self.downloadJSON() {
-                //aqui tengo un array de Book, ahora deberia guardar cada libro en coredata
-                //saveModel(datos: arrayLibros, inKey: MODELO_LIBROS)
+                //aqui tengo un array de Book con todos los datos, ahora deberia guardar  en coredata
                 for l in arrayLibros {
+                    //esto guarda en coredata todo lo referente al libro, en la estructura que tenga que ser
                     l.saveToCoreData(context: self.stack.context)
                     
                 }
@@ -148,12 +148,10 @@ import UIKit
                 libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
                     
                     //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
-                    //dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
-                    //})
                     
                     //ahora transformo el array de Struct en array de NCTBook
-                    resultBooksArray = decodeStructBooksToNCTBooksArray(books: resultStructBooks!)
+                    resultBooksArray = decodeStructBooksToBooksArray(books: resultStructBooks!)
                     
             }
         } catch {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BookModel : _BookModel {
+public class BookModel : _BookModel {
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -21,6 +21,7 @@ class BookModel : _BookModel {
         self.title = t
         self.imageUrl = i
         self.pdfUrl = p
+        
 
     }
     

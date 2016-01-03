@@ -3,10 +3,14 @@
 
 import CoreData
 
-public enum _BookModelAttributes: String {
+public enum BookModelAttributes: String {
     case imageUrl = "imageUrl"
     case pdfUrl = "pdfUrl"
     case title = "title"
+}
+
+public enum BookModelRelationships: String {
+    case authors = "authors"
 }
 
 @objc public
@@ -51,6 +55,37 @@ class _BookModel: NSManagedObject {
     // func validateTitle(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
+
+    @NSManaged public
+    var authors: NSSet
+
+}
+
+extension _BookModel {
+
+    func addAuthors(objects: NSSet) {
+        let mutable = self.authors.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as! Set<NSObject>)
+        self.authors = mutable.copy() as! NSSet
+    }
+
+    func removeAuthors(objects: NSSet) {
+        let mutable = self.authors.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as! Set<NSObject>)
+        self.authors = mutable.copy() as! NSSet
+    }
+
+    func addAuthorsObject(value: AuthorModel!) {
+        let mutable = self.authors.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.authors = mutable.copy() as! NSSet
+    }
+
+    func removeAuthorsObject(value: AuthorModel!) {
+        let mutable = self.authors.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.authors = mutable.copy() as! NSSet
+    }
 
 }
 

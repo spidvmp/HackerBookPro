@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B4E42EC1C38732500F4242E /* _BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E42EB1C38732500F4242E /* _BookModel.swift */; };
 		2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */; };
 		2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */; };
 		2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */; };
@@ -26,10 +25,11 @@
 		2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */; };
 		2BDCCED11C341A0E009C4F25 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCED01C341A0E009C4F25 /* TagModel.swift */; };
 		2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEDF1C352E38009C4F25 /* Defines.swift */; };
+		2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */; };
+		2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B4E42EB1C38732500F4242E /* _BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _BookModel.swift; path = Model/_BookModel.swift; sourceTree = "<group>"; };
 		2B9825D71C33E19D0004F1AE /* HackerBookPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBookPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = Controllers/MasterViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +53,8 @@
 		2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Model/PhotoModel.swift; sourceTree = "<group>"; };
 		2BDCCED01C341A0E009C4F25 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagModel.swift; path = Model/TagModel.swift; sourceTree = "<group>"; };
 		2BDCCEDF1C352E38009C4F25 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Defines.swift; path = Utils/Defines.swift; sourceTree = "<group>"; };
+		2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _AuthorModel.swift; path = Model/_AuthorModel.swift; sourceTree = "<group>"; };
+		2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _BookModel.swift; path = Model/_BookModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,8 @@
 		2B9825F11C33E5670004F1AE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				2B4E42EB1C38732500F4242E /* _BookModel.swift */,
+				2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */,
+				2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */,
 				2BCB7B621C37EBF8008D4CBA /* AGTCoreDataTableViewController.h */,
 				2BCB7B631C37EBF8008D4CBA /* AGTCoreDataTableViewController.m */,
 				2BDCCEC51C33FB29009C4F25 /* AGTSimpleCoreDataStack.h */,
@@ -220,13 +223,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */,
 				2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */,
 				2BDCCED11C341A0E009C4F25 /* TagModel.swift in Sources */,
 				2BCB7B641C37EBF8008D4CBA /* AGTCoreDataTableViewController.m in Sources */,
 				2BCB7B5F1C37BF23008D4CBA /* Book.swift in Sources */,
 				2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */,
 				2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */,
-				2B4E42EC1C38732500F4242E /* _BookModel.swift in Sources */,
 				2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */,
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
@@ -235,6 +238,7 @@
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,
 				2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */,
+				2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */,
 				2BDCCECD1C3419CD009C4F25 /* PdfModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
