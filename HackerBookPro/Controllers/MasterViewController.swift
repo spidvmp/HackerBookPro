@@ -74,6 +74,7 @@ class MasterViewController: AGTCoreDataTableViewController {
         
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
         cell.textLabel!.text = object.title
+
         return cell
     }
 /*

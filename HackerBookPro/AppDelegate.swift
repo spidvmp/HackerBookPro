@@ -21,23 +21,13 @@ import UIKit
         print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
-        print("borro la BD")
-        stack.zapAllData()
+//        print("borro la BD")
+//        stack.zapAllData()
         
         //comprobamos si es la primera vez y hay que bajar el json
         checkDownloadedJSON()
-
-        //let z = BookModel(title: "dd", context: stack.context)
-        
-        //genero el fetch
-//        let fet = NSFetchRequest(entityName: BookModel.entityName())
-//        fet.fetchBatchSize = 20
-        
-        //fet.sortDescriptors={NSSortDescri
-        //self.fetchedResultsController.fetchRequest = fet
-        
-        
-        
+     
+      
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
@@ -107,33 +97,36 @@ import UIKit
         if !def.boolForKey(FIRST_TIME) {
             
             //tengo que cargar, lo hago en background
-            
+            //let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            //dispatch_async(dispatch_get_global_queue(priority, 0)){
             //es la primera vez, me tengo que bajar todo y tratarlo
             //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
-            if let arrayLibros = downloadJSON() {
+            if let arrayLibros = self.downloadJSON() {
                 //aqui tengo un array de Book, ahora deberia guardar cada libro en coredata
                 //saveModel(datos: arrayLibros, inKey: MODELO_LIBROS)
                 for l in arrayLibros {
-                    l.saveToCoreData(context: stack.context)
+                    l.saveToCoreData(context: self.stack.context)
                     
                 }
                 
                 //lo suyo es grabar todo coredata
                 do {
-                    try stack.context.save()
+                    try self.stack.context.save()
                     print ("grabado")
                 }    catch {
                     print ("error al grabar")
                 }
                 
             }
-            
+            //}
             //es la primera y unica vez que se supone que pasara por aqui. Lo marcomo como que ya ha pasado
             print("comentado el FIRST_TIME")
-            //def.setBool(true, forKey: FIRST_TIME)
+            def.setBool(true, forKey: FIRST_TIME)
             //ademas pongo por defecto un valor al utlimo libro leido para que aparezca algo. Pongo el primer libro que se sacara del array de libros, asi que el 0
             //def.setInteger(0, forKey: LAST_BOOK)
 
+        } else {
+            print("Tengo los datos en BD")
         }
         
         
