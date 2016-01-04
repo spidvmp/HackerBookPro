@@ -45,9 +45,35 @@ class _AuthorModel: NSManagedObject {
     // MARK: - Relationships
 
     @NSManaged public
-    var booksWriten: BookModel?
+    var booksWriten: NSSet
 
-    // func validateBooksWriten(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+}
+
+extension _AuthorModel {
+
+    func addBooksWriten(objects: NSSet) {
+        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as! Set<NSObject>)
+        self.booksWriten = mutable.copy() as! NSSet
+    }
+
+    func removeBooksWriten(objects: NSSet) {
+        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as! Set<NSObject>)
+        self.booksWriten = mutable.copy() as! NSSet
+    }
+
+    func addBooksWritenObject(value: BookModel!) {
+        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.booksWriten = mutable.copy() as! NSSet
+    }
+
+    func removeBooksWritenObject(value: BookModel!) {
+        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.booksWriten = mutable.copy() as! NSSet
+    }
 
 }
 

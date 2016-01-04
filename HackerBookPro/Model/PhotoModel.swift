@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoModel {
+public class PhotoModel {
     
     let photoData : NSData?
     

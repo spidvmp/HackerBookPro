@@ -10,7 +10,10 @@ public enum BookModelAttributes: String {
 }
 
 public enum BookModelRelationships: String {
+    case annotations = "annotations"
     case authors = "authors"
+    case cover = "cover"
+    case pdf = "pdf"
     case tags = "tags"
 }
 
@@ -34,7 +37,7 @@ class _BookModel: NSManagedObject {
     }
 
     public convenience init(managedObjectContext: NSManagedObjectContext!) {
-        let entity = _.BookModel.entity(managedObjectContext)
+        let entity = _BookModel.entity(managedObjectContext)
         self.init(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
     }
 
@@ -58,10 +61,51 @@ class _BookModel: NSManagedObject {
     // MARK: - Relationships
 
     @NSManaged public
+    var annotations: NSSet
+
+    @NSManaged public
     var authors: NSSet
 
     @NSManaged public
+    var cover: CoverModel?
+
+    // func validateCover(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
+    @NSManaged public
+    var pdf: NSManagedObject?
+
+    // func validatePdf(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
+    @NSManaged public
     var tags: NSSet
+
+}
+
+extension _BookModel {
+
+    func addAnnotations(objects: NSSet) {
+        let mutable = self.annotations.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as! Set<NSObject>)
+        self.annotations = mutable.copy() as! NSSet
+    }
+
+    func removeAnnotations(objects: NSSet) {
+        let mutable = self.annotations.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as! Set<NSObject>)
+        self.annotations = mutable.copy() as! NSSet
+    }
+
+    func addAnnotationsObject(value: AnnotationModel!) {
+        let mutable = self.annotations.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.annotations = mutable.copy() as! NSSet
+    }
+
+    func removeAnnotationsObject(value: AnnotationModel!) {
+        let mutable = self.annotations.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.annotations = mutable.copy() as! NSSet
+    }
 
 }
 

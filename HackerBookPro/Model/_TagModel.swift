@@ -31,7 +31,7 @@ class _TagModel: NSManagedObject {
     }
 
     public convenience init(managedObjectContext: NSManagedObjectContext!) {
-        let entity = _.TagModel.entity(managedObjectContext)
+        let entity = _TagModel.entity(managedObjectContext)
         self.init(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
     }
 
@@ -45,9 +45,35 @@ class _TagModel: NSManagedObject {
     // MARK: - Relationships
 
     @NSManaged public
-    var books: BookModel?
+    var books: NSSet
 
-    // func validateBooks(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+}
+
+extension _TagModel {
+
+    func addBooks(objects: NSSet) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as! Set<NSObject>)
+        self.books = mutable.copy() as! NSSet
+    }
+
+    func removeBooks(objects: NSSet) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as! Set<NSObject>)
+        self.books = mutable.copy() as! NSSet
+    }
+
+    func addBooksObject(value: BookModel!) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.books = mutable.copy() as! NSSet
+    }
+
+    func removeBooksObject(value: BookModel!) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.books = mutable.copy() as! NSSet
+    }
 
 }
 

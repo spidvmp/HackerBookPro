@@ -23,6 +23,11 @@
 		2BDCCECD1C3419CD009C4F25 /* PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */; };
 		2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */; };
 		2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEDF1C352E38009C4F25 /* Defines.swift */; };
+		2BE083B71C3A8CC400E17827 /* _AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */; };
+		2BE083B81C3A8CC400E17827 /* _CoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083B51C3A8CC400E17827 /* _CoverModel.swift */; };
+		2BE083B91C3A8CC400E17827 /* _PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083B61C3A8CC400E17827 /* _PhotoModel.swift */; };
+		2BE083BC1C3A8CD400E17827 /* AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083BA1C3A8CD400E17827 /* AnnotationModel.swift */; };
+		2BE083BD1C3A8CD400E17827 /* CoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083BB1C3A8CD400E17827 /* CoverModel.swift */; };
 		2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */; };
 		2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */; };
 		2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B41C3930260025EE94 /* TagModel.swift */; };
@@ -51,6 +56,11 @@
 		2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PdfModel.swift; path = Model/PdfModel.swift; sourceTree = "<group>"; };
 		2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Model/PhotoModel.swift; sourceTree = "<group>"; };
 		2BDCCEDF1C352E38009C4F25 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Defines.swift; path = Utils/Defines.swift; sourceTree = "<group>"; };
+		2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _AnnotationModel.swift; path = Model/_AnnotationModel.swift; sourceTree = "<group>"; };
+		2BE083B51C3A8CC400E17827 /* _CoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _CoverModel.swift; path = Model/_CoverModel.swift; sourceTree = "<group>"; };
+		2BE083B61C3A8CC400E17827 /* _PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PhotoModel.swift; path = Model/_PhotoModel.swift; sourceTree = "<group>"; };
+		2BE083BA1C3A8CD400E17827 /* AnnotationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationModel.swift; path = Model/AnnotationModel.swift; sourceTree = "<group>"; };
+		2BE083BB1C3A8CD400E17827 /* CoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoverModel.swift; path = Model/CoverModel.swift; sourceTree = "<group>"; };
 		2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _AuthorModel.swift; path = Model/_AuthorModel.swift; sourceTree = "<group>"; };
 		2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _BookModel.swift; path = Model/_BookModel.swift; sourceTree = "<group>"; };
 		2BE2A2B41C3930260025EE94 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagModel.swift; path = Model/TagModel.swift; sourceTree = "<group>"; };
@@ -104,6 +114,9 @@
 		2B9825F11C33E5670004F1AE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */,
+				2BE083B51C3A8CC400E17827 /* _CoverModel.swift */,
+				2BE083B61C3A8CC400E17827 /* _PhotoModel.swift */,
 				2BE2A2B61C39309D0025EE94 /* _TagModel.swift */,
 				2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */,
 				2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */,
@@ -128,6 +141,8 @@
 		2BDCCEC11C33F323009C4F25 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2BE083BA1C3A8CD400E17827 /* AnnotationModel.swift */,
+				2BE083BB1C3A8CD400E17827 /* CoverModel.swift */,
 				2BE2A2B41C3930260025EE94 /* TagModel.swift */,
 				2BDCCECA1C3419A6009C4F25 /* AuthorModel.swift */,
 				2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */,
@@ -226,7 +241,9 @@
 				2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */,
 				2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */,
 				2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */,
+				2BE083BD1C3A8CD400E17827 /* CoverModel.swift in Sources */,
 				2BCB7B641C37EBF8008D4CBA /* AGTCoreDataTableViewController.m in Sources */,
+				2BE083B81C3A8CC400E17827 /* _CoverModel.swift in Sources */,
 				2BE2A2B71C39309D0025EE94 /* _TagModel.swift in Sources */,
 				2BCB7B5F1C37BF23008D4CBA /* Book.swift in Sources */,
 				2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */,
@@ -237,8 +254,11 @@
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,
+				2BE083B71C3A8CC400E17827 /* _AnnotationModel.swift in Sources */,
 				2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */,
 				2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */,
+				2BE083B91C3A8CC400E17827 /* _PhotoModel.swift in Sources */,
+				2BE083BC1C3A8CD400E17827 /* AnnotationModel.swift in Sources */,
 				2BDCCECD1C3419CD009C4F25 /* PdfModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
