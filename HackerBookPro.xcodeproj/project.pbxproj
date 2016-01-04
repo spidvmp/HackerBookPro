@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */; };
 		2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */; };
 		2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */; };
 		2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PdfModel.swift; path = Model/_PdfModel.swift; sourceTree = "<group>"; };
 		2B9825D71C33E19D0004F1AE /* HackerBookPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBookPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = Controllers/MasterViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		2B9825F11C33E5670004F1AE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */,
 				2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */,
 				2BE083B51C3A8CC400E17827 /* _CoverModel.swift */,
 				2BE083B61C3A8CC400E17827 /* _PhotoModel.swift */,
@@ -256,6 +259,7 @@
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,
 				2BE083B71C3A8CC400E17827 /* _AnnotationModel.swift in Sources */,
 				2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */,
+				2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */,
 				2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */,
 				2BE083B91C3A8CC400E17827 /* _PhotoModel.swift in Sources */,
 				2BE083BC1C3A8CD400E17827 /* AnnotationModel.swift in Sources */,

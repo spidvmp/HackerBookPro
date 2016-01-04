@@ -1,26 +1,23 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to .AnnotationModel.swift instead.
+// Make changes to .PdfModel.swift instead.
 
 import CoreData
 
-public enum AnnotationModelAttributes: String {
-    case latitude = "latitude"
-    case longitude = "longitude"
-    case text = "text"
+public enum PdfModelAttributes: String {
+    case pdfData = "pdfData"
 }
 
-public enum AnnotationModelRelationships: String {
+public enum PdfModelRelationships: String {
     case book = "book"
-    case photo = "photo"
 }
 
 @objc public
-class _AnnotationModel: NSManagedObject {
+class _PdfModel: NSManagedObject {
 
     // MARK: - Class methods
 
     public class func entityName () -> String {
-        return "Annotation"
+        return "PdfContainer"
     }
 
     public class func entity(managedObjectContext: NSManagedObjectContext!) -> NSEntityDescription! {
@@ -34,26 +31,16 @@ class _AnnotationModel: NSManagedObject {
     }
 
     public convenience init(managedObjectContext: NSManagedObjectContext!) {
-        let entity = _AnnotationModel.entity(managedObjectContext)
+        let entity = _PdfModel.entity(managedObjectContext)
         self.init(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
     }
 
     // MARK: - Properties
 
     @NSManaged public
-    var latitude: NSNumber?
+    var pdfData: NSData?
 
-    // func validateLatitude(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var longitude: NSNumber?
-
-    // func validateLongitude(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var text: String?
-
-    // func validateText(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validatePdfData(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
 
@@ -61,11 +48,6 @@ class _AnnotationModel: NSManagedObject {
     var book: BookModel?
 
     // func validateBook(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var photo: PhotoModel?
-
-    // func validatePhoto(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
 }
 

@@ -6,31 +6,35 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
-import UIKit
+//import UIKit
 
-public class PhotoModel {
+public class PhotoModel: _PhotoModel {
     
-    let photoData : NSData?
-    
-    init(image: UIImage){
-
-        if let a = UIImageJPEGRepresentation(image, 0.9) {
-            self.photoData = a
-        } else {
-            self.photoData = nil
-        }
-
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    //obtengo la imagen transformada de NSData
-    func image() -> UIImage? {
-        if let a = UIImage(data: self.photoData!) {
-            return a
-        }
-        else {
-            return nil
-        }
-
-    }
-    
+//    let photoData : NSData?
+//    
+//    init(image: UIImage){
+//
+//        if let a = UIImageJPEGRepresentation(image, 0.9) {
+//            self.photoData = a
+//        } else {
+//            self.photoData = nil
+//        }
+//
+//    }
+//    
+//    //obtengo la imagen transformada de NSData
+//    func image() -> UIImage? {
+//        if let a = UIImage(data: self.photoData!) {
+//            return a
+//        }
+//        else {
+//            return nil
+//        }
+//
+//    }
+//    
 }

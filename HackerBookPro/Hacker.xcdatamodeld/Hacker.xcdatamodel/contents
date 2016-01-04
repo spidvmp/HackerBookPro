@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Xcode 7.0">
-    <entity name="Annotation" representedClassName="AnnotationModel" syncable="YES">
+    <entity name="Annotation" representedClassName=".AnnotationModel" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,15 +21,15 @@
         <relationship name="pdf" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PdfContainer" inverseName="book" inverseEntity="PdfContainer" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tag" inverseName="books" inverseEntity="Tag" syncable="YES"/>
     </entity>
-    <entity name="CoverImage" representedClassName="CoverModel" syncable="YES">
+    <entity name="CoverImage" representedClassName=".CoverModel" syncable="YES">
         <attribute name="photoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="cover" inverseEntity="Book" syncable="YES"/>
     </entity>
-    <entity name="PdfContainer" syncable="YES">
+    <entity name="PdfContainer" representedClassName=".PdfModel" syncable="YES">
         <attribute name="pdfData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="pdf" inverseEntity="Book" syncable="YES"/>
     </entity>
-    <entity name="PhotoContainer" representedClassName="PhotoModel" syncable="YES">
+    <entity name="PhotoContainer" representedClassName=".PhotoModel" syncable="YES">
         <attribute name="photoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="annotation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Annotation" inverseName="photo" inverseEntity="Annotation" syncable="YES"/>
     </entity>
@@ -38,12 +38,12 @@
         <relationship name="books" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Annotation" positionX="-27" positionY="72" width="128" height="120"/>
         <element name="Author" positionX="-63" positionY="9" width="128" height="75"/>
         <element name="Book" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="Tag" positionX="-45" positionY="27" width="128" height="75"/>
-        <element name="PhotoContainer" positionX="-54" positionY="27" width="128" height="75"/>
-        <element name="PdfContainer" positionX="-45" positionY="45" width="128" height="75"/>
         <element name="CoverImage" positionX="-36" positionY="54" width="128" height="75"/>
-        <element name="Annotation" positionX="-27" positionY="72" width="128" height="120"/>
+        <element name="PdfContainer" positionX="-45" positionY="45" width="128" height="75"/>
+        <element name="PhotoContainer" positionX="-54" positionY="27" width="128" height="75"/>
+        <element name="Tag" positionX="-45" positionY="27" width="128" height="75"/>
     </elements>
 </model>

@@ -6,9 +6,10 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 
-class TagModel : _TagModel {
+
+public class TagModel : _TagModel {
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -19,7 +20,11 @@ class TagModel : _TagModel {
         //recibo un solo autor, lo inserto y lo asocio con el libro.
         super.init(entity: _TagModel.entity(c), insertIntoManagedObjectContext: c)
         self.tag = t
-        self.books = b
+        
+        //como es tomany, saco lo que hay y añado este
+        let tg = b.tags as! NSMutableSet
+        tg.addObject(self)
+        b.tags = tg
         
     }
     

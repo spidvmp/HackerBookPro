@@ -72,7 +72,7 @@ class _BookModel: NSManagedObject {
     // func validateCover(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
-    var pdf: NSManagedObject?
+    var pdf: PdfModel?
 
     // func validatePdf(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
@@ -109,7 +109,7 @@ extension _BookModel {
 
 }
 
-extension _BookModel {
+extension BookModel {
 
     func addAuthors(objects: NSSet) {
         let mutable = self.authors.mutableCopy() as! NSMutableSet

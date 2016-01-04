@@ -6,23 +6,27 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 
 
-class PdfModel {
+public class PdfModel: _PdfModel {
     
-    let pdfData : NSData?
-    
-    init(pdf: NSData){
-
-        self.pdfData = pdf
-
-        
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    //obtengo la imagen transformada de NSData
-    func pdf() -> NSData? {
-        return self.pdfData
-    }
+//    let pdfData : NSData?
+//    
+//    init(pdf: NSData){
+//
+//        self.pdfData = pdf
+//
+//        
+//    }
+//    
+//    //obtengo la imagen transformada de NSData
+//    func pdf() -> NSData? {
+//        return self.pdfData
+//    }
     
 }
