@@ -8,27 +8,19 @@
 
 import Foundation
 
-class TagModel {
+class TagModel : _TagModel {
     
-    let tag : String!
-    
-    
-    //MARK: - inicializadores
-    init(tag : String){
-        self.tag = tag
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    
-}
-
-//MARK: - Extensiones
-extension TagModel: CustomStringConvertible {
-    
-    var description: String {
-        get {
-            return "<\(self.dynamicType): \(tag)"
-        }
+    //MARK: - Inicializadores
+    init(tag t: String, book b:BookModel, context c: NSManagedObjectContext) {
+        //recibo un solo autor, lo inserto y lo asocio con el libro.
+        super.init(entity: _TagModel.entity(c), insertIntoManagedObjectContext: c)
+        self.tag = t
+        self.books = b
+        
     }
-    
     
 }

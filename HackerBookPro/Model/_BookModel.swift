@@ -11,6 +11,7 @@ public enum BookModelAttributes: String {
 
 public enum BookModelRelationships: String {
     case authors = "authors"
+    case tags = "tags"
 }
 
 @objc public
@@ -33,7 +34,7 @@ class _BookModel: NSManagedObject {
     }
 
     public convenience init(managedObjectContext: NSManagedObjectContext!) {
-        let entity = _BookModel.entity(managedObjectContext)
+        let entity = _.BookModel.entity(managedObjectContext)
         self.init(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
     }
 
@@ -58,6 +59,9 @@ class _BookModel: NSManagedObject {
 
     @NSManaged public
     var authors: NSSet
+
+    @NSManaged public
+    var tags: NSSet
 
 }
 
@@ -85,6 +89,34 @@ extension _BookModel {
         let mutable = self.authors.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
         self.authors = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _BookModel {
+
+    func addTags(objects: NSSet) {
+        let mutable = self.tags.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as! Set<NSObject>)
+        self.tags = mutable.copy() as! NSSet
+    }
+
+    func removeTags(objects: NSSet) {
+        let mutable = self.tags.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as! Set<NSObject>)
+        self.tags = mutable.copy() as! NSSet
+    }
+
+    func addTagsObject(value: TagModel!) {
+        let mutable = self.tags.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.tags = mutable.copy() as! NSSet
+    }
+
+    func removeTagsObject(value: TagModel!) {
+        let mutable = self.tags.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.tags = mutable.copy() as! NSSet
     }
 
 }

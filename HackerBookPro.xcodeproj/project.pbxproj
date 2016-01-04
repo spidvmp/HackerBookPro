@@ -19,14 +19,14 @@
 		2BCB7B641C37EBF8008D4CBA /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B631C37EBF8008D4CBA /* AGTCoreDataTableViewController.m */; };
 		2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */; };
 		2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC61C33FB29009C4F25 /* AGTSimpleCoreDataStack.m */; };
-		2BDCCEC91C341993009C4F25 /* AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEC81C341993009C4F25 /* AnnotationModel.swift */; };
 		2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECA1C3419A6009C4F25 /* AuthorModel.swift */; };
 		2BDCCECD1C3419CD009C4F25 /* PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */; };
 		2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */; };
-		2BDCCED11C341A0E009C4F25 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCED01C341A0E009C4F25 /* TagModel.swift */; };
 		2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEDF1C352E38009C4F25 /* Defines.swift */; };
 		2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */; };
 		2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */; };
+		2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B41C3930260025EE94 /* TagModel.swift */; };
+		2BE2A2B71C39309D0025EE94 /* _TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B61C39309D0025EE94 /* _TagModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,14 +47,14 @@
 		2BDCCEC41C33FB28009C4F25 /* HackerBookPro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerBookPro-Bridging-Header.h"; sourceTree = "<group>"; };
 		2BDCCEC51C33FB29009C4F25 /* AGTSimpleCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGTSimpleCoreDataStack.h; path = Model/AGTSimpleCoreDataStack.h; sourceTree = "<group>"; };
 		2BDCCEC61C33FB29009C4F25 /* AGTSimpleCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGTSimpleCoreDataStack.m; path = Model/AGTSimpleCoreDataStack.m; sourceTree = "<group>"; };
-		2BDCCEC81C341993009C4F25 /* AnnotationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationModel.swift; path = Model/AnnotationModel.swift; sourceTree = "<group>"; };
 		2BDCCECA1C3419A6009C4F25 /* AuthorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorModel.swift; path = Model/AuthorModel.swift; sourceTree = "<group>"; };
 		2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PdfModel.swift; path = Model/PdfModel.swift; sourceTree = "<group>"; };
 		2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Model/PhotoModel.swift; sourceTree = "<group>"; };
-		2BDCCED01C341A0E009C4F25 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagModel.swift; path = Model/TagModel.swift; sourceTree = "<group>"; };
 		2BDCCEDF1C352E38009C4F25 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Defines.swift; path = Utils/Defines.swift; sourceTree = "<group>"; };
 		2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _AuthorModel.swift; path = Model/_AuthorModel.swift; sourceTree = "<group>"; };
 		2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _BookModel.swift; path = Model/_BookModel.swift; sourceTree = "<group>"; };
+		2BE2A2B41C3930260025EE94 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagModel.swift; path = Model/TagModel.swift; sourceTree = "<group>"; };
+		2BE2A2B61C39309D0025EE94 /* _TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _TagModel.swift; path = Model/_TagModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +104,7 @@
 		2B9825F11C33E5670004F1AE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2BE2A2B61C39309D0025EE94 /* _TagModel.swift */,
 				2BE2A2AE1C3918FF0025EE94 /* _AuthorModel.swift */,
 				2BE2A2AF1C3918FF0025EE94 /* _BookModel.swift */,
 				2BCB7B621C37EBF8008D4CBA /* AGTCoreDataTableViewController.h */,
@@ -127,12 +128,11 @@
 		2BDCCEC11C33F323009C4F25 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2BDCCEC81C341993009C4F25 /* AnnotationModel.swift */,
+				2BE2A2B41C3930260025EE94 /* TagModel.swift */,
 				2BDCCECA1C3419A6009C4F25 /* AuthorModel.swift */,
 				2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */,
 				2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */,
 				2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */,
-				2BDCCED01C341A0E009C4F25 /* TagModel.swift */,
 				2BCB7B5E1C37BF23008D4CBA /* Book.swift */,
 				2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */,
 			);
@@ -223,10 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */,
 				2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */,
 				2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */,
-				2BDCCED11C341A0E009C4F25 /* TagModel.swift in Sources */,
 				2BCB7B641C37EBF8008D4CBA /* AGTCoreDataTableViewController.m in Sources */,
+				2BE2A2B71C39309D0025EE94 /* _TagModel.swift in Sources */,
 				2BCB7B5F1C37BF23008D4CBA /* Book.swift in Sources */,
 				2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */,
 				2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */,
@@ -234,7 +235,6 @@
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
-				2BDCCEC91C341993009C4F25 /* AnnotationModel.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,
 				2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */,

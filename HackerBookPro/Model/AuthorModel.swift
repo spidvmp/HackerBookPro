@@ -21,13 +21,7 @@ class AuthorModel: _AuthorModel {
         self.booksWriten = b
         
     }
-    
-    func authorsFromBook(authors a:[String], book b: BookModel, context c: NSManagedObjectContext){
-        //recibo un array con autores, separados por , compruebo si existe o no y lo inserto y le creo la relacion con el libro
-        
-        
-        
-    }
+
     
 }
 

@@ -16,14 +16,16 @@ class Book : NSObject {
     
     let title : String!
     let authors: [String]?
+    let tags: [String]?
     let imageUrl : String?
     let pdfUrl : String?
     
     
     //MARK: - Inicializadores
-    init(title: String!, authors: [String]?, imageUrl: String?, pdfUrl: String?) {
+    init(title: String!, authors: [String]?, tags: [String]?, imageUrl: String?, pdfUrl: String?) {
         self.title = title
         self.authors = authors
+        self.tags = tags
         self.imageUrl = imageUrl
         self.pdfUrl = pdfUrl
     }
@@ -39,12 +41,11 @@ class Book : NSObject {
         if let a = self.authors {
             _ = a.map({AuthorModel(author: $0, book: b, context: c)})
         }
-        //self.authors.map({AuthorModel(author: $0 as String, book: b, context: c)})
         
-        //AuthorModel(author: <#T##String#>, book: <#T##BookModel#>, context: <#T##NSManagedObjectContext#>)
-
-        
-        //AuthorModel(authors: authors, book: b, context: c)
+        //ahora me recorro los tags
+        if let t = self.tags {
+            _ = t.map({TagModel(tag: $0, book: b, context:c})
+        }
         
     }
     

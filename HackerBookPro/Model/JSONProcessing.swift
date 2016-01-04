@@ -151,6 +151,7 @@ extension Book {
         //aqui tengo los datos a tal y como se van a guardar en Book
         self.init(title : l.titulo,
             authors: l.autores,
+            tags: l.tags,
             imageUrl: l.urlImagen,
             pdfUrl: l.urlPdf
             )
