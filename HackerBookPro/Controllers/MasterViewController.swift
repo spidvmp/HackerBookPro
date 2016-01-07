@@ -26,15 +26,23 @@ class MasterViewController: AGTCoreDataTableViewController {
         let s = (NSSortDescriptor(key: "title", ascending: true))
         fet.sortDescriptors = [s]
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        self.navigationItem.rightBarButtonItem = addButton
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+        
+        //registro las celda personalizada
+        let celdaNib = UINib(nibName: BookCell.cellId(), bundle: nil)
+        self.tableView.registerNib(celdaNib, forCellReuseIdentifier: BookCell.cellId())
+        self.tableView.rowHeight = BookCell.cellHeight()
+        
+        
+        
+//        // Do any additional setup after loading the view, typically from a nib.
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+//
+//        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+//        self.navigationItem.rightBarButtonItem = addButton
+//        if let split = self.splitViewController {
+//            let controllers = split.viewControllers
+//            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+//        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -69,11 +77,20 @@ class MasterViewController: AGTCoreDataTableViewController {
 
     // MARK: - Table View
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+       
+        let cell = tableView.dequeueReusableCellWithIdentifier(BookCell.cellId() , forIndexPath: indexPath)
         
+//        var cell = tableView.dequeueReusableCellWithIdentifier("piii")
+//        if cell == nil {
+//            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "piii")
+//        }
         
+
+        //obtengo el libro que hay que mostrar
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
-        cell.textLabel!.text = object.title
+        
+        //cell?.textLabel?.text = object.title
+        //cell?.detailTextLabel?.text = object.tags
 
         return cell
     }

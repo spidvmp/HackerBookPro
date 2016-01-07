@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */; };
+		2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6C11C3B0B4600F72899 /* BookCell.swift */; };
+		2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B72F6C21C3B0B4600F72899 /* BookCell.xib */; };
 		2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */; };
 		2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */; };
 		2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PdfModel.swift; path = Model/_PdfModel.swift; sourceTree = "<group>"; };
+		2B72F6C11C3B0B4600F72899 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookCell.swift; path = Cell/BookCell.swift; sourceTree = "<group>"; };
+		2B72F6C21C3B0B4600F72899 /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookCell.xib; path = Cell/BookCell.xib; sourceTree = "<group>"; };
 		2B9825D71C33E19D0004F1AE /* HackerBookPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBookPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = Controllers/MasterViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B72F6C01C3B0AEE00F72899 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B72F6C11C3B0B4600F72899 /* BookCell.swift */,
+				2B72F6C21C3B0B4600F72899 /* BookCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		2B9825CE1C33E19D0004F1AE = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +116,7 @@
 				2BDCCEC41C33FB28009C4F25 /* HackerBookPro-Bridging-Header.h */,
 				2B9825F51C33E5B50004F1AE /* Controllers */,
 				2BDCCEC11C33F323009C4F25 /* Model */,
+				2B72F6C01C3B0AEE00F72899 /* Cell */,
 				2B9825F11C33E5670004F1AE /* CoreData */,
 				2BDCCEDE1C352E11009C4F25 /* Util */,
 				2B9825E01C33E19E0004F1AE /* Main.storyboard */,
@@ -228,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */,
 				2B9825E71C33E19E0004F1AE /* LaunchScreen.storyboard in Resources */,
 				2B9825E41C33E19E0004F1AE /* Assets.xcassets in Resources */,
 				2B9825E21C33E19E0004F1AE /* Main.storyboard in Resources */,
@@ -253,6 +268,7 @@
 				2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */,
 				2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */,
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
+				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
