@@ -21,11 +21,11 @@ import UIKit
         print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
-        print("borro la BD")
-        stack.zapAllData()
-        print("userdefaults a false para volver a cargar")
-        let def = NSUserDefaults.standardUserDefaults()
-        def.setBool(false, forKey: FIRST_TIME)
+//        print("borro la BD")
+//        stack.zapAllData()
+//        print("userdefaults a false para volver a cargar")
+//        let def = NSUserDefaults.standardUserDefaults()
+//        def.setBool(false, forKey: FIRST_TIME)
         
         //comprobamos si es la primera vez y hay que bajar el json
         checkDownloadedJSON()
