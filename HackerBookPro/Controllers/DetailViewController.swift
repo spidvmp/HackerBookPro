@@ -13,6 +13,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var titleTField: UITextView!
     @IBOutlet weak var tagsTField: UITextView!
+    @IBOutlet weak var authorsTField: UITextView!
+    
+    
     var book: BookModel? {
         didSet {
             // Update the view.
@@ -28,15 +31,20 @@ class DetailViewController: UIViewController {
 //            }
 //        }
         if let book = self.book {
+            //actualizo los datos del modelo a la vista
             if let field = self.titleTField {
                 field.text = book.title
             }
-        }
-        if let book = self.book {
+            
             if let tag = self.tagsTField {
                 tag.text = book.tagsString()
             }
+            
+            if let aut = self.authorsTField {
+                aut.text = book.authorsString()
+            }
         }
+
     }
 
     override func viewDidLoad() {

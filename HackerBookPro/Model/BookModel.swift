@@ -41,6 +41,20 @@ public class BookModel : _BookModel {
 
     }
     
+    func authorsString() -> String? {
+        //similar a los tags, devuelve un string con los escritores del libro
+        if let wri = self.authors.allObjects as? [AuthorModel] {
+            //wri contiene el liestado de los escritores
+            let w = wri.map({$0.name!})
+            
+            //devuelvo el string con los autores y la primera letea en mayuscula
+            return w.joinWithSeparator(", ").capitalizedString
+            
+        }
+        //si estoy aqui es que por algun motivi no hay autores
+        return nil
+    }
+    
 
 }
 
