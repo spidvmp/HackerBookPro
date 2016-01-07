@@ -33,28 +33,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4q-fM-K0R">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I4q-fM-K0R">
                                 <rect key="frame" x="20" y="175" width="100" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Qzf-fK-GEc"/>
+                                    <constraint firstAttribute="height" constant="130" id="oxt-HU-TIT"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kxg-hy-h8k">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kxg-hy-h8k">
                                 <rect key="frame" x="135" y="175" width="445" height="130"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="4eR-oS-f7h"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-QY-UbN">
+                                <rect key="frame" x="20" y="321" width="560" height="43"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="qRb-26-LDi"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="Palatino-Italic" family="Palatino" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kxg-hy-h8k" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="trailing" constant="15" id="5GK-WP-zR3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="Gf9-D2-eKs"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="I4q-fM-K0R" secondAttribute="leading" id="KWL-o0-KK4"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="I4q-fM-K0R" secondAttribute="leading" id="KXh-Aw-Nfn"/>
+                            <constraint firstItem="Kxg-hy-h8k" firstAttribute="top" secondItem="I4q-fM-K0R" secondAttribute="top" id="Lkl-Pt-cFt"/>
+                            <constraint firstItem="sQq-QY-UbN" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="QH8-xH-Gke"/>
+                            <constraint firstItem="sQq-QY-UbN" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="leading" id="VfQ-K0-yaY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="doc-qh-dvd"/>
+                            <constraint firstItem="Kxg-hy-h8k" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="trailing" constant="15" id="muV-Bd-YQk"/>
+                            <constraint firstItem="sQq-QY-UbN" firstAttribute="top" secondItem="I4q-fM-K0R" secondAttribute="bottom" constant="16" id="qon-XF-u8V"/>
+                            <constraint firstItem="I4q-fM-K0R" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="111" id="rrJ-0y-lNY"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Book" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="cover" destination="I4q-fM-K0R" id="7Io-xW-IWZ"/>
+                        <outlet property="tagsTField" destination="sQq-QY-UbN" id="GTb-aQ-Jph"/>
                         <outlet property="titleTField" destination="Kxg-hy-h8k" id="oqu-G4-O38"/>
                     </connections>
                 </viewController>

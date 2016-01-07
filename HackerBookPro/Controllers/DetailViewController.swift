@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var cover: UIImageView!
     @IBOutlet weak var titleTField: UITextView!
-
+    @IBOutlet weak var tagsTField: UITextView!
     var book: BookModel? {
         didSet {
             // Update the view.
@@ -30,6 +30,11 @@ class DetailViewController: UIViewController {
         if let book = self.book {
             if let field = self.titleTField {
                 field.text = book.title
+            }
+        }
+        if let book = self.book {
+            if let tag = self.tagsTField {
+                tag.text = book.tagsString()
             }
         }
     }
