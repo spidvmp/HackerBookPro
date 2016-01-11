@@ -13,6 +13,17 @@ class BookCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var tags: UILabel!
     
+    
+    
+    var titulo: String! = ""
+    var x : Int = 0
+    
+//    var titulo: String? {
+//        didSet {
+//            self.title.text = titulo
+//        }
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,7 +37,9 @@ class BookCell: UITableViewCell {
 
     //esto seria un metodo de clase
     class func cellId() -> String{
-        return NSStringFromClass(BookCell)
+        //return NSStringFromClass(BookCell)
+        //debe retornar el mimso nombre que tenga el identificador de la celda prototype en el storyboard
+        return "BookCell"
     }
     
     class func cellHeight() -> CGFloat {
