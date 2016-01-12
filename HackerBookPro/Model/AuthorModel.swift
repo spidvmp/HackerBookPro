@@ -54,7 +54,7 @@ public class AuthorModel: _AuthorModel {
     class func findAuthor(author a: String, context c:NSManagedObjectContext) -> AuthorModel? {
         //busca el nombre del autor, si existe devuelve la entidfad, si no existe devuelve nil
         
-        let query = NSFetchRequest(entityName: "Author")
+        let query = NSFetchRequest(entityName: self.entityName())
         query.predicate = NSPredicate(format: "name == '\(a)'")
         //busco, deberia aparecer 1 o ninguno
         do {

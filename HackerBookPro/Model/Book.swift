@@ -45,7 +45,8 @@ class Book : NSObject {
         
         //ahora me recorro los tags
         if let t = self.tags {
-            _ = t.map({TagModel(tag: $0, book: b, context:c)})
+            //_ = t.map({TagModel(tag: $0, book: b, context:c)})
+            _ = t.map({TagModel.addTag(tag: $0, book: b, context: c)})
         }
         
     }
