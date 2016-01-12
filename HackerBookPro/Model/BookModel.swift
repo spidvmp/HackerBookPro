@@ -25,6 +25,36 @@ public class BookModel : _BookModel {
 
     }
     
+    func tagsString() -> String? {
+        //funcion que me devuelve los tags que tiene, separador por ,
+        //obtengo los tags que tiene el libro, en self.tags hay un array de TagModel
+
+        //genero un array con todos los tags que hay en el libro, con esto solo saco el tag que es un string y se guarda en arr que es un [String]
+        if let arr = self.tags.allObjects as? [TagModel] {
+            //si estoy aqui, arr contiene por lo menos un elemento, saco solo los tag
+            let a = arr.map({$0.tag!})
+            //a contiene un array con los tags, lo devuelvo separado por ,
+            return a.joinWithSeparator(", ")
+        }
+        //si pasa por aqui algun erro ha pasado, asi que devuelvo nil
+        return nil
+
+    }
+    
+    func authorsString() -> String? {
+        //similar a los tags, devuelve un string con los escritores del libro
+        if let wri = self.authors.allObjects as? [AuthorModel] {
+            //wri contiene el liestado de los escritores
+            let w = wri.map({$0.name!})
+            
+            //devuelvo el string con los autores y la primera letea en mayuscula
+            return w.joinWithSeparator(", ").capitalizedString
+            
+        }
+        //si estoy aqui es que por algun motivi no hay autores
+        return nil
+    }
+    
 
 }
 
