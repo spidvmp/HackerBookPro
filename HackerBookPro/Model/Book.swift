@@ -37,9 +37,10 @@ class Book : NSObject {
         let b = BookModel(title: title, imageUrl: imageUrl!, pdfUrl: pdfUrl!, context: c)
         
         //ahora guardo los autores y los relaciono con el libro
-        //me recorro el array y por cada autor lo guardo en coredata
+        //me recorro el array y por cada autor lo guardo en coredata, a en un array con los autores que tiene el libro
         if let a = self.authors {
-            _ = a.map({AuthorModel(author: $0, book: b, context: c)})
+            //_ = a.map({AuthorModel(author: $0, book: b, context: c)})
+            _ = a.map({AuthorModel.addAuthor(author: $0, book: b, context: c)})
         }
         
         //ahora me recorro los tags

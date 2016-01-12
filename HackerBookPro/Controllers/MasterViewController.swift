@@ -107,9 +107,9 @@ class MasterViewController: AGTCoreDataTableViewController {
         }
     }
     
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        //performSegueWithIdentifier("ShowBook", sender: indexPath)
-//    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowBook", sender: indexPath)
+    }
 
     // MARK: - Segues
     
