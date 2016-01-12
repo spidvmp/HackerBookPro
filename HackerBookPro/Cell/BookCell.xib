@@ -27,7 +27,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.2083348374" blue="0.25552249300000002" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="tags" destination="7rk-PL-JZE" id="UkN-Tj-fvU"/>

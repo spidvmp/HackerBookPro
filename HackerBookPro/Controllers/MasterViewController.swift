@@ -79,15 +79,14 @@ class MasterViewController: AGTCoreDataTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
        
-        let cell = tableView.dequeueReusableCellWithIdentifier(BookCell.cellId() , forIndexPath: indexPath)
-//        var cell = tableView.dequeueReusableCellWithIdentifier("piii")
-//        if cell == nil {
-//            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "piii")
-//        }
+        let cell = tableView.dequeueReusableCellWithIdentifier(BookCell.cellId() , forIndexPath: indexPath) as! BookCell
         
 
         //obtengo el libro que hay que mostrar
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
+        
+        //pongo los valores
+        cell.title.text = object.title
         
         
 
