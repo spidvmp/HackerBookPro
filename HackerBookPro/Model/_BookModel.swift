@@ -109,7 +109,7 @@ extension _BookModel {
 
 }
 
-extension BookModel {
+extension _BookModel {
 
     func addAuthors(objects: NSSet) {
         let mutable = self.authors.mutableCopy() as! NSMutableSet

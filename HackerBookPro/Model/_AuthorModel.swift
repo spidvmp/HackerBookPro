@@ -8,7 +8,7 @@ public enum AuthorModelAttributes: String {
 }
 
 public enum AuthorModelRelationships: String {
-    case booksWriten = "booksWriten"
+    case books = "books"
 }
 
 @objc public
@@ -45,34 +45,34 @@ class _AuthorModel: NSManagedObject {
     // MARK: - Relationships
 
     @NSManaged public
-    var booksWriten: NSSet
+    var books: NSSet
 
 }
 
 extension _AuthorModel {
 
-    func addBooksWriten(objects: NSSet) {
-        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+    func addBooks(objects: NSSet) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
         mutable.unionSet(objects as! Set<NSObject>)
-        self.booksWriten = mutable.copy() as! NSSet
+        self.books = mutable.copy() as! NSSet
     }
 
-    func removeBooksWriten(objects: NSSet) {
-        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+    func removeBooks(objects: NSSet) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
         mutable.minusSet(objects as! Set<NSObject>)
-        self.booksWriten = mutable.copy() as! NSSet
+        self.books = mutable.copy() as! NSSet
     }
 
-    func addBooksWritenObject(value: BookModel!) {
-        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+    func addBooksObject(value: BookModel!) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
         mutable.addObject(value)
-        self.booksWriten = mutable.copy() as! NSSet
+        self.books = mutable.copy() as! NSSet
     }
 
-    func removeBooksWritenObject(value: BookModel!) {
-        let mutable = self.booksWriten.mutableCopy() as! NSMutableSet
+    func removeBooksObject(value: BookModel!) {
+        let mutable = self.books.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
-        self.booksWriten = mutable.copy() as! NSSet
+        self.books = mutable.copy() as! NSSet
     }
 
 }

@@ -33,22 +33,22 @@ class Book : NSObject {
     
     //grabo el libro en coredata, los tags, autores, etc
     func saveToCoreData(context c : NSManagedObjectContext) {
-        //el resultado me da lo mismo, no lo tengo que devolver
+        //grabo la entidad libro
         let b = BookModel(title: title, imageUrl: imageUrl!, pdfUrl: pdfUrl!, context: c)
         
         //ahora guardo los autores y los relaciono con el libro
-        //me recorro el array y por cada autor lo guardo en coredata, a en un array con los autores que tiene el libro
+        //me recorro el array y por cada autor lo guardo en coredata, a es un array con los autores que tiene el libro
         if let a = self.authors {
-            //_ = a.map({AuthorModel(author: $0, book: b, context: c)})
             _ = a.map({AuthorModel.addAuthor(author: $0, book: b, context: c)})
         }
         
         //ahora me recorro los tags
         if let t = self.tags {
-            //_ = t.map({TagModel(tag: $0, book: b, context:c)})
+
             _ = t.map({TagModel.addTag(tag: $0, book: b, context: c)})
         }
-        
+        //asi queda la entidad libro, tiene los autores ylos tags
+        print (b)
     }
     
 }

@@ -22,9 +22,9 @@ public class TagModel : _TagModel {
         self.tag = t
         
         //como es tomany, saco lo que hay y añado este
-        let tg = b.tags as! NSMutableSet
-        tg.addObject(self)
-        b.tags = tg
+//        let tg = b.tags as! NSMutableSet
+//        tg.addObject(self)
+//        b.tags = tg
         
     }
     
