@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tagsTField: UITextView!
     @IBOutlet weak var authorsTField: UITextView!
     
+    @IBOutlet weak var readButton: UIButton!
     
     var book: BookModel? {
         didSet {
@@ -65,6 +66,12 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PdfViewer" {
+            let destino = segue.destinationViewController as? PdfView
+            destino?.book = book
+        }
+    }
 
 }
 

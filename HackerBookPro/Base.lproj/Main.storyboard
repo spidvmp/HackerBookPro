@@ -67,17 +67,36 @@
                                 <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbe-Uc-Uq6">
+                                <rect key="frame" x="474" y="98" width="106" height="30"/>
+                                <color key="backgroundColor" red="0.33447743349999998" green="1" blue="0.55092742819999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FCd-kz-yCU"/>
+                                    <constraint firstAttribute="width" constant="106" id="nVm-Yv-M7F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="15"/>
+                                <state key="normal" title="Leer Libro"/>
+                                <connections>
+                                    <action selector="readAction:" destination="JEX-9P-axG" eventType="touchUpInside" id="mjE-yp-fxX"/>
+                                    <segue destination="v8Z-7a-roy" kind="show" identifier="PdfViewer" id="YZr-hy-JzV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eYu-tY-VIk" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="ArO-P4-Ztw"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="J7V-Tm-Pmn"/>
+                            <constraint firstItem="Sbe-Uc-Uq6" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="34" id="Jqh-1v-hFP"/>
                             <constraint firstItem="Kxg-hy-h8k" firstAttribute="top" secondItem="I4q-fM-K0R" secondAttribute="top" id="Lkl-Pt-cFt"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="QH8-xH-Gke"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sbe-Uc-Uq6" secondAttribute="trailing" id="TQa-6E-oL0"/>
+                            <constraint firstItem="Kxg-hy-h8k" firstAttribute="top" secondItem="Sbe-Uc-Uq6" secondAttribute="bottom" constant="47" id="TnY-Jm-XWC"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="leading" id="VfQ-K0-yaY"/>
                             <constraint firstAttribute="leadingMargin" secondItem="I4q-fM-K0R" secondAttribute="leading" id="ZTd-NS-nzY"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="leading" id="aWj-TT-c1E"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="cEP-EJ-4Z7"/>
+                            <constraint firstItem="Sbe-Uc-Uq6" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="dbW-q2-MJu"/>
+                            <constraint firstItem="sQq-QY-UbN" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="fqM-0E-1Ky"/>
+                            <constraint firstItem="eYu-tY-VIk" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="lmQ-99-hhW"/>
                             <constraint firstItem="Kxg-hy-h8k" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="trailing" constant="15" id="muV-Bd-YQk"/>
                             <constraint firstItem="eYu-tY-VIk" firstAttribute="top" secondItem="sQq-QY-UbN" secondAttribute="bottom" constant="16" id="pvL-d9-ycl"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="top" secondItem="I4q-fM-K0R" secondAttribute="bottom" constant="16" id="qon-XF-u8V"/>
@@ -98,6 +117,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
+        </scene>
+        <!--Pdf View-->
+        <scene sceneID="oGC-GK-QNQ">
+            <objects>
+                <viewController id="v8Z-7a-roy" customClass="PdfView" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5XW-k6-drs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ga6-fN-0SA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E35-eK-5QE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2s-hq-n1v">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ga6-fN-0SA" firstAttribute="top" secondItem="l2s-hq-n1v" secondAttribute="bottom" id="0gt-hE-kBz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l2s-hq-n1v" secondAttribute="trailing" constant="-20" id="d3y-ES-Hkp"/>
+                            <constraint firstItem="l2s-hq-n1v" firstAttribute="leading" secondItem="E35-eK-5QE" secondAttribute="leadingMargin" constant="-20" id="eLo-wX-DTU"/>
+                            <constraint firstItem="l2s-hq-n1v" firstAttribute="top" secondItem="5XW-k6-drs" secondAttribute="bottom" id="o0V-rk-LTH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pdfWebView" destination="l2s-hq-n1v" id="0uU-rS-oT4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GfX-oA-6YD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510" y="129"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">

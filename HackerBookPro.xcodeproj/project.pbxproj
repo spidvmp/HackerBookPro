@@ -27,6 +27,7 @@
 		2BDCCECD1C3419CD009C4F25 /* PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */; };
 		2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */; };
 		2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDCCEDF1C352E38009C4F25 /* Defines.swift */; };
+		2BDEEB801C499F5E00C89B31 /* PdfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */; };
 		2BE083B71C3A8CC400E17827 /* _AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */; };
 		2BE083B81C3A8CC400E17827 /* _CoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083B51C3A8CC400E17827 /* _CoverModel.swift */; };
 		2BE083B91C3A8CC400E17827 /* _PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE083B61C3A8CC400E17827 /* _PhotoModel.swift */; };
@@ -65,6 +66,7 @@
 		2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PdfModel.swift; path = Model/PdfModel.swift; sourceTree = "<group>"; };
 		2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Model/PhotoModel.swift; sourceTree = "<group>"; };
 		2BDCCEDF1C352E38009C4F25 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Defines.swift; path = Utils/Defines.swift; sourceTree = "<group>"; };
+		2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PdfView.swift; path = Controllers/PdfView.swift; sourceTree = "<group>"; };
 		2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _AnnotationModel.swift; path = Model/_AnnotationModel.swift; sourceTree = "<group>"; };
 		2BE083B51C3A8CC400E17827 /* _CoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _CoverModel.swift; path = Model/_CoverModel.swift; sourceTree = "<group>"; };
 		2BE083B61C3A8CC400E17827 /* _PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PhotoModel.swift; path = Model/_PhotoModel.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */,
 				2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */,
+				2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				2BE083B71C3A8CC400E17827 /* _AnnotationModel.swift in Sources */,
 				2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */,
 				2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */,
+				2BDEEB801C499F5E00C89B31 /* PdfView.swift in Sources */,
 				2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */,
 				2BE083B91C3A8CC400E17827 /* _PhotoModel.swift in Sources */,
 				2BE083BC1C3A8CD400E17827 /* AnnotationModel.swift in Sources */,
