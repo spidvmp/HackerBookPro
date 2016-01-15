@@ -47,6 +47,8 @@ class Book : NSObject {
 
             _ = t.map({TagModel.addTag(tag: $0, book: b, context: c)})
         }
+
+        
         //asi queda la entidad libro, tiene los autores ylos tags
         print (b)
     }

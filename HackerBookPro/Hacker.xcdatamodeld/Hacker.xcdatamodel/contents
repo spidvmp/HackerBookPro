@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Xcode 7.0">
     <entity name="Annotation" representedClassName=".AnnotationModel" syncable="YES">
-        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="annotations" inverseEntity="Book" syncable="YES"/>
-        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PhotoContainer" inverseName="annotation" inverseEntity="PhotoContainer" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="annotations" inverseEntity="Location" syncable="YES"/>
+        <relationship name="photo" maxCount="1" deletionRule="Cascade" destinationEntity="PhotoContainer" inverseName="annotation" inverseEntity="PhotoContainer" syncable="YES"/>
     </entity>
     <entity name="Author" representedClassName=".AuthorModel" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -17,13 +16,19 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="annotations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Annotation" inverseName="book" inverseEntity="Annotation" syncable="YES"/>
         <relationship name="authors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Author" inverseName="books" inverseEntity="Author" syncable="YES"/>
-        <relationship name="cover" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CoverImage" inverseName="book" inverseEntity="CoverImage" syncable="YES"/>
-        <relationship name="pdf" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PdfContainer" inverseName="book" inverseEntity="PdfContainer" syncable="YES"/>
+        <relationship name="cover" maxCount="1" deletionRule="Cascade" destinationEntity="CoverImage" inverseName="book" inverseEntity="CoverImage" syncable="YES"/>
+        <relationship name="pdf" maxCount="1" deletionRule="Cascade" destinationEntity="PdfContainer" inverseName="book" inverseEntity="PdfContainer" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tag" inverseName="books" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="CoverImage" representedClassName=".CoverModel" syncable="YES">
         <attribute name="photoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="cover" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Location" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="annotations" toMany="YES" deletionRule="Nullify" destinationEntity="Annotation" inverseName="location" inverseEntity="Annotation" syncable="YES"/>
     </entity>
     <entity name="PdfContainer" representedClassName=".PdfModel" syncable="YES">
         <attribute name="pdfData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
@@ -38,10 +43,11 @@
         <relationship name="books" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Annotation" positionX="-27" positionY="72" width="128" height="120"/>
+        <element name="Annotation" positionX="-27" positionY="72" width="128" height="105"/>
         <element name="Author" positionX="-63" positionY="9" width="128" height="75"/>
         <element name="Book" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="CoverImage" positionX="-36" positionY="54" width="128" height="75"/>
+        <element name="Location" positionX="-45" positionY="72" width="128" height="105"/>
         <element name="PdfContainer" positionX="-45" positionY="45" width="128" height="75"/>
         <element name="PhotoContainer" positionX="-54" positionY="27" width="128" height="75"/>
         <element name="Tag" positionX="-45" positionY="27" width="128" height="75"/>

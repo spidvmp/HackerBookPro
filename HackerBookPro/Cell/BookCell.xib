@@ -14,6 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="ORi-bs-pTr">
+                        <rect key="frame" x="2" y="2" width="46" height="46"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6F-nW-GRS">
                         <rect key="frame" x="50" y="8" width="261" height="21"/>
                         <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
@@ -29,9 +32,13 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="cover" destination="ORi-bs-pTr" id="YGt-Th-TbZ"/>
                 <outlet property="tags" destination="7rk-PL-JZE" id="UkN-Tj-fvU"/>
                 <outlet property="title" destination="y6F-nW-GRS" id="6os-yb-XQy"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="placeholder.png" width="512" height="512"/>
+    </resources>
 </document>

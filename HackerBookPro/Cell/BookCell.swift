@@ -8,11 +8,13 @@
 
 import UIKit
 
+
 class BookCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var tags: UILabel!
-    
+
+    @IBOutlet weak var cover: UIImageView!
     
     
     var titulo: String! = ""
@@ -27,6 +29,8 @@ class BookCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.cover.layer.masksToBounds = true
+        self.cover.layer.cornerRadius = 8
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

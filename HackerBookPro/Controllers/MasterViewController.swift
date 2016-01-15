@@ -33,6 +33,10 @@ class MasterViewController: AGTCoreDataTableViewController {
         self.tableView.rowHeight = BookCell.cellHeight()
         
         
+        //cambio de color el separador de celdas
+        self.tableView.separatorColor = UIColor.defaultColorHacker()
+        
+        
         
 //        // Do any additional setup after loading the view, typically from a nib.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -74,11 +78,49 @@ class MasterViewController: AGTCoreDataTableViewController {
         
         //pongo los valores
         cell.title.text = object.title
+        cell.tags.text = object.tagsString()
         
-        
-
-        //cell?.textLabel?.text = object.title
-        //cell?.detailTextLabel?.text = object.tags
+        //compruebo si tiene imagen o no
+        if let img = object.cover?.image {
+            //tengo imagen
+            cell.cover.image = img
+        } else {
+            //hay que bajarse la imagen
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
+                
+                if let url = NSURL(string:object.imageUrl!) {
+                    //me bajo lo que haya, y si lo hay lo proceso
+                    if let data = NSData(contentsOfURL: url) {
+                        print("Bajando \(url)")
+                        if let image = UIImage(data: data) {
+                            //tengo la imagen, la grabo en coredata
+                            object.cover?.image = image
+                            dispatch_async(dispatch_get_main_queue()) {
+                                //Ya tengo la imagen bajada, la cambio por la que tiene que ser
+                                let fr = cell.cover.frame
+                                let cent = cell.cover.center
+                                //quito el placeholder
+                                UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { () -> Void in
+                                    cell.cover.frame = CGRectZero
+                                    cell.cover.center = cent
+                                    }, completion: { (finished) -> Void in
+                                        UIView.animateWithDuration(0.3, animations: { () -> Void in
+                                            cell.cover.frame = fr
+                                            cell.cover.image = image
+                                        })
+                                })
+                                
+                                
+                                
+                                
+                            }
+                        }
+                    }
+                }
+                
+            })
+            
+        }
 
         return cell
     }
@@ -88,7 +130,7 @@ class MasterViewController: AGTCoreDataTableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return 1
     }
 
 
