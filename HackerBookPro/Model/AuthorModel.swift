@@ -19,6 +19,11 @@ public class AuthorModel: _AuthorModel {
         super.init(entity: _AuthorModel.entity(c), insertIntoManagedObjectContext: c)
         self.name = a
         
+        //añado el libro a los autores
+        let au = self.books as! NSMutableSet
+        au.addObject(b)
+        self.books = au
+        
         //la relacion es to many, asi que saco lo que hay y añado este
 //        let aut = b.authors as! NSMutableSet
 //        aut.addObject(self)

@@ -20,6 +20,10 @@ public class TagModel : _TagModel {
         //recibo un solo autor, lo inserto y lo asocio con el libro.
         super.init(entity: _TagModel.entity(c), insertIntoManagedObjectContext: c)
         self.tag = t
+        //incluyo book a los libros del tag
+        let bk = self.books as! NSMutableSet
+        bk.addObject(b)
+        self.books = bk
         
         //como es tomany, saco lo que hay y añado este
 //        let tg = b.tags as! NSMutableSet
@@ -42,9 +46,11 @@ public class TagModel : _TagModel {
         //ahora tenemos la entidad tag, o existeia o la ha creado, se lo añado al libro
         //la relacion es to many, asi que saco lo que hay y añado este
         let tg = b.tags as! NSMutableSet
+        
         if let tagCoreData = tag {
             //no es nil, hay tag
             tg.addObject(tagCoreData)
+
             b.tags = tg
         }
         

@@ -43,6 +43,13 @@ class DetailViewController: UIViewController {
             if let aut = self.authorsTField {
                 aut.text = book.authorsString()
             }
+            
+            if let img = self.cover {
+                //miro antes a ver que tenga la imagen
+                if let i = book.cover?.image {
+                    img.image = i
+                }
+            }
         }
 
     }

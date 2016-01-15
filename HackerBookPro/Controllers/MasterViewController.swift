@@ -95,6 +95,7 @@ class MasterViewController: AGTCoreDataTableViewController {
                         if let image = UIImage(data: data) {
                             //tengo la imagen, la grabo en coredata
                             object.cover?.image = image
+
                             dispatch_async(dispatch_get_main_queue()) {
                                 //Ya tengo la imagen bajada, la cambio por la que tiene que ser
                                 let fr = cell.cover.frame
