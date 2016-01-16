@@ -78,7 +78,6 @@
                                 <state key="normal" title="Leer Libro"/>
                                 <connections>
                                     <action selector="readAction:" destination="JEX-9P-axG" eventType="touchUpInside" id="mjE-yp-fxX"/>
-                                    <segue destination="v8Z-7a-roy" kind="show" identifier="PdfViewer" id="YZr-hy-JzV"/>
                                 </connections>
                             </button>
                         </subviews>

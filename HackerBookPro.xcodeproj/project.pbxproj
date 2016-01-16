@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B103F511C491FD800CDDA7E /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B103F501C491FD800CDDA7E /* UIKitExtension.swift */; };
+		2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B200A171C4AA11D00B79502 /* AsyncDownload.swift */; };
 		2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */; };
 		2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6C11C3B0B4600F72899 /* BookCell.swift */; };
 		2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B72F6C21C3B0B4600F72899 /* BookCell.xib */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		2B103F501C491FD800CDDA7E /* UIKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitExtension.swift; path = Frameworks/UIKitExtension.swift; sourceTree = "<group>"; };
+		2B200A171C4AA11D00B79502 /* AsyncDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncDownload.swift; path = Utils/AsyncDownload.swift; sourceTree = "<group>"; };
 		2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PdfModel.swift; path = Model/_PdfModel.swift; sourceTree = "<group>"; };
 		2B72F6C11C3B0B4600F72899 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookCell.swift; path = Cell/BookCell.swift; sourceTree = "<group>"; };
 		2B72F6C21C3B0B4600F72899 /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookCell.xib; path = Cell/BookCell.xib; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				2BDCCEDF1C352E38009C4F25 /* Defines.swift */,
+				2B200A171C4AA11D00B79502 /* AsyncDownload.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
+				2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */,
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,
