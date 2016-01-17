@@ -26,7 +26,7 @@ Procedimiento para bajar ficheros de forma asincrona, cuando se lo baje, envia u
 //    
 //}
 
-func downloadImage(book: BookModel){
+func downloadImage(book: BookModel) -> Void{
     //me pasan el libro y me tengo que bajar la imagen. La guardo en coredata. Al terminar envio notificacion para quien le interese
     
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE,0)){

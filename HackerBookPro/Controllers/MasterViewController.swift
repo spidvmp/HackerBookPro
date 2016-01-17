@@ -79,6 +79,7 @@ class MasterViewController: AGTCoreDataTableViewController {
         //pongo los valores
         cell.title.text = object.title
         cell.tags.text = object.tagsString()
+        //cell.coverImage = object.cover?.image
         
         //compruebo si tiene imagen o no
         if let img = object.cover?.image {
@@ -86,6 +87,9 @@ class MasterViewController: AGTCoreDataTableViewController {
             cell.cover.image = img
         } else {
             //hay que bajarse la imagen
+        //    downloadImage(object)
+            //observo el notification
+        //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "Imageuploaded:", name: IMAGE_DID_FINISH_DOWNLOAD, object: nil)
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
                 
                 if let url = NSURL(string:object.imageUrl!) {
@@ -125,16 +129,23 @@ class MasterViewController: AGTCoreDataTableViewController {
 
         return cell
     }
+
+    func Imageuploaded(notification: NSNotification) -> Void {
+        print(notification)
+        //saco el info
+        let info = notification.userInfo
+        
+    }
 /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+*/
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-
+/*
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.

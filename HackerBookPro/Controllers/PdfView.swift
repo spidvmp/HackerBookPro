@@ -26,6 +26,9 @@ class PdfView: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //compruebo si tengo el pdf, si no lo tengo lo bajo usando AsyncDownload
+        
+        
         // Do any additional setup after loading the view.
     }
     

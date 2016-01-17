@@ -13,18 +13,15 @@ class BookCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var tags: UILabel!
-
     @IBOutlet weak var cover: UIImageView!
     
+    var coverImage : UIImage? {
+        didSet {
+            self.cover.image = coverImage
+        }
     
-    var titulo: String! = ""
-    var x : Int = 0
-    
-//    var titulo: String? {
-//        didSet {
-//            self.title.text = titulo
-//        }
-//    }
+    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
