@@ -8,7 +8,9 @@
 
 import Foundation
 
-let IMAGE_DID_FINISH_DOWNLOAD = "imagedidfinishdownload"
+let IMAGE_DID_FINISH_DOWNLOAD = "com.nicatec.HackerPro.imagedidfinishdownload"
+let IMAGE_DOWNLOADED = "imagedownloaded"
+typealias ImageDictionay = [String: UIImage]
 
 /*
 Procedimiento para bajar ficheros de forma asincrona, cuando se lo baje, envia una notificacion
@@ -35,10 +37,13 @@ func downloadImage(book: BookModel){
             let img = UIImage(data: data!)
             if let image = img {
                 //tengo la imagen bajada y transformada. ahora solo tengo que grabarlo en coredata
+                book.cover?.image = image
                 
                 //termine de grabar, envio notificacion de que esta descargado
-                    let not = NSNotification(name: IMAGE_DID_FINISH_DOWNLOAD, object: self, userInfo: <#T##[NSObject : AnyObject]?#>)
-                    NSNotificationCenter.defaultCenter().postNotification(not)
+                //genero un diccionario con lo que voy a pasar
+                let info : ImageDictionay = [IMAGE_DOWNLOADED: image]
+                let not = NSNotification(name: IMAGE_DID_FINISH_DOWNLOAD, object: nil, userInfo: info)
+                NSNotificationCenter.defaultCenter().postNotification(not)
             }
             
         }
