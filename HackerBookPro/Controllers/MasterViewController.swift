@@ -16,7 +16,7 @@ class MasterViewController: AGTCoreDataTableViewController   {
     //me genero un stack para acceder a la BD
     let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
     
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,13 @@ class MasterViewController: AGTCoreDataTableViewController   {
         //self.searchController.searchBar.sizeToFit()
 //        self.searchController.searchBar.delegate = self
 //        self.searchController.delegate = self
+
+        self.searchController = UISearchController(searchResultsController: nil)
         searchController.dimsBackgroundDuringPresentation = false
         self.searchController.definesPresentationContext = true
         self.searchController.searchResultsUpdater = self
-        //self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.hidesNavigationBarDuringPresentation = false
         self.tableView.tableHeaderView = searchController.searchBar
-        
         
 
         let fet = NSFetchRequest(entityName: BookModel.entityName())
@@ -62,8 +63,9 @@ class MasterViewController: AGTCoreDataTableViewController   {
     }
 
     override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,11 +85,14 @@ class MasterViewController: AGTCoreDataTableViewController   {
         
        
         let cell = tableView.dequeueReusableCellWithIdentifier(BookCell.cellId() , forIndexPath: indexPath) as! BookCell
-        
+        var object : BookModel
 
-        //obtengo el libro que hay que mostrar
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
-        
+        //obtengo el libro que hay que mostrar, segun sea de coredata o de la busqueda
+        if  self.searchController.active && self.searchController.searchBar.text != nil {
+            object = self.filteredArray[indexPath.row] as! BookModel
+        } else {
+            object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
+        }
         //pongo los valores
         cell.title.text = object.title
         cell.tags.text = object.tagsString()
