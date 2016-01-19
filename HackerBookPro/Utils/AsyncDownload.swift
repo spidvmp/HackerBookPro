@@ -34,8 +34,7 @@ func downloadImage(book: BookModel) -> Void{
         if let url = book.imageUrl{
             //tengo la url
             let data = NSData(contentsOfURL: NSURL(string:url)!)
-            let img = UIImage(data: data!)
-            if let image = img {
+            if let image = UIImage(data: data!) {
                 //tengo la imagen bajada y transformada. ahora solo tengo que grabarlo en coredata
                 book.cover?.image = image
                 

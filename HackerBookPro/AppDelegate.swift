@@ -54,7 +54,7 @@ import UIKit
         //grabo los datos en BD
         do {
             try stack.context.save()
-            print ("grabado")
+            print ("grabado en resignActive")
         }    catch {
             print ("error al grabar")
         }

@@ -23,8 +23,12 @@
 #import <CoreData/CoreData.h>
 @interface AGTCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-
-
+/*
+ como quiero poner un searchcontroller, lo incrusto aqui, de tal forma que el MasterView tiene acceso y asi no tengo que sobreescribir
+ los metodos del datasource, ya que tiene el fetch y el array de busqueda
+*/
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) NSMutableArray *filteredArray;
 
 
 // The controller (this class fetches nothing if this is not set).

@@ -8,20 +8,32 @@
 
 import UIKit
 
-class MasterViewController: AGTCoreDataTableViewController {
+class MasterViewController: AGTCoreDataTableViewController   {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
-
+    
+    //me genero un stack para acceder a la BD
+    let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //me genero un stack para acceder a la BD
-        let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
+
+        //defino el controlador de busqueda
+        //self.searchController.searchBar.sizeToFit()
+//        self.searchController.searchBar.delegate = self
+//        self.searchController.delegate = self
+        searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.definesPresentationContext = true
+        self.searchController.searchResultsUpdater = self
+        //self.searchController.hidesNavigationBarDuringPresentation = false
+        self.tableView.tableHeaderView = searchController.searchBar
         
         
-        //let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
+
         let fet = NSFetchRequest(entityName: BookModel.entityName())
         let s = (NSSortDescriptor(key: "title", ascending: true))
         fet.sortDescriptors = [s]
@@ -98,9 +110,11 @@ class MasterViewController: AGTCoreDataTableViewController {
                         print("Bajando \(url)")
                         if let image = UIImage(data: data) {
                             //tengo la imagen, la grabo en coredata
-                            object.cover?.image = image
+                            //object.cover?.image = image
 
                             dispatch_async(dispatch_get_main_queue()) {
+                                //tengo la imagen, la grabo en coredata
+                                object.cover?.image = image
                                 //Ya tengo la imagen bajada, la cambio por la que tiene que ser
                                 let fr = cell.cover.frame
                                 let cent = cell.cover.center
@@ -141,10 +155,11 @@ class MasterViewController: AGTCoreDataTableViewController {
         return 1
     }
 */
+/*
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+*/
 /*
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -178,6 +193,21 @@ class MasterViewController: AGTCoreDataTableViewController {
             }
         }
     }
+    
+    //MARK: - Filtro searchcontroller
+    func filterContextForSearchText(searchText: String){
+        //hago el filtro que tenga que ser. El resultado he de ponerlo en el array filteredResults
+        let pred = NSPredicate(format: "title contains [cd] %@", searchText)
+        self.filteredArray = NSMutableArray(array: self.fetchedResultsController.fetchedObjects!.filter{pred.evaluateWithObject($0)})
+        //recargo los datos con lo que se esta buscando
+        tableView.reloadData()
+    }
 
+}
+
+extension MasterViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContextForSearchText(searchController.searchBar.text!)
+    }
 }
 

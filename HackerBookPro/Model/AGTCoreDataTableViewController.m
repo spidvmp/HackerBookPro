@@ -12,6 +12,7 @@
 
 @interface AGTCoreDataTableViewController()
 @property (nonatomic) BOOL beganUpdates;
+
 @end
 
 @implementation AGTCoreDataTableViewController
@@ -73,12 +74,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    //en caso de que haya una busqueda activa, solo hay una seccion
+    if ( self.searchController.active)
+        return 1;
+    else
+        return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    //en el caso de que la busqueda este ativa,los datos salen del array de busqueda, no del coredata
+    if ( self.searchController.active && self.searchController.searchBar.text.length > 0) {
+        return self.filteredArray.count;
+    } else {
+        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
