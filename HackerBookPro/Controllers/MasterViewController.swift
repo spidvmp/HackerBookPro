@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: AGTCoreDataTableViewController   {
+class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDelegate   {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
@@ -28,11 +28,13 @@ class MasterViewController: AGTCoreDataTableViewController   {
 //        self.searchController.delegate = self
 
         self.searchController = UISearchController(searchResultsController: nil)
-        searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.definesPresentationContext = true
         self.searchController.searchResultsUpdater = self
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.tableView.tableHeaderView = searchController.searchBar
+        
+        self.filteredArray = NSMutableArray()
         
 
         let fet = NSFetchRequest(entityName: BookModel.entityName())
@@ -202,17 +204,33 @@ class MasterViewController: AGTCoreDataTableViewController   {
     //MARK: - Filtro searchcontroller
     func filterContextForSearchText(searchText: String){
         //hago el filtro que tenga que ser. El resultado he de ponerlo en el array filteredResults
-        let pred = NSPredicate(format: "title contains [cd] %@", searchText)
-        self.filteredArray = NSMutableArray(array: self.fetchedResultsController.fetchedObjects!.filter{pred.evaluateWithObject($0)})
-        //recargo los datos con lo que se esta buscando
-        tableView.reloadData()
+        let pred = NSPredicate(format: "title contains[cd] %@", searchText)
+        //let pred = NSPredicate(format: "title contains [cd] %@", searchText)
+        //self.filteredArray = NSMutableArray(array: self.fetchedResultsController.fetchedObjects!.filter({pred.evaluateWithObject($0)}))
+        self.filteredArray.removeAllObjects()
+        let a = self.fetchedResultsController.fetchedObjects?.filter(){
+            return pred.evaluateWithObject($0)
+        } as! [BookModel]
+        //self.filteredArray = NSMutableArray.arrayByAddingObjectsFromArray(a)
+        //if ( a.count > 0) {
+            self.filteredArray.addObjectsFromArray(a)
+            print(self.filteredArray)
+            //recargo los datos con lo que se esta buscando
+            
+            tableView.reloadData()
+        //}
+        
+        
+        
     }
 
 }
 
 extension MasterViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        filterContextForSearchText(searchController.searchBar.text!)
+
+            filterContextForSearchText(searchController.searchBar.text!)
+
     }
 }
 

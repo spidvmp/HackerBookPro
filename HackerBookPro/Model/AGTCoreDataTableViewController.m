@@ -25,6 +25,7 @@
         self.fetchedResultsController = aFetchedResultsController;
         //inicializo el searchcontroller
         _searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
+        
     }
     return self;
 }
@@ -87,7 +88,7 @@
 {
     //en el caso de que la busqueda este ativa,los datos salen del array de busqueda, no del coredata
     //if ( self.searchController.active && self.searchController.searchBar.text.length > 0) {
-    if ( self.searchController.active) {
+    if ( self.searchController.active ) {
         return self.filteredArray.count;
     } else {
         return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
