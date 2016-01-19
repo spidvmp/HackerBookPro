@@ -23,17 +23,15 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         
 
         //defino el controlador de busqueda
-        //self.searchController.searchBar.sizeToFit()
-//        self.searchController.searchBar.delegate = self
-//        self.searchController.delegate = self
-
         self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchBar.sizeToFit()
         self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.definesPresentationContext = true
         self.searchController.searchResultsUpdater = self
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.tableView.tableHeaderView = searchController.searchBar
         
+        //inicializo el array del filttro de la busqueda
         self.filteredArray = NSMutableArray()
         
 
@@ -46,6 +44,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         let celdaNib = UINib(nibName: BookCell.cellId(), bundle: nil)
         self.tableView.registerNib(celdaNib, forCellReuseIdentifier: BookCell.cellId())
         self.tableView.rowHeight = BookCell.cellHeight()
+        //desplazo la tabla un poco hacia arriba para que no aparezca el search
+        self.tableView.setContentOffset(CGPointMake(0, self.searchController.searchBar.frame.size.height), animated: false)
         
         
         //cambio de color el separador de celdas
