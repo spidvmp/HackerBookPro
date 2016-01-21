@@ -6,6 +6,10 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
+/*
+uisearch http://www.raywenderlich.com/113772/uisearchcontroller-tutorial
+*/
+
 import UIKit
 
 class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDelegate   {
@@ -29,6 +33,11 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         self.searchController.definesPresentationContext = true
         self.searchController.searchResultsUpdater = self
         self.searchController.hidesNavigationBarDuringPresentation = false
+        //añado el scope para seleccionar donde se busca
+        searchController.searchBar.scopeButtonTitles = ["Titulo", "Tag", "Autor"]
+
+        searchController.searchBar.delegate = self
+        
         self.tableView.tableHeaderView = searchController.searchBar
         
         //inicializo el array del filttro de la busqueda
@@ -51,17 +60,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         //cambio de color el separador de celdas
         self.tableView.separatorColor = UIColor.defaultColorHacker()
         
-        
-        
-//        // Do any additional setup after loading the view, typically from a nib.
-//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-//
-//        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-//        self.navigationItem.rightBarButtonItem = addButton
-//        if let split = self.splitViewController {
-//            let controllers = split.viewControllers
-//            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-//        }
+
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -204,7 +203,12 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowBook" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
+                let object : BookModel
+                if searchController.active && searchController.searchBar.text != "" {
+                    object = filteredArray[indexPath.row] as! BookModel
+                } else {
+                    object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
+                }
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.book = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -214,18 +218,47 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     }
     
     //MARK: - Filtro searchcontroller
-    func filterContextForSearchText(searchText: String){
+    func filterContextForSearchText(searchText: String, scope: String){
         //hago el filtro que tenga que ser. El resultado he de ponerlo en el array filteredResults
-        let pred = NSPredicate(format: "title contains[cd] %@", searchText)
+        //segun tenga pulsado la opcion del scope
+        let pred : NSPredicate
+        
+        //borro lo que habia
+        self.filteredArray.removeAllObjects()
+        
+        //dependiendo del scope hago una busqueda diferente
+        switch (scope ){
+            
+            case "Titulo":
+                pred = NSPredicate(format: "title contains[cd] %@", searchText)
+                let a = self.fetchedResultsController.fetchedObjects?.filter(){
+                    return pred.evaluateWithObject($0)
+                    } as! [BookModel]
+                self.filteredArray.addObjectsFromArray(a)
+                break
+            case "Tag":
+                
+                pred = NSPredicate(format: "tags.tag contains[cd] %@", searchText)
+
+                let a = self.fetchedResultsController.fetchedObjects?.filter(){
+                    return pred.evaluateWithObject($0)
+                    } as! [BookModel]
+                self.filteredArray.addObjectsFromArray(a)
+                break
+            case "Autor":
+                pred = NSPredicate(format: "authors.name contains[cd] %@", searchText)
+                break
+            default:
+                break
+        }
+        //let pred = NSPredicate(format: "title contains[cd] %@", searchText)
         //let pred = NSPredicate(format: "title contains [cd] %@", searchText)
         //self.filteredArray = NSMutableArray(array: self.fetchedResultsController.fetchedObjects!.filter({pred.evaluateWithObject($0)}))
-        self.filteredArray.removeAllObjects()
-        let a = self.fetchedResultsController.fetchedObjects?.filter(){
-            return pred.evaluateWithObject($0)
-        } as! [BookModel]
+        
+        
         //self.filteredArray = NSMutableArray.arrayByAddingObjectsFromArray(a)
         //if ( a.count > 0) {
-            self.filteredArray.addObjectsFromArray(a)
+        
             print(self.filteredArray)
             //recargo los datos con lo que se esta buscando
             
@@ -240,9 +273,17 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
 
 extension MasterViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        //obtengo el scope que han pulsado
+        let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
+        filterContextForSearchText(searchController.searchBar.text!, scope: scope)
 
-            filterContextForSearchText(searchController.searchBar.text!)
+    }
+}
 
+extension MasterViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContextForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }
 
