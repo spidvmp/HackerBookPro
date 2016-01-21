@@ -43,16 +43,17 @@ public class TagModel : _TagModel {
         }
         
         
+        b.addTagsObject(tag)
         //ahora tenemos la entidad tag, o existeia o la ha creado, se lo añado al libro
         //la relacion es to many, asi que saco lo que hay y añado este
-        let tg = b.tags as! NSMutableSet
-        
-        if let tagCoreData = tag {
-            //no es nil, hay tag
-            tg.addObject(tagCoreData)
-
-            b.tags = tg
-        }
+//        let tg = b.tags as! NSMutableSet
+//        
+//        if let tagCoreData = tag {
+//            //no es nil, hay tag
+//            tg.addObject(tagCoreData)
+//
+//            b.tags = tg
+//        }
         
         
         

@@ -42,15 +42,16 @@ public class AuthorModel: _AuthorModel {
             author = AuthorModel(author: a, book: b, context: c)
         }
         
+        b.addAuthorsObject(author)
         
-        //ahora tenemos la entidad autor, o existeia o la ha creado, se lo añado al libro
-        //la relacion es to many, asi que saco lo que hay y añado este
-        let aut = b.authors as! NSMutableSet
-        if let authorCoreData = author {
-            //no es nil, hay autor
-            aut.addObject(authorCoreData)
-            b.authors = aut
-        }
+//        //ahora tenemos la entidad autor, o existeia o la ha creado, se lo añado al libro
+//        //la relacion es to many, asi que saco lo que hay y añado este
+//        let aut = b.authors as! NSMutableSet
+//        if let authorCoreData = author {
+//            //no es nil, hay autor
+//            aut.addObject(authorCoreData)
+//            b.authors = aut
+//        }
         
         
         

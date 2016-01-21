@@ -33,7 +33,7 @@ class Book : NSObject {
     
     //grabo el libro en coredata, los tags, autores, etc
     func saveToCoreData(context c : NSManagedObjectContext) {
-        //grabo la entidad libro
+        //creo la entidad libro, esto crea el cover, el pdf y rellena los campos de titulo y url del cover y pdf
         let b = BookModel(title: title, imageUrl: imageUrl!, pdfUrl: pdfUrl!, context: c)
         
         //ahora guardo los autores y los relaciono con el libro
@@ -47,6 +47,8 @@ class Book : NSObject {
 
             _ = t.map({TagModel.addTag(tag: $0, book: b, context: c)})
         }
+
+        
 
         
         //asi queda la entidad libro, tiene los autores ylos tags

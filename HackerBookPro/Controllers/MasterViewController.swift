@@ -106,7 +106,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
             cell.cover.image = img
         } else {
             //hay que bajarse la imagen
-        //    downloadImage(object)
+            //downloadImage(object)
             //observo el notification
         //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "Imageuploaded:", name: IMAGE_DID_FINISH_DOWNLOAD, object: nil)
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
