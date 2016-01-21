@@ -7,11 +7,27 @@
 //
 
 //import Foundation
+enum BookProcessing : ErrorType{
+    case WrongObjectID
+}
 
 public class BookModel : _BookModel {
     
+    
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
+    //MARK: -Metodos de clase
+    class func bookWithID(id: NSManagedObjectID, context: NSManagedObjectContext) throws -> BookModel {
+        //busco el id del libro
+        do {
+            let object = try context.existingObjectWithID(id)
+            return object as! BookModel
+        } catch {
+            throw BookProcessing.WrongObjectID
+        }
+   
     }
     
     //MARK: - Inicializadores
@@ -27,6 +43,7 @@ public class BookModel : _BookModel {
         self.pdf = PdfModel(entity: _PdfModel.entity(c), insertIntoManagedObjectContext: c)
 
     }
+    
     
     func tagsString() -> String? {
         //funcion que me devuelve los tags que tiene, separador por ,

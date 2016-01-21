@@ -106,7 +106,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
             cell.cover.image = img
         } else {
             //hay que bajarse la imagen
-            //downloadImage(object)
+            //downloadImage(object.imageUrl, id: object.objectID)
             //observo el notification
         //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "Imageuploaded:", name: IMAGE_DID_FINISH_DOWNLOAD, object: nil)
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
@@ -118,10 +118,16 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                         if let image = UIImage(data: data) {
                             //tengo la imagen, la grabo en coredata
                             //object.cover?.image = image
-
+                            
                             dispatch_async(dispatch_get_main_queue()) {
                                 //tengo la imagen, la grabo en coredata
                                 object.cover?.image = image
+                                let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
+                                do{
+                                    try stack.context.save()
+                                } catch {
+                                    print("Error al grabar cell")
+                                }
                                 //Ya tengo la imagen bajada, la cambio por la que tiene que ser
                                 let fr = cell.cover.frame
                                 let cent = cell.cover.center
@@ -145,6 +151,12 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                 }
                 
             })
+            
+            
+            
+            
+            
+            
             
         }
 

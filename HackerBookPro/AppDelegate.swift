@@ -28,7 +28,7 @@ import UIKit
 //        print("userdefaults a false para volver a cargar")
 //        let def = NSUserDefaults.standardUserDefaults()
 //        def.setBool(false, forKey: FIRST_TIME)
-        
+
         
         
         //comprobamos si es la primera vez y hay que bajar el json
