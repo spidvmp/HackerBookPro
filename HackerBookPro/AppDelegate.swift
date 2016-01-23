@@ -41,6 +41,11 @@ import UIKit
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         
+        //he de acceder al masterViewController para pasarle el stack
+        //Master esta en el elemento 0
+        let mastNav = splitViewController.viewControllers[0] as! UINavigationController
+        let mast = mastNav.viewControllers[0] as! MasterViewController
+        mast.stack = self.stack
         
         
         
