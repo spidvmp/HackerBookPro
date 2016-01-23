@@ -59,8 +59,8 @@ public class AuthorModel: _AuthorModel {
         
     }
     
-    class func booksWithAuthorLike(author a:String, context c:NSManagedObjectContext) -> AuthorModelArray? {
-        //devuelve un array con los loibros cuyo titulo coincida con lo pedido, es para el search
+    class func booksWithAuthorLike(author a:String, context c:NSManagedObjectContext) -> BookModelArray? {
+        //devuelve un array con los libros cuyo autor coincida con lo pedido, es para el search
         let query = NSFetchRequest(entityName: AuthorModel.entityName())
         
         //array de NSSortDescriptors
@@ -68,8 +68,20 @@ public class AuthorModel: _AuthorModel {
         query.predicate = NSPredicate(format: "name contains [cd] %@", a)
         
         do {
-            let res = try c.executeFetchRequest(query) as? AuthorModelArray
-            return res
+            //primero busco todos los autores que encajen con lo puesto en el search
+            let aut = try c.executeFetchRequest(query) as? AuthorModelArray
+            
+            //ahora con todos estos autores, he de sacar los libros que han escrito, se pueden repetir, asi que lo meto en un NSSet
+            //creo el conjunto de libros vacio
+            var booksSet = Set<BookModel>()
+
+            for each in aut! {
+                //inserto los libros que tenga en el conjunto
+                _ = each.books.map({booksSet.insert($0 as! BookModel)})
+            }
+            //tengo un nsset de BookModel, he de obtener un array ordenado
+            let arr = booksSet.map({$0})
+            return arr
             
         } catch {
             return nil

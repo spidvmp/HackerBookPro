@@ -68,6 +68,16 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
 
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //compruebo si el controlador de search esta activo, so lo esta he de quitarlo
+        if searchController.active {
+            //he de quitar el search
+            searchController.active = false
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -86,6 +96,9 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         
        
         let cell = tableView.dequeueReusableCellWithIdentifier(BookCell.cellId() , forIndexPath: indexPath) as! BookCell
+        
+        let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
+        
         var object : BookModel
 
         //obtengo el libro que hay que mostrar, segun sea de coredata o de la busqueda
@@ -94,6 +107,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         } else {
             object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
         }
+
+        
         //pongo los valores
         cell.title.text = object.title
         cell.tags.text = object.tagsString()
@@ -206,6 +221,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                 let object : BookModel
                 if searchController.active && searchController.searchBar.text != "" {
                     object = filteredArray[indexPath.row] as! BookModel
+
                 } else {
                     object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
                 }

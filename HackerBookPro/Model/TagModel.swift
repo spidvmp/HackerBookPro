@@ -60,8 +60,8 @@ public class TagModel : _TagModel {
         
     }
     
-    class func booksWithTagLike(tag t:String, context c:NSManagedObjectContext) -> TagModelArray? {
-        //devuelve un array con los loibros cuyo titulo coincida con lo pedido, es para el search
+    class func booksWithTagLike(tag t:String, context c:NSManagedObjectContext) -> BookModelArray? {
+        //devuelve un array con los libros cuyo tag coincida con lo pedido, es para el search
         let query = NSFetchRequest(entityName: TagModel.entityName())
         
         //array de NSSortDescriptors
@@ -70,7 +70,16 @@ public class TagModel : _TagModel {
         
         do {
             let res = try c.executeFetchRequest(query) as? TagModelArray
-            return res
+            //ahora con todos los tags he de recorreme todos los libros que tienen cada tag
+            var booksSet = Set<BookModel>()
+            for each in res! {
+                //inseto los libros en el conjunto para evitar que se repitan
+                _ = each.books.map({booksSet.insert($0 as! BookModel)})
+            }
+            //ahora obtengo el array de libros
+            let arr = booksSet.map({$0})
+            return arr
+            
             
         } catch {
             return nil
