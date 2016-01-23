@@ -8,6 +8,8 @@
 
 //import Foundation
 
+typealias AuthorModelArray = [AuthorModel]
+
 public class AuthorModel: _AuthorModel {
     //MARK: - inicializadores
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {

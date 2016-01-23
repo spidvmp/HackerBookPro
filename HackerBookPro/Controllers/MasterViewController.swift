@@ -230,43 +230,28 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         switch (scope ){
             
             case "Titulo":
-                pred = NSPredicate(format: "title contains[cd] %@", searchText)
-                let a = self.fetchedResultsController.fetchedObjects?.filter(){
-                    return pred.evaluateWithObject($0)
-                    } as! [BookModel]
-                self.filteredArray.addObjectsFromArray(a)
+                if let a = BookModel.booksWithTitleLike(title: searchText, context: self.stack.context) {
+                    self.filteredArray.addObjectsFromArray(a)
+                }
+
                 break
             case "Tag":
-                
-                pred = NSPredicate(format: "tags.tag contains[cd] %@", searchText)
-
-                let a = self.fetchedResultsController.fetchedObjects?.filter(){
-                    return pred.evaluateWithObject($0)
-                    } as! [BookModel]
-                self.filteredArray.addObjectsFromArray(a)
+                if let t = TagModel.booksWithTagLike(tag: searchText, context: self.stack.context) {
+                    self.filteredArray.addObjectsFromArray(t)
+                }
                 break
             case "Autor":
-                pred = NSPredicate(format: "authors.name contains[cd] %@", searchText)
+                if let e = AuthorModel.booksWithAuthorLike(author: searchText, context: self.stack.context) {
+                    self.filteredArray.addObjectsFromArray(e)
+                }
                 break
             default:
                 break
         }
-        //let pred = NSPredicate(format: "title contains[cd] %@", searchText)
-        //let pred = NSPredicate(format: "title contains [cd] %@", searchText)
-        //self.filteredArray = NSMutableArray(array: self.fetchedResultsController.fetchedObjects!.filter({pred.evaluateWithObject($0)}))
-        
-        
-        //self.filteredArray = NSMutableArray.arrayByAddingObjectsFromArray(a)
-        //if ( a.count > 0) {
-        
-            print(self.filteredArray)
-            //recargo los datos con lo que se esta buscando
+        //recargo los datos con lo que se esta buscando
             
-            tableView.reloadData()
-        //}
-        
-        
-        
+        tableView.reloadData()
+     
     }
 
 }

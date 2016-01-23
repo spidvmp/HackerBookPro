@@ -8,6 +8,7 @@
 
 //import Foundation
 
+typealias TagModelArray = [TagModel]
 
 public class TagModel : _TagModel {
     

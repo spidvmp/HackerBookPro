@@ -7,8 +7,12 @@
 //
 
 //import Foundation
+typealias BookModelArray = [BookModel]
+
+
 enum BookProcessing : ErrorType{
     case WrongObjectID
+    case WrongTitle
 }
 
 public class BookModel : _BookModel {
@@ -28,6 +32,26 @@ public class BookModel : _BookModel {
             throw BookProcessing.WrongObjectID
         }
    
+    }
+    
+    class func booksWithTitleLike(title t:String, context c:NSManagedObjectContext) -> BookModelArray? {
+        //devuelve unarray con los loibros cuyo titulo coincida con lo pedido, es para el search
+        let query = NSFetchRequest(entityName: BookModel.entityName())
+        
+        //array de NSSortDescriptors
+        //query.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true, selector: (caseInsensitiveCompare:))]
+        query.predicate = NSPredicate(format: "title contains [cd] %@", t)
+        
+        do {
+            let res = try c.executeFetchRequest(query) as? BookModelArray
+            return res
+            
+        } catch {
+            return nil
+        }
+        
+        
+        
     }
     
     //MARK: - Inicializadores
@@ -50,7 +74,7 @@ public class BookModel : _BookModel {
         //obtengo los tags que tiene el libro, en self.tags hay un array de TagModel
 
         //genero un array con todos los tags que hay en el libro, con esto solo saco el tag que es un string y se guarda en arr que es un [String]
-        if let arr = self.tags.allObjects as? [TagModel] {
+        if let arr = self.tags.allObjects as? TagModelArray {
             //si estoy aqui, arr contiene por lo menos un elemento, saco solo los tag
             let a = arr.map({$0.tag!})
             //a contiene un array con los tags, lo devuelvo separado por ,
@@ -63,7 +87,7 @@ public class BookModel : _BookModel {
     
     func authorsString() -> String? {
         //similar a los tags, devuelve un string con los escritores del libro
-        if let wri = self.authors.allObjects as? [AuthorModel] {
+        if let wri = self.authors.allObjects as? AuthorModelArray {
             //wri contiene el liestado de los escritores. w sera un array con los nombres
             let w = wri.map({$0.name!})
             
