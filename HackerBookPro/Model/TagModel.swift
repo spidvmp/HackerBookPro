@@ -60,6 +60,23 @@ public class TagModel : _TagModel {
         
     }
     
+    class func booksWithTagLike(tag t:String, context c:NSManagedObjectContext) -> TagModelArray? {
+        //devuelve un array con los loibros cuyo titulo coincida con lo pedido, es para el search
+        let query = NSFetchRequest(entityName: TagModel.entityName())
+        
+        //array de NSSortDescriptors
+        query.sortDescriptors = [NSSortDescriptor(key: "tag", ascending: true)]
+        query.predicate = NSPredicate(format: "tag contains [cd] %@", t)
+        
+        do {
+            let res = try c.executeFetchRequest(query) as? TagModelArray
+            return res
+            
+        } catch {
+            return nil
+        }
+    }
+    
     class func findTag(tag t: String, context c:NSManagedObjectContext) -> TagModel? {
         //busca el nombre del tag, si existe devuelve la entidfad, si no existe devuelve nil
         

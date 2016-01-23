@@ -35,11 +35,11 @@ public class BookModel : _BookModel {
     }
     
     class func booksWithTitleLike(title t:String, context c:NSManagedObjectContext) -> BookModelArray? {
-        //devuelve unarray con los loibros cuyo titulo coincida con lo pedido, es para el search
+        //devuelve un array con los loibros cuyo titulo coincida con lo pedido, es para el search
         let query = NSFetchRequest(entityName: BookModel.entityName())
         
         //array de NSSortDescriptors
-        //query.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true, selector: (caseInsensitiveCompare:))]
+        query.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         query.predicate = NSPredicate(format: "title contains [cd] %@", t)
         
         do {
@@ -49,9 +49,6 @@ public class BookModel : _BookModel {
         } catch {
             return nil
         }
-        
-        
-        
     }
     
     //MARK: - Inicializadores

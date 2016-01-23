@@ -59,6 +59,25 @@ public class AuthorModel: _AuthorModel {
         
     }
     
+    class func booksWithAuthorLike(author a:String, context c:NSManagedObjectContext) -> AuthorModelArray? {
+        //devuelve un array con los loibros cuyo titulo coincida con lo pedido, es para el search
+        let query = NSFetchRequest(entityName: AuthorModel.entityName())
+        
+        //array de NSSortDescriptors
+        query.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        query.predicate = NSPredicate(format: "name contains [cd] %@", a)
+        
+        do {
+            let res = try c.executeFetchRequest(query) as? AuthorModelArray
+            return res
+            
+        } catch {
+            return nil
+        }
+        
+    }
+    
+    
     class func findAuthor(author a: String, context c:NSManagedObjectContext) -> AuthorModel? {
         //busca el nombre del autor, si existe devuelve la entidfad, si no existe devuelve nil
         
@@ -81,11 +100,7 @@ public class AuthorModel: _AuthorModel {
             //error, pues devuelvo nil
             return nil
         }
-
-
     }
-
-    
 }
 
     
