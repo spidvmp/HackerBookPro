@@ -14,7 +14,6 @@ public class AnnotationModel: _AnnotationModel {
         self.text = text
         
         //creo la relacion de la photo, hacemos lo mismo la creamos la relacion pero la foto puede que este vacia, igual que coverimage
-        
         self.photo = PhotoModel(entity: _PhotoModel.entity(c), insertIntoManagedObjectContext: c)
     }
 

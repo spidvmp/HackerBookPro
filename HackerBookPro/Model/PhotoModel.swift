@@ -16,22 +16,28 @@ public class PhotoModel: _PhotoModel {
 
     
     var image: UIImage? {
-        set{
+        set(img){
             //Me asignan un valor, lo guardo como NSData
-            if let i = image {
-                self.photoData = UIImageJPEGRepresentation(i, 0.9)
+            guard (img != nil) else {
+                return
             }
+            
+            //tengo una imagen
+            self.photoData = UIImageJPEGRepresentation(img!, 0.9)
+            
             
         }
         get {
             //saco el valor que es un NSData y devuelvo
-            if let a = UIImage(data: self.photoData!) {
-                return a
+            if let a = self.photoData {
+                //tengo algun dato, lo transformo a uiimage
+                let i = UIImage(data: a)
+                return i
             }
             else {
                 return nil
             }
-        
+            
         }
     }
     
