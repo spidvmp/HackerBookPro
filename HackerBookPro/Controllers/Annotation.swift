@@ -45,6 +45,18 @@ class Annotation: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         //sincronizo la vista con el modelo
+        if self.annotation != nil {
+            //le han dado a borrar
+            self.annotation?.title = self.titleTField.text
+            self.annotation?.text = self.textTField.text
+        }
+        //ahora sea lo que sea, grabo
+        do {
+            try stack.context.save()
+            print ("grabado en annotation modal")
+        }    catch {
+            print ("error al grabar")
+        }
     }
 
     func updateUI() {
@@ -69,6 +81,10 @@ class Annotation: UIViewController {
     }
     
     @IBAction func deleteNote(sender: AnyObject) {
+        //se borra la nota, asi que tambien se sale de esta vista
+        self.stack.context.deleteObject(self.annotation!)
+        self.annotation = nil
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*
     // MARK: - Navigation

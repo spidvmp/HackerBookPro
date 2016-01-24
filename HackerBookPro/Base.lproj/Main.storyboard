@@ -189,7 +189,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-oI-6JZ">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-oI-6JZ">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="qiy-eX-aLI"/>
@@ -204,7 +204,12 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4sl-Zf-h7I" firstAttribute="top" secondItem="GgE-oI-6JZ" secondAttribute="bottom" id="Gai-i7-2sN"/>
+                            <constraint firstItem="GgE-oI-6JZ" firstAttribute="leading" secondItem="5Rk-CF-OnQ" secondAttribute="leadingMargin" constant="-20" id="VGo-Fx-gX4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GgE-oI-6JZ" secondAttribute="trailing" constant="-20" id="m5w-KY-cz8"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="textTField" destination="2bg-ZX-g2J" id="x5S-ch-M6p"/>
