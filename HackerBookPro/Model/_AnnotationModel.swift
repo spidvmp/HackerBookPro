@@ -4,6 +4,8 @@
 import CoreData
 
 public enum AnnotationModelAttributes: String {
+    case creationDate = "creationDate"
+    case modificationDate = "modificationDate"
     case text = "text"
     case title = "title"
 }
@@ -39,6 +41,16 @@ class _AnnotationModel: NSManagedObject {
     }
 
     // MARK: - Properties
+
+    @NSManaged public
+    var creationDate: NSDate?
+
+    // func validateCreationDate(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
+    @NSManaged public
+    var modificationDate: NSDate?
+
+    // func validateModificationDate(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
     var text: String?

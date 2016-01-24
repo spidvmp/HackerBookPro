@@ -49,6 +49,9 @@ class Annotation: UIViewController {
             //le han dado a borrar
             self.annotation?.title = self.titleTField.text
             self.annotation?.text = self.textTField.text
+            
+            //se supoen que hemos actualizado
+            self.annotation?.modificationDate = NSDate()
         }
         //ahora sea lo que sea, grabo
         do {
