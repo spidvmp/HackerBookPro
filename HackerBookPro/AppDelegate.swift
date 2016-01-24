@@ -42,7 +42,7 @@ import UIKit
         splitViewController.delegate = self
         
         //he de acceder al masterViewController para pasarle el stack
-        //Master esta en el elemento 0
+        //Master esta en el elemento 0 de los controladores de splitViewController
         let mastNav = splitViewController.viewControllers[0] as! UINavigationController
         let mast = mastNav.viewControllers[0] as! MasterViewController
         mast.stack = self.stack

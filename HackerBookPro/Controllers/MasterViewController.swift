@@ -95,7 +95,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     // MARK: - Table View
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-       
+
         let cell = tableView.dequeueReusableCellWithIdentifier(BookCell.cellId() , forIndexPath: indexPath) as! BookCell
         
         let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
@@ -238,9 +238,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     func filterContextForSearchText(searchText: String, scope: String){
         //hago el filtro que tenga que ser. El resultado he de ponerlo en el array filteredResults
         //segun tenga pulsado la opcion del scope
-        let pred : NSPredicate
-        
-        //borro lo que habia
+
+        //borro lo que habia para guardar lo nuevo que se encuentre
         self.filteredArray.removeAllObjects()
         
         //dependiendo del scope hago una busqueda diferente
