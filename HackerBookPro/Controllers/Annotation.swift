@@ -10,9 +10,23 @@ import UIKit
 
 class Annotation: UIViewController {
     
+    @IBOutlet weak var titleTField: UITextField!
+    @IBOutlet weak var textTField: UITextView!
+    
     //modelo de datos a tratar. Cuando llegue aqui esta creado en coredata
-    var annotation : AnnotationModel! = nil
 
+    var stack : AGTSimpleCoreDataStack!
+    
+    var annotation : AnnotationModel? {
+        didSet {
+            updateUI()
+            
+        }
+    }
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +36,10 @@ class Annotation: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //sincronizo el modelo con la vista
+        //compruebo si la nota viene con datos o viene vacia
+        updateUI()
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -29,14 +47,28 @@ class Annotation: UIViewController {
         //sincronizo la vista con el modelo
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateUI() {
+        if let a = self.annotation {
+            if let t = self.titleTField {
+                t.text = a.title
+            }
+            
+            if let x = self.textTField {
+                x.text = a.text
+            }
+            
+            
+        }
+        
     }
     
-
+    
+    //MARK: - Acciones
     @IBAction func okButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func deleteNote(sender: AnyObject) {
     }
     /*
     // MARK: - Navigation

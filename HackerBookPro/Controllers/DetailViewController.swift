@@ -17,6 +17,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var readButton: UIButton!
     
+    var stack : AGTSimpleCoreDataStack!
+    
     var book: BookModel? {
         didSet {
             // Update the view.
@@ -67,9 +69,21 @@ class DetailViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //aqui hay varias acciones que pueden suceder
         if segue.identifier == "PdfViewer" {
-            let destino = segue.destinationViewController as? PdfView
-            destino?.book = book
+            let destino = segue.destinationViewController as! PdfView
+            destino.book = book
+            destino.stack = self.stack
+        } else  if segue.identifier == "AddNote" {
+            let destino = segue.destinationViewController as! Annotation
+            
+            //genero una nueva nota vacia
+            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
+            
+            //coloco las propiedades
+            destino.stack = self.stack
+            destino.annotation = nota
+            
         }
     }
 

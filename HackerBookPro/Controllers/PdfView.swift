@@ -12,6 +12,8 @@ class PdfView: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var pdfWebView: UIWebView!
     
+    var stack : AGTSimpleCoreDataStack!
+    
     var book : BookModel? {
         //observador de propiedades, sirve para saber cuando se ha modificado una propiedad
         //willSet se llama antes de asignarse la variable y didSet despues de asignarse, asi que en willSet libro es nil y en didSet ya tiene valor
@@ -81,6 +83,22 @@ class PdfView: UIViewController, UIWebViewDelegate {
         
         showPDF()
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddNote" {
+            
+            let destino = segue.destinationViewController as! Annotation
+            
+            //genero una nueva nota vacia
+            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
+            
+            //coloco las propiedades
+            destino.stack = self.stack
+            destino.annotation = nota
+            
+            
+        }
     }
 
 
