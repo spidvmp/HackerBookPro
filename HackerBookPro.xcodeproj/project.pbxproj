@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2B103F511C491FD800CDDA7E /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B103F501C491FD800CDDA7E /* UIKitExtension.swift */; };
 		2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B200A171C4AA11D00B79502 /* AsyncDownload.swift */; };
+		2B5A5EA01C54B3B600875D97 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A5E9F1C54B3B600875D97 /* LocationModel.swift */; };
+		2B5A5EA21C54B46C00875D97 /* _LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A5EA11C54B46C00875D97 /* _LocationModel.swift */; };
 		2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */; };
 		2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6C11C3B0B4600F72899 /* BookCell.swift */; };
 		2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B72F6C21C3B0B4600F72899 /* BookCell.xib */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		2B103F501C491FD800CDDA7E /* UIKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitExtension.swift; path = Frameworks/UIKitExtension.swift; sourceTree = "<group>"; };
 		2B200A171C4AA11D00B79502 /* AsyncDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncDownload.swift; path = Utils/AsyncDownload.swift; sourceTree = "<group>"; };
+		2B5A5E9F1C54B3B600875D97 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationModel.swift; path = Model/LocationModel.swift; sourceTree = "<group>"; };
+		2B5A5EA11C54B46C00875D97 /* _LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _LocationModel.swift; path = Model/_LocationModel.swift; sourceTree = "<group>"; };
 		2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PdfModel.swift; path = Model/_PdfModel.swift; sourceTree = "<group>"; };
 		2B72F6C11C3B0B4600F72899 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookCell.swift; path = Cell/BookCell.swift; sourceTree = "<group>"; };
 		2B72F6C21C3B0B4600F72899 /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookCell.xib; path = Cell/BookCell.xib; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 		2B9825F11C33E5670004F1AE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2B5A5EA11C54B46C00875D97 /* _LocationModel.swift */,
 				2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */,
 				2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */,
 				2BE083B51C3A8CC400E17827 /* _CoverModel.swift */,
@@ -186,6 +191,7 @@
 				2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */,
 				2BCB7B5E1C37BF23008D4CBA /* Book.swift */,
 				2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */,
+				2B5A5E9F1C54B3B600875D97 /* LocationModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 				2BDCCEC31C33F8F4009C4F25 /* BookModel.swift in Sources */,
 				2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */,
 				2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */,
+				2B5A5EA01C54B3B600875D97 /* LocationModel.swift in Sources */,
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
@@ -309,6 +316,7 @@
 				2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */,
 				2BDEEB801C499F5E00C89B31 /* PdfView.swift in Sources */,
 				2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */,
+				2B5A5EA21C54B46C00875D97 /* _LocationModel.swift in Sources */,
 				2BE083B91C3A8CC400E17827 /* _PhotoModel.swift in Sources */,
 				2BE083BC1C3A8CD400E17827 /* AnnotationModel.swift in Sources */,
 				2BDCCECD1C3419CD009C4F25 /* PdfModel.swift in Sources */,

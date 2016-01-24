@@ -52,7 +52,7 @@ class Book : NSObject {
 
         
         //asi queda la entidad libro, tiene los autores ylos tags
-        print (b)
+        //print (b)
     }
     
 }

@@ -5,6 +5,7 @@ import CoreData
 
 public enum AnnotationModelAttributes: String {
     case text = "text"
+    case title = "title"
 }
 
 public enum AnnotationModelRelationships: String {
@@ -44,6 +45,11 @@ class _AnnotationModel: NSManagedObject {
 
     // func validateText(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
+    @NSManaged public
+    var title: String?
+
+    // func validateTitle(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
     // MARK: - Relationships
 
     @NSManaged public
@@ -52,7 +58,7 @@ class _AnnotationModel: NSManagedObject {
     // func validateBook(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
-    var location: NSManagedObject?
+    var location: LocationModel?
 
     // func validateLocation(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
