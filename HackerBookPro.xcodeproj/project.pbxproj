@@ -41,6 +41,7 @@
 		2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B41C3930260025EE94 /* TagModel.swift */; };
 		2BE2A2B71C39309D0025EE94 /* _TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B61C39309D0025EE94 /* _TagModel.swift */; };
 		2BE50FDE1C479D1700F8B99C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE50FDD1C479D1700F8B99C /* placeholder.png */; };
+		2BF3DABA1C54D3D500EC1803 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF3DAB91C54D3D500EC1803 /* Annotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		2BE2A2B41C3930260025EE94 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagModel.swift; path = Model/TagModel.swift; sourceTree = "<group>"; };
 		2BE2A2B61C39309D0025EE94 /* _TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _TagModel.swift; path = Model/_TagModel.swift; sourceTree = "<group>"; };
 		2BE50FDD1C479D1700F8B99C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Resources/placeholder.png; sourceTree = "<group>"; };
+		2BF3DAB91C54D3D500EC1803 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Annotation.swift; path = Controllers/Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */,
 				2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */,
 				2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */,
+				2BF3DAB91C54D3D500EC1803 /* Annotation.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
+				2BF3DABA1C54D3D500EC1803 /* Annotation.swift in Sources */,
 				2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */,
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
