@@ -8,11 +8,45 @@
 
 import UIKit
 
-class NotesCollectionViewController: AGTCoreDataCollectionViewController {
+//class NotesCollectionViewController: AGTCoreDataCollectionViewController {
+class NotesCollectionViewController: UICollectionViewController {
     
     var stack : AGTSimpleCoreDataStack!
     var book : BookModel!
+    
+//    convenience init(resultsController : NSFetchedResultsController , layout: UICollectionViewLayout){
+//
+//        super.init(fetchedResultsController: resultsController, layout: layout)
+//        
+//        
+//    }
+    
+//    override init!(fetchedResultsController resultsController: NSFetchedResultsController!, layout: UICollectionViewLayout!) {
+//        super.init(fetchedResultsController: resultsController, layout: layout)
+//        
+//        
+////        
+////        
+////        
+////        if (self = [super initWithCollectionViewLayout:layout]) {
+////            _objectChanges = [@[]mutableCopy];
+////            _sectionChanges =[@[]mutableCopy];
+////            _fetchedResultsController = resultsController;
+////            _fetchedResultsController.delegate = self;
+////        }
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        //fatalError("init(coder:) has not been implemented")
+//    
+//        super.init(coder: aDecoder)
+//
+//        
+//    }
 
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         registerNib()
@@ -21,20 +55,20 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
     
     func registerNib() {
         let  nib = UINib.init(nibName: "NoteCollectionCell", bundle: nil)
-        self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: NoteCollectionCell.cellID())
+        self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: NoteCollectionCell.cellId())
     }
         
     //MARK: - Data source
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         //obtenemos la nota
         let note = self.fetchedResultsController.objectAtIndexPath(indexPath)
         
         //obtenemos la celda
-        var cell = collectionView .dequeueReusableCellWithReuseIdentifier(NoteCollectionCell.cellID(), forIndexPath: indexPath)
+        let cell = collectionView .dequeueReusableCellWithReuseIdentifier(NoteCollectionCell.cellId(), forIndexPath: indexPath) as! NoteCollectionCell
         
         //configurar la celda
-        cell.title = note.title
+        cell.title.text = note.title
         
         
         return cell
@@ -57,6 +91,7 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
             //coloco las propiedades
             destino.stack = self.stack
             destino.annotation = nota
+            
         }
     }
 

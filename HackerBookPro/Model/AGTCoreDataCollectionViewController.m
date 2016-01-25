@@ -43,8 +43,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    
+
     [self performFetch];
     
     // Set default title

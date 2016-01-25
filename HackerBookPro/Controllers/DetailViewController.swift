@@ -77,14 +77,19 @@ class DetailViewController: UIViewController {
         } else  if segue.identifier == "NoteList" {
 
             //muestro la collection View de las notas
+            let l = UICollectionViewLayout()
             let destino = segue.destinationViewController as! NotesCollectionViewController
             
             //genero la busqueda de las notas del libro
             let fetch = NSFetchRequest(entityName: AnnotationModel.entityName())
+            let sort = NSSortDescriptor(key:"title", ascending: true)
+            fetch.sortDescriptors = [sort]
             let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
             
             //definmos el layout
             let layout = UICollectionViewLayout()
+            
+            
             
             //layout.itemSize = CGSizeMake(120, 120)
             
@@ -92,7 +97,8 @@ class DetailViewController: UIViewController {
             destino.stack = self.stack
             destino.book = self.book
             destino.fetchedResultsController = fc
-            destino.la
+        
+            
             
         }
     }

@@ -16,6 +16,8 @@
 		2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B72F6C21C3B0B4600F72899 /* BookCell.xib */; };
 		2B7330281C56353800B5730F /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7330271C56353800B5730F /* AGTCoreDataCollectionViewController.m */; };
 		2B73302A1C56359900B5730F /* NotesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7330291C56359900B5730F /* NotesCollectionViewController.swift */; };
+		2B7330311C5649CE00B5730F /* NoteCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B73302F1C5649CE00B5730F /* NoteCollectionCell.swift */; };
+		2B7330321C5649CE00B5730F /* NoteCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7330301C5649CE00B5730F /* NoteCollectionCell.xib */; };
 		2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */; };
 		2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */; };
 		2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */; };
@@ -57,6 +59,8 @@
 		2B7330261C56353800B5730F /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGTCoreDataCollectionViewController.h; path = Model/AGTCoreDataCollectionViewController.h; sourceTree = "<group>"; };
 		2B7330271C56353800B5730F /* AGTCoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGTCoreDataCollectionViewController.m; path = Model/AGTCoreDataCollectionViewController.m; sourceTree = "<group>"; };
 		2B7330291C56359900B5730F /* NotesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesCollectionViewController.swift; path = Controllers/NotesCollectionViewController.swift; sourceTree = "<group>"; };
+		2B73302F1C5649CE00B5730F /* NoteCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteCollectionCell.swift; path = Cell/NoteCollectionCell.swift; sourceTree = "<group>"; };
+		2B7330301C5649CE00B5730F /* NoteCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoteCollectionCell.xib; path = Cell/NoteCollectionCell.xib; sourceTree = "<group>"; };
 		2B9825D71C33E19D0004F1AE /* HackerBookPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBookPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = Controllers/MasterViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			children = (
 				2B72F6C11C3B0B4600F72899 /* BookCell.swift */,
 				2B72F6C21C3B0B4600F72899 /* BookCell.xib */,
+				2B73302F1C5649CE00B5730F /* NoteCollectionCell.swift */,
+				2B7330301C5649CE00B5730F /* NoteCollectionCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 				2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */,
 				2B9825E71C33E19E0004F1AE /* LaunchScreen.storyboard in Resources */,
 				2B9825E41C33E19E0004F1AE /* Assets.xcassets in Resources */,
+				2B7330321C5649CE00B5730F /* NoteCollectionCell.xib in Resources */,
 				2BE50FDE1C479D1700F8B99C /* placeholder.png in Resources */,
 				2B9825E21C33E19E0004F1AE /* Main.storyboard in Resources */,
 			);
@@ -320,6 +327,7 @@
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
 				2BF3DABA1C54D3D500EC1803 /* Annotation.swift in Sources */,
 				2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */,
+				2B7330311C5649CE00B5730F /* NoteCollectionCell.swift in Sources */,
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,
