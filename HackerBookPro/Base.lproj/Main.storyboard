@@ -123,13 +123,14 @@
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>
-        <!--Title-->
+        <!--Notes Collection View Controller-->
         <scene sceneID="ibu-KZ-H3U">
             <objects>
                 <collectionViewController id="Jpc-C0-AXQ" customClass="NotesCollectionViewController" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Skh-EK-y3f">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.2083348374" blue="0.25552249300000002" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vDt-5f-7h1">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -153,13 +154,6 @@
                         </connections>
                     </collectionView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="aTz-sp-M9l">
-                        <barButtonItem key="rightBarButtonItem" title="Nueva Nota" id="9TA-RO-pnt">
-                            <connections>
-                                <segue destination="ETc-t2-F2W" kind="presentation" identifier="NewNote" id="b4J-pZ-HzF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6b-9B-W4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,7 +241,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.67000005559999998" green="0.97036166960000003" blue="0.54695970500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4sl-Zf-h7I" firstAttribute="top" secondItem="GgE-oI-6JZ" secondAttribute="bottom" id="Gai-i7-2sN"/>
                             <constraint firstItem="GgE-oI-6JZ" firstAttribute="leading" secondItem="5Rk-CF-OnQ" secondAttribute="leadingMargin" constant="-20" id="VGo-Fx-gX4"/>

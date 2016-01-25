@@ -117,8 +117,10 @@ class DetailViewController: UIViewController {
         layout.itemSize = CGSizeMake(50, 50)
         //layout.scrollDirection = UICollectionViewScrollDirection
         
-        let a = NotesCollectionViewController(fetchedResultsController: fc, layout: layout)
-        self.navigationController?.pushViewController(a, animated: true)
+        let nVC = NotesCollectionViewController(fetchedResultsController: fc, layout: layout)
+        nVC.book = self.book
+        nVC.stack = self.stack
+        self.navigationController?.pushViewController(nVC, animated: true)
     }
 }
 

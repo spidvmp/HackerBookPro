@@ -14,31 +14,11 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
     var stack : AGTSimpleCoreDataStack!
     var book : BookModel!
     
-//    convenience init(resultsController : NSFetchedResultsController , layout: UICollectionViewLayout){
-//
-//        super.init(fetchedResultsController: resultsController, layout: layout)
-//        
-//        
-//    }
+
     override init!(fetchedResultsController resultsController: NSFetchedResultsController!, layout: UICollectionViewLayout!) {
         super.init(fetchedResultsController: resultsController, layout: layout)
     }
     
-//    override init!(fetchedResultsController resultsController: NSFetchedResultsController!, layout: UICollectionViewLayout!) {
-//        super.init(fetchedResultsController: resultsController, layout: layout)
-//        
-//        
-////        
-////        
-////        
-////        if (self = [super initWithCollectionViewLayout:layout]) {
-////            _objectChanges = [@[]mutableCopy];
-////            _sectionChanges =[@[]mutableCopy];
-////            _fetchedResultsController = resultsController;
-////            _fetchedResultsController.delegate = self;
-////        }
-//    }
-//
     required init?(coder aDecoder: NSCoder) {
         //fatalError("init(coder:) has not been implemented")
     
@@ -55,6 +35,10 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         registerNib()
+        //coloco el boton para neuva nota
+        let new = UIBarButtonItem(title: "Nueva Nota", style: .Plain, target: self, action: "newNoteAction")
+        self.navigationItem.rightBarButtonItem = new
+        //new.set
     }
     
     
@@ -82,23 +66,40 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
 
 
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func newNoteAction() {
+        //han pulsado que quieren nueva nota
+        let nn  = Annotation()
         
-        if segue.identifier == "NewNote" {
-            //nueva nota
-            let destino = segue.destinationViewController as! Annotation
-            
-            //genero una nueva nota vacia
-            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
-            
-            //coloco las propiedades
-            destino.stack = self.stack
-            destino.annotation = nota
-            
-        }
+        //creo la nota
+        let nota = AnnotationModel(book: self.book!, context: self.stack.context)
+        
+        //coloco las propiedades
+        nn.stack = self.stack
+        nn.annotation = nota
+        //present modal
+        self.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        //self.modalPresentationStyle = .CurrentContext
+        self.navigationController?.presentViewController(nn, animated: true, completion: nil)
+        
     }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        
+//        if segue.identifier == "NewNote" {
+//            //nueva nota
+//            let destino = segue.destinationViewController as! Annotation
+//            
+//            //genero una nueva nota vacia
+//            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
+//            
+//            //coloco las propiedades
+//            destino.stack = self.stack
+//            destino.annotation = nota
+//            
+//        }
+//    }
 
 
 }
