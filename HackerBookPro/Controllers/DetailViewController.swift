@@ -112,9 +112,10 @@ class DetailViewController: UIViewController {
         let sort = NSSortDescriptor(key:"title", ascending: true)
         fetch.sortDescriptors = [sort]
         let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
-        let layout = UICollectionViewLayout()
+        let layout = UICollectionViewFlowLayout()
 
-        layout.collectionViewContentSize()
+        layout.itemSize = CGSizeMake(50, 50)
+        //layout.scrollDirection = UICollectionViewScrollDirection
         
         let a = NotesCollectionViewController(fetchedResultsController: fc, layout: layout)
         self.navigationController?.pushViewController(a, animated: true)
