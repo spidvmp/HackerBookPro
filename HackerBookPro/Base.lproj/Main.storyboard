@@ -106,9 +106,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Book" id="mOI-FS-AaM">
-                        <barButtonItem key="rightBarButtonItem" title="Nota Nueva" id="89I-xM-9tw">
+                        <barButtonItem key="rightBarButtonItem" title="Notas" id="89I-xM-9tw">
                             <connections>
-                                <segue destination="ETc-t2-F2W" kind="presentation" identifier="AddNote" id="bop-tR-Q6Z"/>
+                                <segue destination="Jpc-C0-AXQ" kind="show" identifier="NoteList" id="fL5-Kn-I4U"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -122,6 +122,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="ibu-KZ-H3U">
+            <objects>
+                <collectionViewController id="Jpc-C0-AXQ" customClass="NotesCollectionViewController" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Skh-EK-y3f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vDt-5f-7h1">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GYD-6i-NMe">
+                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Jpc-C0-AXQ" id="xJf-65-6si"/>
+                            <outlet property="delegate" destination="Jpc-C0-AXQ" id="l9T-fk-iBt"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="aTz-sp-M9l">
+                        <barButtonItem key="rightBarButtonItem" title="Nueva Nota" id="9TA-RO-pnt">
+                            <connections>
+                                <segue destination="ETc-t2-F2W" kind="presentation" identifier="NewNote" id="b4J-pZ-HzF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6b-9B-W4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="929"/>
         </scene>
         <!--Pdf View-->
         <scene sceneID="oGC-GK-QNQ">
@@ -156,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GfX-oA-6YD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="725"/>
+            <point key="canvasLocation" x="1740" y="-83"/>
         </scene>
         <!--Annotation-->
         <scene sceneID="Hhl-Ex-gre">
@@ -218,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ja8-dB-ZWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="-29"/>
+            <point key="canvasLocation" x="1740" y="929"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">

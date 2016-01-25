@@ -74,15 +74,14 @@ class DetailViewController: UIViewController {
             let destino = segue.destinationViewController as! PdfView
             destino.book = book
             destino.stack = self.stack
-        } else  if segue.identifier == "AddNote" {
-            let destino = segue.destinationViewController as! Annotation
-            
-            //genero una nueva nota vacia
-            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
+        } else  if segue.identifier == "NoteList" {
+
+            //muestro la collection View de las notas
+            let destino = segue.destinationViewController as! NotesCollectionViewController
             
             //coloco las propiedades
             destino.stack = self.stack
-            destino.annotation = nota
+            destino.book = self.book
             
         }
     }
