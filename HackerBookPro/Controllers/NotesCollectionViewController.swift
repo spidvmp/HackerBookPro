@@ -8,8 +8,8 @@
 
 import UIKit
 
-//class NotesCollectionViewController: AGTCoreDataCollectionViewController {
-class NotesCollectionViewController: UICollectionViewController {
+class NotesCollectionViewController: AGTCoreDataCollectionViewController {
+//class NotesCollectionViewController: UICollectionViewController {
     
     var stack : AGTSimpleCoreDataStack!
     var book : BookModel!
@@ -20,6 +20,9 @@ class NotesCollectionViewController: UICollectionViewController {
 //        
 //        
 //    }
+    override init!(fetchedResultsController resultsController: NSFetchedResultsController!, layout: UICollectionViewLayout!) {
+        super.init(fetchedResultsController: resultsController, layout: layout)
+    }
     
 //    override init!(fetchedResultsController resultsController: NSFetchedResultsController!, layout: UICollectionViewLayout!) {
 //        super.init(fetchedResultsController: resultsController, layout: layout)
@@ -36,13 +39,15 @@ class NotesCollectionViewController: UICollectionViewController {
 ////        }
 //    }
 //
-//    required init?(coder aDecoder: NSCoder) {
-//        //fatalError("init(coder:) has not been implemented")
-//    
-//        super.init(coder: aDecoder)
-//
-//        
-//    }
+    required init?(coder aDecoder: NSCoder) {
+        //fatalError("init(coder:) has not been implemented")
+    
+        super.init(coder: aDecoder)
+
+        
+    }
+    
+    
 
     
     

@@ -74,34 +74,50 @@ class DetailViewController: UIViewController {
             let destino = segue.destinationViewController as! PdfView
             destino.book = book
             destino.stack = self.stack
-        } else  if segue.identifier == "NoteList" {
-
-            //muestro la collection View de las notas
-            let l = UICollectionViewLayout()
-            let destino = segue.destinationViewController as! NotesCollectionViewController
-            
-            //genero la busqueda de las notas del libro
-            let fetch = NSFetchRequest(entityName: AnnotationModel.entityName())
-            let sort = NSSortDescriptor(key:"title", ascending: true)
-            fetch.sortDescriptors = [sort]
-            let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
-            
-            //definmos el layout
-            let layout = UICollectionViewLayout()
-            
-            
-            
-            //layout.itemSize = CGSizeMake(120, 120)
-            
-            //coloco las propiedades
-            destino.stack = self.stack
-            destino.book = self.book
-            destino.fetchedResultsController = fc
-        
-            
-            
         }
+//        else  if segue.identifier == "NoteList" {
+//
+//            //muestro la collection View de las notas
+//            let l = UICollectionViewLayout()
+//            let destino = segue.destinationViewController as! NotesCollectionViewController
+//            
+//            //genero la busqueda de las notas del libro
+//            let fetch = NSFetchRequest(entityName: AnnotationModel.entityName())
+//            let sort = NSSortDescriptor(key:"title", ascending: true)
+//            fetch.sortDescriptors = [sort]
+//            let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
+//            
+//            //definmos el layout
+//            let layout = UICollectionViewLayout()
+//            
+//            
+//            
+//            //layout.itemSize = CGSizeMake(120, 120)
+//            
+//            //coloco las propiedades
+//            destino.stack = self.stack
+//            destino.book = self.book
+//            destino.fetchedResultsController = fc
+//        
+//            
+//            
+//        }
     }
 
+
+    @IBAction func notesAction(sender: AnyObject) {
+        //pulsan el boton de notas, me voy al controlador NotesCollection pero de la forma tradicional, sin storyboard y con el init
+        
+        let fetch = NSFetchRequest(entityName: AnnotationModel.entityName())
+        let sort = NSSortDescriptor(key:"title", ascending: true)
+        fetch.sortDescriptors = [sort]
+        let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
+        let layout = UICollectionViewLayout()
+
+        layout.collectionViewContentSize()
+        
+        let a = NotesCollectionViewController(fetchedResultsController: fc, layout: layout)
+        self.navigationController?.pushViewController(a, animated: true)
+    }
 }
 

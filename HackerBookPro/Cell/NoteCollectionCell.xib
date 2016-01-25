@@ -22,6 +22,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" red="1" green="0.97159477240000003" blue="0.1127415502" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="title" destination="i2Z-E3-0AO" id="OvL-tP-9nT"/>
             </connections>
