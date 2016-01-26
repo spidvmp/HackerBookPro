@@ -80,15 +80,13 @@ class NoteController: UIViewController {
     
     
     //MARK: - Acciones
-    @IBAction func okButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     @IBAction func deleteNote(sender: AnyObject) {
         //se borra la nota, asi que tambien se sale de esta vista
         self.stack.context.deleteObject(self.annotation!)
         self.annotation = nil
-        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
 

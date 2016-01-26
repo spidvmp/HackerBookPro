@@ -91,10 +91,8 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         nn.stack = self.stack
         nn.annotation = nota
         //present modal
-        //self.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        //self.modalPresentationStyle = .CurrentContext
-        self.presentViewController(nn, animated: true, completion: nil)
-        
+        //self.presentViewController(nn, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nn, animated: true)
     }
 
 
