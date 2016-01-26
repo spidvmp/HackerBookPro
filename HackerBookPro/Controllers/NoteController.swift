@@ -1,20 +1,22 @@
 //
-//  Annotation.swift
+//  NoteController.swift
 //  HackerBookPro
 //
-//  Created by Vicente de Miguel on 24/1/16.
+//  Created by Vicente de Miguel on 26/1/16.
 //  Copyright © 2016 Nicatec Software. All rights reserved.
 //
 
 import UIKit
 
-class Annotation: UIViewController {
-    
+class NoteController: UIViewController {
+
     @IBOutlet weak var titleTField: UITextField!
     @IBOutlet weak var textTField: UITextView!
+    @IBOutlet weak var okButton: UIButton!
+
     
     //modelo de datos a tratar. Cuando llegue aqui esta creado en coredata
-
+    
     var stack : AGTSimpleCoreDataStack!
     
     var annotation : AnnotationModel? {
@@ -24,12 +26,12 @@ class Annotation: UIViewController {
         }
     }
     
-
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -61,7 +63,7 @@ class Annotation: UIViewController {
             print ("error al grabar")
         }
     }
-
+    
     func updateUI() {
         if let a = self.annotation {
             if let t = self.titleTField {
@@ -89,14 +91,6 @@ class Annotation: UIViewController {
         self.annotation = nil
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

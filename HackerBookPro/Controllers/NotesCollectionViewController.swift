@@ -69,7 +69,8 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
     
     func newNoteAction() {
         //han pulsado que quieren nueva nota
-        let nn  = Annotation()
+        //let nn  = Annotation()
+        let nn = NoteController()
         
         //creo la nota
         let nota = AnnotationModel(book: self.book!, context: self.stack.context)
@@ -78,9 +79,9 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         nn.stack = self.stack
         nn.annotation = nota
         //present modal
-        self.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        //self.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         //self.modalPresentationStyle = .CurrentContext
-        self.navigationController?.presentViewController(nn, animated: true, completion: nil)
+        self.presentViewController(nn, animated: true, completion: nil)
         
     }
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

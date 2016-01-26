@@ -25,6 +25,8 @@
 		2B9825E41C33E19E0004F1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9825E31C33E19E0004F1AE /* Assets.xcassets */; };
 		2B9825E71C33E19E0004F1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9825E51C33E19E0004F1AE /* LaunchScreen.storyboard */; };
 		2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825F21C33E5930004F1AE /* Hacker.xcdatamodeld */; };
+		2BAA38821C58270D00A8D3DD /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAA38801C58270D00A8D3DD /* NoteController.swift */; };
+		2BAA38831C58270D00A8D3DD /* NoteController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAA38811C58270D00A8D3DD /* NoteController.xib */; };
 		2BCB7B5F1C37BF23008D4CBA /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B5E1C37BF23008D4CBA /* Book.swift */; };
 		2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */; };
 		2BCB7B641C37EBF8008D4CBA /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B631C37EBF8008D4CBA /* AGTCoreDataTableViewController.m */; };
@@ -45,7 +47,6 @@
 		2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B41C3930260025EE94 /* TagModel.swift */; };
 		2BE2A2B71C39309D0025EE94 /* _TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B61C39309D0025EE94 /* _TagModel.swift */; };
 		2BE50FDE1C479D1700F8B99C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE50FDD1C479D1700F8B99C /* placeholder.png */; };
-		2BF3DABA1C54D3D500EC1803 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF3DAB91C54D3D500EC1803 /* Annotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		2B9825E61C33E19E0004F1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B9825E81C33E19E0004F1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B9825F31C33E5930004F1AE /* Hacker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hacker.xcdatamodel; sourceTree = "<group>"; };
+		2BAA38801C58270D00A8D3DD /* NoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteController.swift; path = Controllers/NoteController.swift; sourceTree = "<group>"; };
+		2BAA38811C58270D00A8D3DD /* NoteController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoteController.xib; path = Controllers/NoteController.xib; sourceTree = "<group>"; };
 		2BCB7B5E1C37BF23008D4CBA /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = Model/Book.swift; sourceTree = "<group>"; };
 		2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONProcessing.swift; path = Model/JSONProcessing.swift; sourceTree = "<group>"; };
 		2BCB7B621C37EBF8008D4CBA /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGTCoreDataTableViewController.h; path = Model/AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
@@ -93,7 +96,6 @@
 		2BE2A2B41C3930260025EE94 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagModel.swift; path = Model/TagModel.swift; sourceTree = "<group>"; };
 		2BE2A2B61C39309D0025EE94 /* _TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _TagModel.swift; path = Model/_TagModel.swift; sourceTree = "<group>"; };
 		2BE50FDD1C479D1700F8B99C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Resources/placeholder.png; sourceTree = "<group>"; };
-		2BF3DAB91C54D3D500EC1803 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Annotation.swift; path = Controllers/Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +192,9 @@
 				2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */,
 				2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */,
 				2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */,
-				2BF3DAB91C54D3D500EC1803 /* Annotation.swift */,
 				2B7330291C56359900B5730F /* NotesCollectionViewController.swift */,
+				2BAA38801C58270D00A8D3DD /* NoteController.swift */,
+				2BAA38811C58270D00A8D3DD /* NoteController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				2B9825E41C33E19E0004F1AE /* Assets.xcassets in Resources */,
 				2B7330321C5649CE00B5730F /* NoteCollectionCell.xib in Resources */,
 				2BE50FDE1C479D1700F8B99C /* placeholder.png in Resources */,
+				2BAA38831C58270D00A8D3DD /* NoteController.xib in Resources */,
 				2B9825E21C33E19E0004F1AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +317,7 @@
 				2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */,
 				2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */,
 				2B103F511C491FD800CDDA7E /* UIKitExtension.swift in Sources */,
+				2BAA38821C58270D00A8D3DD /* NoteController.swift in Sources */,
 				2BE083BD1C3A8CD400E17827 /* CoverModel.swift in Sources */,
 				2BCB7B641C37EBF8008D4CBA /* AGTCoreDataTableViewController.m in Sources */,
 				2BE083B81C3A8CC400E17827 /* _CoverModel.swift in Sources */,
@@ -325,7 +330,6 @@
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
-				2BF3DABA1C54D3D500EC1803 /* Annotation.swift in Sources */,
 				2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */,
 				2B7330311C5649CE00B5730F /* NoteCollectionCell.swift in Sources */,
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,

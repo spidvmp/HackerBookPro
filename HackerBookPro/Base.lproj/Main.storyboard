@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>
-        <!--Notes Collection View Controller-->
+        <!--Notas-->
         <scene sceneID="ibu-KZ-H3U">
             <objects>
-                <collectionViewController id="Jpc-C0-AXQ" customClass="NotesCollectionViewController" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Notas" id="Jpc-C0-AXQ" customClass="NotesCollectionViewController" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Skh-EK-y3f">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +154,7 @@
                         </connections>
                     </collectionView>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6b-9B-W4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="1740" y="-83"/>
         </scene>
-        <!--Annotation-->
+        <!--Nueva Nota-->
         <scene sceneID="Hhl-Ex-gre">
             <objects>
-                <viewController id="ETc-t2-F2W" customClass="Annotation" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Nueva Nota" id="ETc-t2-F2W" customClass="Annotation" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dyB-Lb-PwX"/>
                         <viewControllerLayoutGuide type="bottom" id="4sl-Zf-h7I"/>
@@ -255,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ja8-dB-ZWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740" y="929"/>
+            <point key="canvasLocation" x="1608" y="929"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
