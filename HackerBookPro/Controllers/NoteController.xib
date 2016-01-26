@@ -31,14 +31,33 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYs-3n-xCb">
-                    <rect key="frame" x="55" y="53" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                    <rect key="frame" x="56" y="53" width="45" height="30"/>
+                    <state key="normal" title="Hecho"/>
                     <connections>
                         <action selector="okButton:" destination="-1" eventType="touchUpInside" id="NYL-hh-zk3"/>
                     </connections>
                 </button>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aal-MU-ayx">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <items>
+                        <barButtonItem systemItem="camera" id="wOh-xL-fDL"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="rTa-Kj-5tD"/>
+                        <barButtonItem title="Item" id="xLe-tf-UW3"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="s6H-KH-FKn"/>
+                        <barButtonItem systemItem="trash" id="0kn-Aw-u7g">
+                            <connections>
+                                <action selector="deleteNote:" destination="-1" id="eds-FK-RJX"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="aal-MU-ayx" secondAttribute="bottom" id="H2m-1j-eb8"/>
+                <constraint firstItem="aal-MU-ayx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="niz-Uo-7h3"/>
+                <constraint firstAttribute="trailing" secondItem="aal-MU-ayx" secondAttribute="trailing" id="qbx-b7-yau"/>
+            </constraints>
         </view>
     </objects>
 </document>
