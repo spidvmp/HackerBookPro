@@ -85,21 +85,21 @@ class PdfView: UIViewController, UIWebViewDelegate {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "AddNote" {
-            
-            let destino = segue.destinationViewController as! Annotation
-            
-            //genero una nueva nota vacia
-            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
-            
-            //coloco las propiedades
-            destino.stack = self.stack
-            destino.annotation = nota
-            
-            
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "AddNote" {
+//            
+//            let destino = segue.destinationViewController as! Annotation
+//            
+//            //genero una nueva nota vacia
+//            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
+//            
+//            //coloco las propiedades
+//            destino.stack = self.stack
+//            destino.annotation = nota
+//            
+//            
+//        }
+//    }
 
 
 }

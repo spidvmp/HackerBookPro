@@ -58,9 +58,8 @@ class NoteController: UIViewController {
         //ahora sea lo que sea, grabo
         do {
             try stack.context.save()
-            print ("grabado en annotation modal")
         }    catch {
-            print ("error al grabar")
+            print ("error al grabar en el modal")
         }
     }
     

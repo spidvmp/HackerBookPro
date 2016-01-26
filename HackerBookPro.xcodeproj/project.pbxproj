@@ -191,8 +191,8 @@
 			children = (
 				2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */,
 				2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */,
-				2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */,
 				2B7330291C56359900B5730F /* NotesCollectionViewController.swift */,
+				2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */,
 				2BAA38801C58270D00A8D3DD /* NoteController.swift */,
 				2BAA38811C58270D00A8D3DD /* NoteController.xib */,
 			);

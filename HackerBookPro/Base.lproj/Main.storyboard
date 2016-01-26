@@ -123,43 +123,6 @@
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>
-        <!--Notas-->
-        <scene sceneID="ibu-KZ-H3U">
-            <objects>
-                <collectionViewController title="Notas" id="Jpc-C0-AXQ" customClass="NotesCollectionViewController" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Skh-EK-y3f">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.2083348374" blue="0.25552249300000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vDt-5f-7h1">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GYD-6i-NMe">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="Jpc-C0-AXQ" id="xJf-65-6si"/>
-                            <outlet property="delegate" destination="Jpc-C0-AXQ" id="l9T-fk-iBt"/>
-                        </connections>
-                    </collectionView>
-                    <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L6b-9B-W4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="709" y="929"/>
-        </scene>
         <!--Pdf View-->
         <scene sceneID="oGC-GK-QNQ">
             <objects>
@@ -194,68 +157,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GfX-oA-6YD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1740" y="-83"/>
-        </scene>
-        <!--Nueva Nota-->
-        <scene sceneID="Hhl-Ex-gre">
-            <objects>
-                <viewController title="Nueva Nota" id="ETc-t2-F2W" customClass="Annotation" customModule="HackerBookPro" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dyB-Lb-PwX"/>
-                        <viewControllerLayoutGuide type="bottom" id="4sl-Zf-h7I"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5Rk-CF-OnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-Pg-KST">
-                                <rect key="frame" x="46" y="20" width="45" height="30"/>
-                                <state key="normal" title="Hecho"/>
-                                <connections>
-                                    <action selector="okButton:" destination="ETc-t2-F2W" eventType="touchUpInside" id="Aei-p8-rhm"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Titulo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A54-V9-bvn">
-                                <rect key="frame" x="46" y="70" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2bg-ZX-g2J">
-                                <rect key="frame" x="34" y="108" width="420" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-oI-6JZ">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="camera" id="qiy-eX-aLI"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jB4-zh-x3L"/>
-                                    <barButtonItem title="Location" id="42w-6X-4My"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ke9-5q-a7C"/>
-                                    <barButtonItem systemItem="trash" id="jJC-fl-4uI">
-                                        <connections>
-                                            <action selector="deleteNote:" destination="ETc-t2-F2W" id="z8N-Jc-ZG4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.67000005559999998" green="0.97036166960000003" blue="0.54695970500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="4sl-Zf-h7I" firstAttribute="top" secondItem="GgE-oI-6JZ" secondAttribute="bottom" id="Gai-i7-2sN"/>
-                            <constraint firstItem="GgE-oI-6JZ" firstAttribute="leading" secondItem="5Rk-CF-OnQ" secondAttribute="leadingMargin" constant="-20" id="VGo-Fx-gX4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GgE-oI-6JZ" secondAttribute="trailing" constant="-20" id="m5w-KY-cz8"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textTField" destination="2bg-ZX-g2J" id="x5S-ch-M6p"/>
-                        <outlet property="titleTField" destination="A54-V9-bvn" id="ZAo-tb-OrJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ja8-dB-ZWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1608" y="929"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">

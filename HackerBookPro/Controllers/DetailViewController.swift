@@ -106,15 +106,18 @@ class DetailViewController: UIViewController {
 
 
     @IBAction func notesAction(sender: AnyObject) {
-        //pulsan el boton de notas, me voy al controlador NotesCollection pero de la forma tradicional, sin storyboard y con el init
+        //pulsan el boton de notas, me voy al controlador NoteController pero de la forma tradicional, sin storyboard y con el init
         
+        //busco sobre las notas las que tengan como libro el seleccionado
         let fetch = NSFetchRequest(entityName: AnnotationModel.entityName())
+        let pred = NSPredicate(format: "book == %@", self.book!)
         let sort = NSSortDescriptor(key:"title", ascending: true)
         fetch.sortDescriptors = [sort]
+        fetch.predicate = pred
         let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
         let layout = UICollectionViewFlowLayout()
 
-        layout.itemSize = CGSizeMake(50, 50)
+        layout.itemSize = CGSizeMake(150, 150)
         //layout.scrollDirection = UICollectionViewScrollDirection
         
         let nVC = NotesCollectionViewController(fetchedResultsController: fc, layout: layout)

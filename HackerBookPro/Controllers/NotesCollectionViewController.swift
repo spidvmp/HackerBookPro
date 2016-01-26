@@ -63,18 +63,29 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         return cell
         
     }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //seleccionan una nota
+        
+        let nota = self.fetchedResultsController.objectAtIndexPath(indexPath) as! AnnotationModel
+        //la mando al modal como si fuera nueva, pero con esta nota en lugar de una recien generada
+        showNote(nota)
+    }
 
 
     // MARK: - Navigation
     
     func newNoteAction() {
-        //han pulsado que quieren nueva nota
-        //let nn  = Annotation()
-        let nn = NoteController()
-        
-        //creo la nota
+        //creo la nota vacia
         let nota = AnnotationModel(book: self.book!, context: self.stack.context)
         
+        showNote(nota)
+    }
+    
+    func showNote(nota: AnnotationModel ) {
+        
+        //inicializo el controlador modal
+        let nn = NoteController()
         //coloco las propiedades
         nn.stack = self.stack
         nn.annotation = nota
@@ -84,23 +95,7 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         self.presentViewController(nn, animated: true, completion: nil)
         
     }
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//        
-//        if segue.identifier == "NewNote" {
-//            //nueva nota
-//            let destino = segue.destinationViewController as! Annotation
-//            
-//            //genero una nueva nota vacia
-//            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
-//            
-//            //coloco las propiedades
-//            destino.stack = self.stack
-//            destino.annotation = nota
-//            
-//        }
-//    }
+
 
 
 }
