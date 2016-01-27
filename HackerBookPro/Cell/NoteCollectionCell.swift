@@ -10,16 +10,26 @@ import UIKit
 
 class NoteCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var title: UITextView!
+
+    @IBOutlet weak var modification: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+
     }
+
 
     //esto seria un metodo de clase
     class func cellId() -> String{
         //debe retornar el mimso nombre que tenga el identificador de la celda prototype en el storyboard
         return "NoteCollectionCell"
     }
+    
+    //devuelve el tamaño de la celda
+    class func cellSize() -> CGSize {
+        return CGSizeMake(150, 100)
+    }
+
 }

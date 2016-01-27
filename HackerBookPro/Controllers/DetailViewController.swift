@@ -28,11 +28,6 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-//        if let detail = self.detailItem {
-//            if let label = self.detailDescriptionLabel {
-//                label.text = detail.description
-//            }
-//        }
         if let book = self.book {
             //actualizo los datos del modelo a la vista
             if let field = self.titleTField {
@@ -115,9 +110,15 @@ class DetailViewController: UIViewController {
         fetch.sortDescriptors = [sort]
         fetch.predicate = pred
         let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
+        
         let layout = UICollectionViewFlowLayout()
-
-        layout.itemSize = CGSizeMake(150, 150)
+        layout.itemSize = NoteCollectionCell.cellSize()
+        //con esto indico que el scroll va a ser en vertical
+        layout.scrollDirection = UICollectionViewScrollDirection.Vertical
+        layout.minimumLineSpacing = 20.0
+        layout.minimumInteritemSpacing = 10.0
+        layout.sectionInset = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
+        
         //layout.scrollDirection = UICollectionViewScrollDirection
         
         let nVC = NotesCollectionViewController(fetchedResultsController: fc, layout: layout)

@@ -129,7 +129,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                 if let url = NSURL(string:object.imageUrl!) {
                     //me bajo lo que haya, y si lo hay lo proceso
                     if let data = NSData(contentsOfURL: url) {
-                        print("Bajando \(url)")
+                        //print("Bajando \(url)")
                         if let image = UIImage(data: data) {
                             //tengo la imagen, la grabo en coredata
                             //object.cover?.image = image
