@@ -5,8 +5,11 @@
 //  Created by Vicente de Miguel on 27/1/16.
 //  Copyright © 2016 Nicatec Software. All rights reserved.
 //
+//http://makeapppie.com/2014/12/04/swift-swift-using-the-uiimagepickercontroller-for-a-camera-and-photo-library/
+
 
 import UIKit
+
 
 class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -62,6 +65,9 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
             //no hay camara
             cameraButton.enabled = false
         }
+        
+        //acabo de entrar, asi que a false que salgo a tomar foto
+        exitToTakeAPic = false
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -94,10 +100,18 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         
     }
     @IBAction func takePhoto(sender: AnyObject) {
+        //lo pongo a true para que mno haga nada al salir
+        exitToTakeAPic = true
+        
         //se supone que tengo foto, habilito la posibilidad de biorrar
         trashButton.enabled = true
         picker.allowsEditing = false
         // ya comprobe en el willapperar si tengo opcion de foto
+        
+        picker.sourceType = UIImagePickerControllerSourceType.Camera
+        picker.cameraCaptureMode = .Photo
+        picker.modalPresentationStyle = .FullScreen
+        presentViewController(picker, animated: true, completion: nil)
         
     }
 
