@@ -35,6 +35,7 @@ class NoteController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.edgesForExtendedLayout = UIRectEdge.None
         
         // Do any additional setup after loading the view.
     }
@@ -95,7 +96,7 @@ class NoteController: UIViewController {
                 
             }
             if let ad = self.address {
-                ad.text = "Address & location"
+                ad.text = "Address & location owm fomdoi woimowimdpf oiwmp fipweirpfoiwmep dompweoirm dfg"
             }
             
         }
