@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoController" customModule="HackerBookPro" customModuleProvider="target">
             <connections>
+                <outlet property="cameraButton" destination="k6T-OT-lY2" id="ZJQ-fl-ExO"/>
                 <outlet property="photoView" destination="oJD-e9-8Pt" id="UMP-0M-4jW"/>
                 <outlet property="trashButton" destination="xwE-3C-5Df" id="8w1-Xr-8LZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

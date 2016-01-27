@@ -19,7 +19,7 @@ class NoteController: UIViewController {
     
     var stack : AGTSimpleCoreDataStack!
     //tengo un bool para que si nos vamos a la camara, no grabe el modelo
-    var exitTotakeAPic : Bool!
+    var exitToTakeAPic : Bool!
     
     var annotation : AnnotationModel? {
         didSet {
@@ -44,7 +44,7 @@ class NoteController: UIViewController {
         updateUI()
         
         //como entro, pongo la salida a foto a falso
-        exitTotakeAPic = false
+        exitToTakeAPic = false
         
         
     }
@@ -52,7 +52,7 @@ class NoteController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         //sincronizo la vista con el modelo solo si no salgo para tomar una foto
-        if  exitTotakeAPic == false {
+        if  exitToTakeAPic == false {
             
             //no salgo por la foto, asi que grabo
             if self.annotation != nil {
@@ -93,11 +93,11 @@ class NoteController: UIViewController {
     //MARK: - Acciones
 
     @IBAction func takePic(sender: AnyObject) {
-        //se presenta modalmente la viata para usar la camara
+        //se presenta modalmente la vista para usar la camara
         let cam = PhotoController()
         cam.nota = self.annotation
         //salgo a tomar foto, no he de grabar
-        exitTotakeAPic = true
+        exitToTakeAPic = true
         //self.presentViewController(cam, animated: true, completion: nil)
         self.navigationController?.pushViewController(cam, animated: true)
     }
