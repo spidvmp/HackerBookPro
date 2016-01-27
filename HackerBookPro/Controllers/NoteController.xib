@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteController" customModule="HackerBookPro" customModuleProvider="target">
             <connections>
+                <outlet property="address" destination="Mg7-jZ-HdK" id="ghb-7T-qmP"/>
+                <outlet property="photoView" destination="iRh-mh-5g7" id="dIu-MM-Iol"/>
                 <outlet property="textTField" destination="dyC-FK-KHC" id="d2f-ep-EIG"/>
                 <outlet property="titleTField" destination="E5y-GB-x8n" id="qXB-6K-0JN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -14,23 +16,33 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="64" width="600" height="536"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E5y-GB-x8n">
-                    <rect key="frame" x="35" y="126" width="97" height="30"/>
+                    <rect key="frame" x="8" y="8" width="584" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-FK-KHC">
-                    <rect key="frame" x="18" y="191" width="311" height="370"/>
+                    <rect key="frame" x="8" y="42" width="584" height="187"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aal-MU-ayx">
-                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRh-mh-5g7">
+                    <rect key="frame" x="8" y="234" width="265" height="250"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mg7-jZ-HdK">
+                    <rect key="frame" x="281" y="237" width="311" height="62"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aal-MU-ayx">
+                    <rect key="frame" x="0.0" y="492" width="600" height="44"/>
                     <items>
                         <barButtonItem systemItem="camera" id="wOh-xL-fDL">
                             <connections>
@@ -48,12 +60,8 @@
                     </items>
                 </toolbar>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="aal-MU-ayx" secondAttribute="bottom" id="H2m-1j-eb8"/>
-                <constraint firstItem="aal-MU-ayx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="niz-Uo-7h3"/>
-                <constraint firstAttribute="trailing" secondItem="aal-MU-ayx" secondAttribute="trailing" id="qbx-b7-yau"/>
-            </constraints>
+            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
         </view>
     </objects>
 </document>

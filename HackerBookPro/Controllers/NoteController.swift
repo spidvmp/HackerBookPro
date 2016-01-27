@@ -12,6 +12,8 @@ class NoteController: UIViewController {
 
     @IBOutlet weak var titleTField: UITextField!
     @IBOutlet weak var textTField: UITextView!
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var address: UITextView!
     @IBOutlet weak var okButton: UIButton!
 
     
@@ -83,6 +85,18 @@ class NoteController: UIViewController {
                 x.text = a.text
             }
             
+            if let i = self.photoView {
+                //tengo el photoview cargado, compruebo si tngo foto o no
+                if let f = a.photo!.image {
+                    i.image = f
+                } else {
+                    i.image = UIImage(named: "emptyPic.jpg")
+                }
+                
+            }
+            if let ad = self.address {
+                ad.text = "Address & location"
+            }
             
         }
         

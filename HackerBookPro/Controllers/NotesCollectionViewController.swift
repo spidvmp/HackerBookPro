@@ -38,8 +38,8 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         //coloco el boton para neuva nota
         let new = UIBarButtonItem(title: "Nueva Nota", style: .Plain, target: self, action: "newNoteAction")
         self.navigationItem.rightBarButtonItem = new
-        //new.set
-        self.collectionView?.backgroundColor = UIColor.whiteColor()
+
+        //self.collectionView?.backgroundColor = UIColor.whiteColor()
     }
     
     
@@ -61,9 +61,10 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         //configurar la celda
         cell.title.text = note.title
         let fmt = NSDateFormatter()
-        fmt.dateStyle = NSDateFormatterStyle.ShortStyle
+        fmt.dateStyle = NSDateFormatterStyle.MediumStyle
         let d = note.modificationDate!
         cell.modification.text = fmt.stringFromDate(d!)
+        
         
         
         return cell
