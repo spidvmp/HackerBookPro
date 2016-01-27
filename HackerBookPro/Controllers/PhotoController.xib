@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoController" customModule="HackerBookPro" customModuleProvider="target">
+            <connections>
+                <outlet property="photoView" destination="oJD-e9-8Pt" id="UMP-0M-4jW"/>
+                <outlet property="trashButton" destination="xwE-3C-5Df" id="8w1-Xr-8LZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtR-6Y-8iD">
+                    <rect key="frame" x="0.0" y="492" width="600" height="44"/>
+                    <items>
+                        <barButtonItem systemItem="organize" id="BNL-bm-etD">
+                            <connections>
+                                <action selector="photoLibrary:" destination="-1" id="8fi-FC-cIT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="kFX-Ak-SUg"/>
+                        <barButtonItem systemItem="camera" id="k6T-OT-lY2">
+                            <connections>
+                                <action selector="takePhoto:" destination="-1" id="SQF-hh-NQ4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="lYD-ZR-zq7"/>
+                        <barButtonItem systemItem="trash" id="xwE-3C-5Df">
+                            <connections>
+                                <action selector="deletePhoto:" destination="-1" id="XoL-Gc-tvA"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oJD-e9-8Pt">
+                    <rect key="frame" x="8" y="8" width="584" height="467"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="LtR-6Y-8iD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8V2-oj-SD9"/>
+                <constraint firstAttribute="bottom" secondItem="LtR-6Y-8iD" secondAttribute="bottom" id="Evx-qn-1Gz"/>
+                <constraint firstItem="LtR-6Y-8iD" firstAttribute="top" secondItem="oJD-e9-8Pt" secondAttribute="bottom" constant="17" id="JYe-6E-QE4"/>
+                <constraint firstItem="oJD-e9-8Pt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="O8y-Zb-Nyk"/>
+                <constraint firstAttribute="trailing" secondItem="LtR-6Y-8iD" secondAttribute="trailing" id="UIh-7N-vrV"/>
+                <constraint firstAttribute="trailing" secondItem="oJD-e9-8Pt" secondAttribute="trailing" constant="8" id="phM-Bm-k86"/>
+                <constraint firstItem="oJD-e9-8Pt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="srV-ik-ldC"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+        </view>
+    </objects>
+</document>

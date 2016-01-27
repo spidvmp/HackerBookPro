@@ -27,6 +27,9 @@
 		2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825F21C33E5930004F1AE /* Hacker.xcdatamodeld */; };
 		2BAA38821C58270D00A8D3DD /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAA38801C58270D00A8D3DD /* NoteController.swift */; };
 		2BAA38831C58270D00A8D3DD /* NoteController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAA38811C58270D00A8D3DD /* NoteController.xib */; };
+		2BAA38861C5838EC00A8D3DD /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAA38841C5838EC00A8D3DD /* PhotoController.swift */; };
+		2BAA38871C5838EC00A8D3DD /* PhotoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAA38851C5838EC00A8D3DD /* PhotoController.xib */; };
+		2BB1E0F51C58C0F7004CF271 /* emptyPic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1E0F41C58C0F7004CF271 /* emptyPic.jpg */; };
 		2BCB7B5F1C37BF23008D4CBA /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B5E1C37BF23008D4CBA /* Book.swift */; };
 		2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */; };
 		2BCB7B641C37EBF8008D4CBA /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB7B631C37EBF8008D4CBA /* AGTCoreDataTableViewController.m */; };
@@ -73,6 +76,9 @@
 		2B9825F31C33E5930004F1AE /* Hacker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hacker.xcdatamodel; sourceTree = "<group>"; };
 		2BAA38801C58270D00A8D3DD /* NoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteController.swift; path = Controllers/NoteController.swift; sourceTree = "<group>"; };
 		2BAA38811C58270D00A8D3DD /* NoteController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoteController.xib; path = Controllers/NoteController.xib; sourceTree = "<group>"; };
+		2BAA38841C5838EC00A8D3DD /* PhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoController.swift; path = Controllers/PhotoController.swift; sourceTree = "<group>"; };
+		2BAA38851C5838EC00A8D3DD /* PhotoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoController.xib; path = Controllers/PhotoController.xib; sourceTree = "<group>"; };
+		2BB1E0F41C58C0F7004CF271 /* emptyPic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = emptyPic.jpg; sourceTree = "<group>"; };
 		2BCB7B5E1C37BF23008D4CBA /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = Model/Book.swift; sourceTree = "<group>"; };
 		2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONProcessing.swift; path = Model/JSONProcessing.swift; sourceTree = "<group>"; };
 		2BCB7B621C37EBF8008D4CBA /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGTCoreDataTableViewController.h; path = Model/AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
@@ -195,6 +201,8 @@
 				2BDEEB7F1C499F5E00C89B31 /* PdfView.swift */,
 				2BAA38801C58270D00A8D3DD /* NoteController.swift */,
 				2BAA38811C58270D00A8D3DD /* NoteController.xib */,
+				2BAA38841C5838EC00A8D3DD /* PhotoController.swift */,
+				2BAA38851C5838EC00A8D3DD /* PhotoController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				2BE50FDD1C479D1700F8B99C /* placeholder.png */,
+				2BB1E0F41C58C0F7004CF271 /* emptyPic.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -298,6 +307,8 @@
 			files = (
 				2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */,
 				2B9825E71C33E19E0004F1AE /* LaunchScreen.storyboard in Resources */,
+				2BAA38871C5838EC00A8D3DD /* PhotoController.xib in Resources */,
+				2BB1E0F51C58C0F7004CF271 /* emptyPic.jpg in Resources */,
 				2B9825E41C33E19E0004F1AE /* Assets.xcassets in Resources */,
 				2B7330321C5649CE00B5730F /* NoteCollectionCell.xib in Resources */,
 				2BE50FDE1C479D1700F8B99C /* placeholder.png in Resources */,
@@ -327,6 +338,7 @@
 				2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */,
 				2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */,
 				2B5A5EA01C54B3B600875D97 /* LocationModel.swift in Sources */,
+				2BAA38861C5838EC00A8D3DD /* PhotoController.swift in Sources */,
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,

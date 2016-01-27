@@ -32,7 +32,11 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aal-MU-ayx">
                     <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                     <items>
-                        <barButtonItem systemItem="camera" id="wOh-xL-fDL"/>
+                        <barButtonItem systemItem="camera" id="wOh-xL-fDL">
+                            <connections>
+                                <action selector="takePic:" destination="-1" id="yhE-oS-rNl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="rTa-Kj-5tD"/>
                         <barButtonItem title="Item" id="xLe-tf-UW3"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="s6H-KH-FKn"/>

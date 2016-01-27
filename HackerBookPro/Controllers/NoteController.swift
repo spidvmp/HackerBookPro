@@ -18,6 +18,8 @@ class NoteController: UIViewController {
     //modelo de datos a tratar. Cuando llegue aqui esta creado en coredata
     
     var stack : AGTSimpleCoreDataStack!
+    //tengo un bool para que si nos vamos a la camara, no grabe el modelo
+    var exitTotakeAPic : Bool!
     
     var annotation : AnnotationModel? {
         didSet {
@@ -41,25 +43,33 @@ class NoteController: UIViewController {
         //compruebo si la nota viene con datos o viene vacia
         updateUI()
         
+        //como entro, pongo la salida a foto a falso
+        exitTotakeAPic = false
+        
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        //sincronizo la vista con el modelo
-        if self.annotation != nil {
-            //le han dado a borrar
-            self.annotation?.title = self.titleTField.text
-            self.annotation?.text = self.textTField.text
+        //sincronizo la vista con el modelo solo si no salgo para tomar una foto
+        if  exitTotakeAPic == false {
             
-            //se supoen que hemos actualizado
-            self.annotation?.modificationDate = NSDate()
-        }
-        //ahora sea lo que sea, grabo
-        do {
-            try stack.context.save()
-        }    catch {
-            print ("error al grabar en el modal")
+            //no salgo por la foto, asi que grabo
+            if self.annotation != nil {
+                //le han dado a borrar
+                self.annotation?.title = self.titleTField.text
+                self.annotation?.text = self.textTField.text
+                
+                //se supoen que hemos actualizado
+                self.annotation?.modificationDate = NSDate()
+            }
+            //ahora sea lo que sea, grabo
+            do {
+                try stack.context.save()
+            }    catch {
+                print ("error al grabar en el modal")
+            }
+            
         }
     }
     
@@ -68,7 +78,7 @@ class NoteController: UIViewController {
             if let t = self.titleTField {
                 t.text = a.title
             }
-            
+
             if let x = self.textTField {
                 x.text = a.text
             }
@@ -76,10 +86,21 @@ class NoteController: UIViewController {
             
         }
         
+        
     }
     
     
     //MARK: - Acciones
+
+    @IBAction func takePic(sender: AnyObject) {
+        //se presenta modalmente la viata para usar la camara
+        let cam = PhotoController()
+        cam.nota = self.annotation
+        //salgo a tomar foto, no he de grabar
+        exitTotakeAPic = true
+        //self.presentViewController(cam, animated: true, completion: nil)
+        self.navigationController?.pushViewController(cam, animated: true)
+    }
     
     @IBAction func deleteNote(sender: AnyObject) {
         //se borra la nota, asi que tambien se sale de esta vista
