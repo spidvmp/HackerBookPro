@@ -5,6 +5,7 @@
 //  Created by Vicente de Miguel on 15/1/16.
 //  Copyright © 2016 Nicatec Software. All rights reserved.
 //
+//http://code.tutsplus.com/tutorials/reading-displaying-pdf-documents--mobile-11145
 
 import UIKit
 
@@ -85,21 +86,6 @@ class PdfView: UIViewController, UIWebViewDelegate {
         
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "AddNote" {
-//            
-//            let destino = segue.destinationViewController as! Annotation
-//            
-//            //genero una nueva nota vacia
-//            let nota = AnnotationModel(book: self.book!, context: self.stack.context)
-//            
-//            //coloco las propiedades
-//            destino.stack = self.stack
-//            destino.annotation = nota
-//            
-//            
-//        }
-//    }
 
 
 }

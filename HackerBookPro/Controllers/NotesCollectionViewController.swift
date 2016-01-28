@@ -20,18 +20,9 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        //fatalError("init(coder:) has not been implemented")
-    
         super.init(coder: aDecoder)
-
-        
     }
-    
-    
-
-    
-    
-    
+   
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         registerNib()
@@ -60,6 +51,8 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         cell.layer.cornerRadius = 8
         //configurar la celda
         cell.title.text = note.title
+        //habilito que si tocan en el textview se seleccione la celda
+        cell.title.userInteractionEnabled = false
         let fmt = NSDateFormatter()
         fmt.dateStyle = NSDateFormatterStyle.MediumStyle
         let d = note.modificationDate!
