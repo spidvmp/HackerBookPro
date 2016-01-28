@@ -37,6 +37,8 @@ class NoteController: UIViewController {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge.None
         
+
+        
         // Do any additional setup after loading the view.
     }
     
@@ -48,6 +50,9 @@ class NoteController: UIViewController {
         
         //como entro, pongo la salida a foto a falso
         exitToTakeAPic = false
+        
+        //asigno al textView y al label un boton para cerrar el teclado
+        self.textTField.inputAccessoryView = inputAccessoryViewCreator()
         
         
     }
@@ -123,6 +128,20 @@ class NoteController: UIViewController {
         self.annotation = nil
         //self.dismissViewControllerAnimated(true, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    //MARK: - Input Accesory
+    func inputAccessoryViewCreator() -> UIToolbar {
+        let tool = UIToolbar(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 40.0))
+        let hide = UIBarButtonItem(title: "Cerrar", style: UIBarButtonItemStyle.Done , target: self, action: "hideKeyboard")
+        let flex = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        tool.setItems([flex, hide], animated: false)
+        return tool
+        
+    }
+    
+    func hideKeyboard() {
+        self.textTField.endEditing(true)
     }
 
 
