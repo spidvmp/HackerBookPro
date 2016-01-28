@@ -18,9 +18,9 @@
 //
 
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+@import Foundation;
+@import UIKit;
+@import CoreData;
 @interface AGTCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 /*

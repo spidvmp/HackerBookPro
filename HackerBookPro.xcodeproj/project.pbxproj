@@ -18,6 +18,9 @@
 		2B73302A1C56359900B5730F /* NotesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7330291C56359900B5730F /* NotesCollectionViewController.swift */; };
 		2B7330311C5649CE00B5730F /* NoteCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B73302F1C5649CE00B5730F /* NoteCollectionCell.swift */; };
 		2B7330321C5649CE00B5730F /* NoteCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7330301C5649CE00B5730F /* NoteCollectionCell.xib */; };
+		2B73DBD11C5A8B0700B732F9 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B73DBD01C5A8B0700B732F9 /* UIImage+Resize.m */; };
+		2B73DBD61C5A8CF500B732F9 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B73DBD31C5A8CF500B732F9 /* UIImage+Alpha.m */; };
+		2B73DBD71C5A8CF500B732F9 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B73DBD51C5A8CF500B732F9 /* UIImage+RoundedCorner.m */; };
 		2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */; };
 		2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */; };
 		2B9825DF1C33E19E0004F1AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9825DE1C33E19E0004F1AE /* DetailViewController.swift */; };
@@ -65,6 +68,12 @@
 		2B7330291C56359900B5730F /* NotesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotesCollectionViewController.swift; path = Controllers/NotesCollectionViewController.swift; sourceTree = "<group>"; };
 		2B73302F1C5649CE00B5730F /* NoteCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteCollectionCell.swift; path = Cell/NoteCollectionCell.swift; sourceTree = "<group>"; };
 		2B7330301C5649CE00B5730F /* NoteCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoteCollectionCell.xib; path = Cell/NoteCollectionCell.xib; sourceTree = "<group>"; };
+		2B73DBCF1C5A8B0700B732F9 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Utils/UIImage+Resize.h"; sourceTree = "<group>"; };
+		2B73DBD01C5A8B0700B732F9 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Utils/UIImage+Resize.m"; sourceTree = "<group>"; };
+		2B73DBD21C5A8CF500B732F9 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Alpha.h"; path = "Utils/UIImage+Alpha.h"; sourceTree = "<group>"; };
+		2B73DBD31C5A8CF500B732F9 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Alpha.m"; path = "Utils/UIImage+Alpha.m"; sourceTree = "<group>"; };
+		2B73DBD41C5A8CF500B732F9 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "Utils/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		2B73DBD51C5A8CF500B732F9 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "Utils/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		2B9825D71C33E19D0004F1AE /* HackerBookPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerBookPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9825DA1C33E19E0004F1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B9825DC1C33E19E0004F1AE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = Controllers/MasterViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +236,12 @@
 		2BDCCEDE1C352E11009C4F25 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2B73DBD21C5A8CF500B732F9 /* UIImage+Alpha.h */,
+				2B73DBD31C5A8CF500B732F9 /* UIImage+Alpha.m */,
+				2B73DBD41C5A8CF500B732F9 /* UIImage+RoundedCorner.h */,
+				2B73DBD51C5A8CF500B732F9 /* UIImage+RoundedCorner.m */,
+				2B73DBCF1C5A8B0700B732F9 /* UIImage+Resize.h */,
+				2B73DBD01C5A8B0700B732F9 /* UIImage+Resize.m */,
 				2BDCCEDF1C352E38009C4F25 /* Defines.swift */,
 				2B200A171C4AA11D00B79502 /* AsyncDownload.swift */,
 			);
@@ -327,6 +342,7 @@
 				2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */,
 				2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */,
 				2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */,
+				2B73DBD71C5A8CF500B732F9 /* UIImage+RoundedCorner.m in Sources */,
 				2B103F511C491FD800CDDA7E /* UIKitExtension.swift in Sources */,
 				2BAA38821C58270D00A8D3DD /* NoteController.swift in Sources */,
 				2BE083BD1C3A8CD400E17827 /* CoverModel.swift in Sources */,
@@ -344,6 +360,7 @@
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
 				2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */,
 				2B7330311C5649CE00B5730F /* NoteCollectionCell.swift in Sources */,
+				2B73DBD61C5A8CF500B732F9 /* UIImage+Alpha.m in Sources */,
 				2BCB7B611C37DC98008D4CBA /* JSONProcessing.swift in Sources */,
 				2B9825DB1C33E19E0004F1AE /* AppDelegate.swift in Sources */,
 				2BDCCEE01C352E38009C4F25 /* Defines.swift in Sources */,
@@ -358,6 +375,7 @@
 				2BE083B91C3A8CC400E17827 /* _PhotoModel.swift in Sources */,
 				2BE083BC1C3A8CD400E17827 /* AnnotationModel.swift in Sources */,
 				2BDCCECD1C3419CD009C4F25 /* PdfModel.swift in Sources */,
+				2B73DBD11C5A8B0700B732F9 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

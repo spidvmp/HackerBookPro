@@ -5,3 +5,6 @@
 #import "AGTSimpleCoreDataStack.h"
 #import "AGTCoreDataTableViewController.h"
 #import "AGTCoreDataCollectionViewController.h"
+#import "UIImage+Resize.h"
+#import "UIImage+Alpha.h"
+#import "UIImage+RoundedCorner.h"

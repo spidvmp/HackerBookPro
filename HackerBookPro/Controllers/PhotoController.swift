@@ -122,12 +122,16 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         //de aqui  tengo que sacar la imagen seleccionada
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        //hay que modificar el taamañop de la imagen la reduzco al 20% del tamaño real
+        let newPhotoSize = CGSizeMake(chosenImage.size.width * 0.20, chosenImage.size.height * 0.20)
         //se la coloco al coredata
-        self.nota.photo?.image = chosenImage
+        self.nota.photo?.image = chosenImage.resizedImage(newPhotoSize, interpolationQuality: CGInterpolationQuality.Medium)
+        
+        
         //ya hanseleccionado la foto, desactivo el que me fui a por algo
         exitToTakeAPic = false
-//        photoView.contentMode = .ScaleAspectFit
-//        photoView.image = chosenImage
+
         dismissViewControllerAnimated(true, completion: nil)
         
     }
