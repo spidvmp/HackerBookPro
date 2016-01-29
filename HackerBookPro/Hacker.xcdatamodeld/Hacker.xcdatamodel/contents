@@ -26,7 +26,7 @@
     <entity name="BookTag" representedClassName="BookTagModel" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTags" inverseEntity="Book" syncable="YES"/>
-        <relationship name="tag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Tag" inverseName="bookTags" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="tag" maxCount="1" deletionRule="Cascade" destinationEntity="Tag" inverseName="bookTags" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="CoverImage" representedClassName="CoverModel" syncable="YES">
         <attribute name="photoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>

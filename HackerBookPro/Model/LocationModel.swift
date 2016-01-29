@@ -6,8 +6,7 @@
 //  Copyright © 2016 Nicatec Software. All rights reserved.
 //
 
-import Foundation
-
+@objc(LocationModel)
 public class LocationModel: _LocationModel {
     
     //MARK: - Inicializador

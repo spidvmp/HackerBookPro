@@ -6,7 +6,7 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 
 //nombre de la BD
 let DATA_BASE = "Hacker"
@@ -16,3 +16,6 @@ let JSON_URL = "https://t.co/K9ziV0z3SJ"
 
 //clave para la primera vez de carga de datos usado en USERDEFAULTS
 let FIRST_TIME = "firsTime"
+
+//nombre que va a tener el tag de favorito
+let FAVORITE_TAG = "Favorito"

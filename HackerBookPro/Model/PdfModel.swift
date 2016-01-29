@@ -7,7 +7,7 @@
 //
 
 //import Foundation
-
+@objc(PdfModel)
 
 public class PdfModel: _PdfModel {
     

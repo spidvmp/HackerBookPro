@@ -1,7 +1,8 @@
-//@objc(AnnotationModel)
+
 
 typealias AnnotationModelArray = [AnnotationModel]
 
+@objc(AnnotationModel)
 public class AnnotationModel: _AnnotationModel {
 
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {

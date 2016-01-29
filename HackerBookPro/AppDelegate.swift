@@ -129,7 +129,6 @@ import UIKit
             }
             //}
             //es la primera y unica vez que se supone que pasara por aqui. Lo marcomo como que ya ha pasado
-            print("comentado el FIRST_TIME")
             def.setBool(true, forKey: FIRST_TIME)
             //ademas pongo por defecto un valor al utlimo libro leido para que aparezca algo. Pongo el primer libro que se sacara del array de libros, asi que el 0
             //def.setInteger(0, forKey: LAST_BOOK)

@@ -8,6 +8,7 @@
 
 //import UIKit
 
+@objc(PhotoModel)
 public class PhotoModel: _PhotoModel {
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {

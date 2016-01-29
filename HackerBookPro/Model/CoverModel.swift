@@ -1,3 +1,4 @@
+@objc(CoverModel)
 
 public class CoverModel: _CoverModel {
 

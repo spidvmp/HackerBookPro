@@ -6,10 +6,9 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
-//import Foundation
-
 typealias AuthorModelArray = [AuthorModel]
 
+@objc(AuthorModel)
 public class AuthorModel: _AuthorModel {
     //MARK: - inicializadores
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {

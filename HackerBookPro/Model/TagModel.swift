@@ -6,10 +6,10 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
-//import Foundation
 
 typealias TagModelArray = [TagModel]
 
+@objc(TagModel)
 public class TagModel : _TagModel {
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
@@ -21,10 +21,16 @@ public class TagModel : _TagModel {
         //recibo un solo autor, lo inserto y lo asocio con el libro.
         super.init(entity: _TagModel.entity(c), insertIntoManagedObjectContext: c)
         self.tag = t
+        //incluyo el proxySort, que sera igual que el tag excepto para el favorito
+        if t == FAVORITE_TAG {
+            self.proxyForSorting = "__" + FAVORITE_TAG
+        } else {
+            self.proxyForSorting = t
+        }
         //incluyo book a los libros del tag
-        let bk = self.books as! NSMutableSet
-        bk.addObject(b)
-        self.books = bk
+//        let bk = self.books as! NSMutableSet
+//        bk.addObject(b)
+//        self.books = bk
         
         //como es tomany, saco lo que hay y añado este
 //        let tg = b.tags as! NSMutableSet
@@ -35,6 +41,10 @@ public class TagModel : _TagModel {
     
     //MARK: - Metodos de clase de Tag
     class func addTag(tag t: String, book b:BookModel, context c: NSManagedObjectContext) {
+        /*
+        utilzo este metodo para crear un tag de un libro. Esto supone buscar a ver si ya existe el tag y no repetirlo, una vez que tenemos el objeto tag, creo una entidad intermedia BOOKTAG que sirve para romper la relacion N-N que se generaria con los libros, asi que BOOKTAG con tag tiene una relacion de 1 TAG N BOOKTAG y 1 BOOKTAG tiene 1 tag y por otro lado BOOKTAG se conecta con los libros en una relacion similar, un BOOKTAG tiene 1 libro y un libro tiene N BOOKTAG
+
+        */
         //primero busco si existe el tag
         
         var tag = TagModel.findTag(tag: t, context: c)
@@ -43,8 +53,18 @@ public class TagModel : _TagModel {
             tag = TagModel(tag: t, book: b, context: c)
         }
         
+        //tengo la entidad tag, sin relacionar con nada. Cero la entidad BookTag, que es con quien voy a relacionar el tag y el libro
+        //necesita el nombre del tag y el nnombre del libro y porsupu el contexto
+        let bookTag = BookTagModel(newTag: t, withTitleBook: b.title!, inContext: c)
         
-        b.addTagsObject(tag)
+        //ya tengo la entidad tag, la intermedia BookTag y el libro, he de relacionarlas
+        //el bookTag tiene un solo tag
+        bookTag.tag = tag
+        //el booktag solo tiene un libro
+        bookTag.book = b
+        
+        //b.addTagsObject(tag)
+
         //ahora tenemos la entidad tag, o existeia o la ha creado, se lo añado al libro
         //la relacion es to many, asi que saco lo que hay y añado este
 //        let tg = b.tags as! NSMutableSet
@@ -74,7 +94,7 @@ public class TagModel : _TagModel {
             var booksSet = Set<BookModel>()
             for each in res! {
                 //inseto los libros en el conjunto para evitar que se repitan
-                _ = each.books.map({booksSet.insert($0 as! BookModel)})
+ //               _ = each.books.map({booksSet.insert($0 as! BookModel)})
             }
             //ahora obtengo el array de libros
             let arr = booksSet.map({$0})

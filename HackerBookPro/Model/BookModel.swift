@@ -6,7 +6,6 @@
 //  Copyright © 2015 Nicatec Software. All rights reserved.
 //
 
-//import Foundation
 typealias BookModelArray = [BookModel]
 
 
@@ -15,6 +14,8 @@ enum BookProcessing : ErrorType{
     case WrongTitle
 }
 
+
+@objc(BookModel)
 public class BookModel : _BookModel {
     
     
@@ -71,7 +72,14 @@ public class BookModel : _BookModel {
         //obtengo los tags que tiene el libro, en self.tags hay un array de TagModel
 
         //genero un array con todos los tags que hay en el libro, con esto solo saco el tag que es un string y se guarda en arr que es un [String]
-        if let arr = self.tags.allObjects as? TagModelArray {
+        //if let arr = self.tags.allObjects as? TagModelArray {
+        
+        print("Corregir tagsString en BookModel")
+        return "hola como estas"
+        
+        if let arrBookTag = self.bookTags as? BookTagModelArray {
+            //tengo un array de los booktag intermedios. he de sacar el array de los tags que tiene
+            let arr = arrBookTag.map({$0.tag!})
             //si estoy aqui, arr contiene por lo menos un elemento, saco solo los tag
             let a = arr.map({$0.tag!})
             //a contiene un array con los tags, lo devuelvo separado por ,

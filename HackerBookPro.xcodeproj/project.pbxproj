@@ -232,9 +232,9 @@
 				2BDCCEC21C33F8F4009C4F25 /* BookModel.swift */,
 				2BDCCECC1C3419CD009C4F25 /* PdfModel.swift */,
 				2BDCCECE1C3419EE009C4F25 /* PhotoModel.swift */,
+				2B5A5E9F1C54B3B600875D97 /* LocationModel.swift */,
 				2BCB7B5E1C37BF23008D4CBA /* Book.swift */,
 				2BCB7B601C37DC98008D4CBA /* JSONProcessing.swift */,
-				2B5A5E9F1C54B3B600875D97 /* LocationModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
