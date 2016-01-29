@@ -33,8 +33,7 @@
 
 // The controller (this class fetches nothing if this is not set).
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-//controlador para las secciones
-@property (strong, nonatomic) NSFetchedResultsController *fetchedTagResultsController;
+
 
 // Causes the fetchedResultsController to refetch the data.
 // You almost certainly never need to call this.
@@ -61,9 +60,6 @@
 
 // Set to YES to get some debugging output in the console.
 @property BOOL debug;
-
-//esto me sirve para saber si sacola info para mostrar los libros por orden alfabetico o por tag
-@property BOOL orderByTags;
 
 
 -(id) initWithFetchedResultsController: (NSFetchedResultsController *) aFetchedResultsController

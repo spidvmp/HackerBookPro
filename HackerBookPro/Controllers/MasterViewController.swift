@@ -28,7 +28,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         //defino el controlador de busqueda
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchBar.sizeToFit()
@@ -43,34 +43,19 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         //se lo coloco a la tabla
         self.tableView.tableHeaderView = searchController.searchBar
         
-        //creo el boton para cambiar la vista de la tabla de tags a alfabetico, no le doy valor xq se actualizara en el willappear
-        let menu_button = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain , target: self, action: "cambiaVista")
-        self.navigationItem.rightBarButtonItem = menu_button
         
         //inicializo el array del filtro de la busqueda
         self.filteredArray = NSMutableArray()
         
-        //cargo la ultima configuracion del estilo
-        
-        self.orderByTags = def.boolForKey(LAST_STYLE)
-        print(orderByTags)
         
         //segun sea el orden por tag o alfabeticamente, hago una busqueda diferente
-        if orderByTags {
-            let fettag = NSFetchRequest(entityName: BookTagModel.entityName())
-            let stag = (NSSortDescriptor(key: "tag.proxyForSorting", ascending: true))
-            fettag.sortDescriptors = [stag]
-            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fettag, managedObjectContext: stack.context, sectionNameKeyPath: "tag.tag", cacheName: nil)
-
-            
-        } else {
-            //orden alfabetico
-            
-            let fet = NSFetchRequest(entityName: BookModel.entityName())
-            let s = (NSSortDescriptor(key: "title", ascending: true))
-            fet.sortDescriptors = [s]
-            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
-        }
+        
+        let fet = NSFetchRequest(entityName: BookTagModel.entityName())
+        let s1 = (NSSortDescriptor(key: "tag.proxyForSorting", ascending: true))
+        let s2 = (NSSortDescriptor(key: "book.title", ascending: true))
+        fet.sortDescriptors = [s1,s2]
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: "tag.tag", cacheName: nil)
+        
         
         //registro las celda personalizada
         let celdaNib = UINib(nibName: BookCell.cellId(), bundle: nil)
@@ -83,7 +68,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         //cambio de color el separador de celdas
         self.tableView.separatorColor = UIColor.defaultColorHacker()
         
-
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -122,16 +107,19 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         
         let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
         
+        //estoy buscando el booktag, asi que saco la informacion a traves del BookTag
+        var booktag : BookTagModel
         var object : BookModel
 
         //obtengo el libro que hay que mostrar, segun sea de coredata o de la busqueda
         if  self.searchController.active && self.searchController.searchBar.text != nil {
-            object = self.filteredArray[indexPath.row] as! BookModel
+            booktag = self.filteredArray[indexPath.row] as! BookTagModel
         } else {
-            object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
+            booktag = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookTagModel
         }
-
         
+        //ahora tengo el booktag, de aqui sale el libro
+        object = booktag.book!
         //pongo los valores
         cell.title.text = object.title
         cell.tags.text = object.tagsString()
@@ -236,36 +224,12 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         performSegueWithIdentifier("ShowBook", sender: indexPath)
     }
     
-    //MARK: - Actions
-    func cambiaVista() {
-        orderByTags = !orderByTags
-        //guardo el ultimo estilo de vista mostrado
-        def.setBool(self.orderByTags, forKey: LAST_STYLE)
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
-        if orderByTags {
-            self.navigationItem.rightBarButtonItem!.title = "Alfa"
-        } else {
-            self.navigationItem.rightBarButtonItem!.title = "Tags"
+        if let v = view as?UITableViewHeaderFooterView {
+            v.backgroundView?.backgroundColor = UIColor.defaultColorHacker()
         }
         
-        if orderByTags {
-            let fettag = NSFetchRequest(entityName: BookTagModel.entityName())
-            let stag = (NSSortDescriptor(key: "tag.proxyForSorting", ascending: true))
-            fettag.sortDescriptors = [stag]
-            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fettag, managedObjectContext: stack.context, sectionNameKeyPath: "tag.tag", cacheName: nil)
-            
-            
-        } else {
-            //orden alfabetico
-            
-            let fet = NSFetchRequest(entityName: BookModel.entityName())
-            let s = (NSSortDescriptor(key: "title", ascending: true))
-            fet.sortDescriptors = [s]
-            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
-        }
-        
-        
-        tableView.reloadData()
         
     }
 
@@ -274,15 +238,15 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowBook" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object : BookModel
+                let object : BookTagModel
                 if searchController.active && searchController.searchBar.text != "" {
-                    object = filteredArray[indexPath.row] as! BookModel
+                    object = filteredArray[indexPath.row] as! BookTagModel
 
                 } else {
-                    object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookModel
+                    object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookTagModel
                 }
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.book = object
+                controller.book = object.book
                 controller.stack = self.stack
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true

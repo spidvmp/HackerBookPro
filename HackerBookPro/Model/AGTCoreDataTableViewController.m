@@ -25,9 +25,7 @@
         self.fetchedResultsController = aFetchedResultsController;
         //inicializo el searchcontroller
         _searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
-        
-        //comenzamos mostrando por tag
-        _orderByTags = YES;
+
     }
     return self;
 }
@@ -82,10 +80,9 @@
     //en caso de que haya una busqueda activa, solo hay una seccion
     if ( self.searchController.active)
         return 1;
-    else if ( self.orderByTags )
-            return [[self.fetchedResultsController sections] count];
-        else
-            return 1;
+    else
+        return [[self.fetchedResultsController sections] count];
+
             
 }
 
@@ -96,23 +93,21 @@
     if ( self.searchController.active ) {
         return self.filteredArray.count;
     } else {
-        if ( self.orderByTags ){
-            return [[self.fetchedResultsController sections] count];
-        } else {
             return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
         }
-    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	return [[[self.fetchedResultsController sections] objectAtIndex:section] name];
+    //devuelvo el titulo con la letra mayuscula
+	return [[[[self.fetchedResultsController sections] objectAtIndex:section] name] capitalizedString];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
 	return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
+
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
