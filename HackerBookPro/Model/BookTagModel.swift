@@ -34,9 +34,11 @@ public class BookTagModel: _BookTagModel {
                 //me cepillo el registro
                 //if let r = result[0] as? BookTagModel {
                 //    c.deleteObject(r)
-                c.deleteObject(result[0] as! BookTagModel)
+                print(result[0])
+                let r = result[0] as! BookTagModel
+                c.deleteObject(r)
                 do {
-                    try c.save()
+                    try r.managedObjectContext!.save()
                 }    catch {
                     print ("error al grabar en clase BookTagModel")
                 }
