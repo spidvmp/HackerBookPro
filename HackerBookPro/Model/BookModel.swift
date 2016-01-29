@@ -60,6 +60,7 @@ public class BookModel : _BookModel {
         self.imageUrl = i
         self.pdfUrl = p
         
+        
         //he de crear la relacion con la portada, aunque todavia no me haya bajado la imagen
         self.cover = CoverModel(entity: _CoverModel.entity(c), insertIntoManagedObjectContext: c)
         self.pdf = PdfModel(entity: _PdfModel.entity(c), insertIntoManagedObjectContext: c)

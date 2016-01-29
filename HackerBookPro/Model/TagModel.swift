@@ -62,22 +62,7 @@ public class TagModel : _TagModel {
         bookTag.tag = tag
         //el booktag solo tiene un libro
         bookTag.book = b
-        
-        //b.addTagsObject(tag)
 
-        //ahora tenemos la entidad tag, o existeia o la ha creado, se lo añado al libro
-        //la relacion es to many, asi que saco lo que hay y añado este
-//        let tg = b.tags as! NSMutableSet
-//        
-//        if let tagCoreData = tag {
-//            //no es nil, hay tag
-//            tg.addObject(tagCoreData)
-//
-//            b.tags = tg
-//        }
-        
-        
-        
     }
     
     class func booksWithTagLike(tag t:String, context c:NSManagedObjectContext) -> BookModelArray? {

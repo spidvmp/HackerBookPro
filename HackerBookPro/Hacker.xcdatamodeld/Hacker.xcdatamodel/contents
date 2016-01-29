@@ -10,11 +10,12 @@
         <relationship name="photo" maxCount="1" deletionRule="Cascade" destinationEntity="PhotoContainer" inverseName="annotation" inverseEntity="PhotoContainer" syncable="YES"/>
     </entity>
     <entity name="Author" representedClassName="AuthorModel" syncable="YES">
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="books" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="authors" inverseEntity="Book" syncable="YES"/>
     </entity>
     <entity name="Book" representedClassName="BookModel" syncable="YES">
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="pdfUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="annotations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Annotation" inverseName="book" inverseEntity="Annotation" syncable="YES"/>
@@ -47,19 +48,19 @@
         <relationship name="annotation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Annotation" inverseName="photo" inverseEntity="Annotation" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="TagModel" syncable="YES">
-        <attribute name="proxyForSorting" attributeType="String" syncable="YES"/>
-        <attribute name="tag" attributeType="String" syncable="YES"/>
+        <attribute name="proxyForSorting" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="tag" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="bookTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tag" inverseEntity="BookTag" syncable="YES"/>
     </entity>
     <elements>
         <element name="Annotation" positionX="-18" positionY="-450" width="128" height="148"/>
-        <element name="Author" positionX="-317" positionY="-450" width="128" height="73"/>
-        <element name="Book" positionX="-162" positionY="-279" width="128" height="163"/>
+        <element name="Author" positionX="-317" positionY="-450" width="128" height="75"/>
+        <element name="Book" positionX="-162" positionY="-279" width="128" height="180"/>
+        <element name="BookTag" positionX="-252" positionY="-252" width="128" height="90"/>
         <element name="CoverImage" positionX="16" positionY="-93" width="128" height="73"/>
         <element name="Location" positionX="142" positionY="-420" width="128" height="105"/>
         <element name="PdfContainer" positionX="-495" positionY="-333" width="128" height="73"/>
         <element name="PhotoContainer" positionX="36" positionY="-201" width="128" height="73"/>
-        <element name="Tag" positionX="-648" positionY="-189" width="128" height="88"/>
-        <element name="BookTag" positionX="-252" positionY="-252" width="128" height="90"/>
+        <element name="Tag" positionX="-648" positionY="-189" width="128" height="90"/>
     </elements>
 </model>

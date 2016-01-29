@@ -5,6 +5,7 @@ import CoreData
 
 public enum BookModelAttributes: String {
     case imageUrl = "imageUrl"
+    case isFavorite = "isFavorite"
     case pdfUrl = "pdfUrl"
     case title = "title"
 }
@@ -47,6 +48,11 @@ class _BookModel: NSManagedObject {
     var imageUrl: String?
 
     // func validateImageUrl(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
+    @NSManaged public
+    var isFavorite: NSNumber?
+
+    // func validateIsFavorite(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
     var pdfUrl: String?

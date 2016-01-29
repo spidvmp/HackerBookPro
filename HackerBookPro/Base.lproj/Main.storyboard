@@ -80,19 +80,28 @@
                                     <segue destination="v8Z-7a-roy" kind="show" identifier="PdfViewer" id="MmH-Sx-RlS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADF-wE-umO">
+                                <rect key="frame" x="20" y="98" width="100" height="30"/>
+                                <state key="normal" title="Favorito"/>
+                                <connections>
+                                    <action selector="favorite:" destination="JEX-9P-axG" eventType="touchUpInside" id="vv1-Bi-p0F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eYu-tY-VIk" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="ArO-P4-Ztw"/>
+                            <constraint firstItem="sQq-QY-UbN" firstAttribute="leading" secondItem="ADF-wE-umO" secondAttribute="leading" id="BJp-Pz-xSL"/>
+                            <constraint firstItem="eYu-tY-VIk" firstAttribute="leading" secondItem="ADF-wE-umO" secondAttribute="leading" id="ESC-8H-PwM"/>
+                            <constraint firstItem="Sbe-Uc-Uq6" firstAttribute="centerY" secondItem="ADF-wE-umO" secondAttribute="centerY" id="FK7-ji-brh"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="J7V-Tm-Pmn"/>
+                            <constraint firstItem="I4q-fM-K0R" firstAttribute="leading" secondItem="ADF-wE-umO" secondAttribute="leading" id="JIO-i4-9YO"/>
                             <constraint firstItem="Sbe-Uc-Uq6" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="34" id="Jqh-1v-hFP"/>
                             <constraint firstItem="Kxg-hy-h8k" firstAttribute="top" secondItem="I4q-fM-K0R" secondAttribute="top" id="Lkl-Pt-cFt"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="QH8-xH-Gke"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sbe-Uc-Uq6" secondAttribute="trailing" id="TQa-6E-oL0"/>
                             <constraint firstItem="Kxg-hy-h8k" firstAttribute="top" secondItem="Sbe-Uc-Uq6" secondAttribute="bottom" constant="47" id="TnY-Jm-XWC"/>
-                            <constraint firstItem="sQq-QY-UbN" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="leading" id="VfQ-K0-yaY"/>
                             <constraint firstAttribute="leadingMargin" secondItem="I4q-fM-K0R" secondAttribute="leading" id="ZTd-NS-nzY"/>
-                            <constraint firstItem="sQq-QY-UbN" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="leading" id="aWj-TT-c1E"/>
                             <constraint firstItem="Sbe-Uc-Uq6" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="dbW-q2-MJu"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="fqM-0E-1Ky"/>
                             <constraint firstItem="eYu-tY-VIk" firstAttribute="trailing" secondItem="Kxg-hy-h8k" secondAttribute="trailing" id="lmQ-99-hhW"/>
@@ -100,7 +109,6 @@
                             <constraint firstItem="eYu-tY-VIk" firstAttribute="top" secondItem="sQq-QY-UbN" secondAttribute="bottom" constant="16" id="pvL-d9-ycl"/>
                             <constraint firstItem="sQq-QY-UbN" firstAttribute="top" secondItem="I4q-fM-K0R" secondAttribute="bottom" constant="16" id="qon-XF-u8V"/>
                             <constraint firstItem="I4q-fM-K0R" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="111" id="rrJ-0y-lNY"/>
-                            <constraint firstItem="eYu-tY-VIk" firstAttribute="leading" secondItem="I4q-fM-K0R" secondAttribute="leading" id="xbb-6G-T7D"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="eYu-tY-VIk" secondAttribute="bottom" constant="47" id="xiL-6B-Myy"/>
                         </constraints>
                     </view>
@@ -115,6 +123,7 @@
                     <connections>
                         <outlet property="authorsTField" destination="eYu-tY-VIk" id="8mt-ih-dfZ"/>
                         <outlet property="cover" destination="I4q-fM-K0R" id="7Io-xW-IWZ"/>
+                        <outlet property="favoriteButton" destination="ADF-wE-umO" id="RCA-M8-jjU"/>
                         <outlet property="tagsTField" destination="sQq-QY-UbN" id="GTb-aQ-Jph"/>
                         <outlet property="titleTField" destination="Kxg-hy-h8k" id="oqu-G4-O38"/>
                     </connections>

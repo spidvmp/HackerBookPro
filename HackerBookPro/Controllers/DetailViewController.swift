@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleTField: UITextView!
     @IBOutlet weak var tagsTField: UITextView!
     @IBOutlet weak var authorsTField: UITextView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     @IBOutlet weak var readButton: UIButton!
     
@@ -48,6 +49,19 @@ class DetailViewController: UIViewController {
                     img.image = i
                 }
             }
+            if let fav = self.favoriteButton {
+                if let f = book.isFavorite as? Bool {
+                    if f {
+                        //es favorito
+                        fav.setTitle("Quitar Favorito", forState: UIControlState.Normal)
+                        
+                    } else {
+                        //no es favorito
+                        fav.setTitle("Favorito", forState: UIControlState.Normal)
+                        
+                    }
+                }
+            }
         }
 
     }
@@ -70,36 +84,11 @@ class DetailViewController: UIViewController {
             destino.book = book
             destino.stack = self.stack
         }
-//        else  if segue.identifier == "NoteList" {
-//
-//            //muestro la collection View de las notas
-//            let l = UICollectionViewLayout()
-//            let destino = segue.destinationViewController as! NotesCollectionViewController
-//            
-//            //genero la busqueda de las notas del libro
-//            let fetch = NSFetchRequest(entityName: AnnotationModel.entityName())
-//            let sort = NSSortDescriptor(key:"title", ascending: true)
-//            fetch.sortDescriptors = [sort]
-//            let fc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: self.book!.managedObjectContext! , sectionNameKeyPath: nil, cacheName: nil)
-//            
-//            //definmos el layout
-//            let layout = UICollectionViewLayout()
-//            
-//            
-//            
-//            //layout.itemSize = CGSizeMake(120, 120)
-//            
-//            //coloco las propiedades
-//            destino.stack = self.stack
-//            destino.book = self.book
-//            destino.fetchedResultsController = fc
-//        
-//            
-//            
-//        }
+
     }
 
 
+    //MARK: - Actions
     @IBAction func notesAction(sender: AnyObject) {
         //pulsan el boton de notas, me voy al controlador NoteController pero de la forma tradicional, sin storyboard y con el init
         
@@ -126,5 +115,21 @@ class DetailViewController: UIViewController {
         nVC.stack = self.stack
         self.navigationController?.pushViewController(nVC, animated: true)
     }
+    
+    @IBAction func favorite(sender: AnyObject) {
+        //Pulsan el boton de favorito, compruebo a que valor esta y lo cambio
+        if (book!.isFavorite == true) {
+            //es favorito y va a dejar de serlo
+            self.favoriteButton.setTitle("Favorito", forState: UIControlState.Normal)
+            self.book!.isFavorite = false
+        } else {
+            //no es favorito y ahora lo va a ser
+            self.favoriteButton.setTitle("Quitar Favorito", forState: UIControlState.Normal)
+            TagModel.addTag(tag: FAVORITE_TAG, book: self.book!, context: stack.context)
+            self.book!.isFavorite = true
+        }
+
+    }
+    
 }
 

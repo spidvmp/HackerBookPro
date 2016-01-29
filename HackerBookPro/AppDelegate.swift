@@ -31,9 +31,10 @@ import UIKit
 //        def.setBool(false, forKey: FIRST_TIME)
 
         
-        
+        print("JSON")
         //comprobamos si es la primera vez y hay que bajar el json
         checkDownloadedJSON()
+        print("TErmina")
        
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
