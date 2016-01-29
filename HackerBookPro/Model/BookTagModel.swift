@@ -17,5 +17,43 @@ public class BookTagModel: _BookTagModel {
         self.name = b + t
         
     }
+    
+    
+    //MARK: - Metodos de clase
+    class func removeTag(tag t:String, fromBook b:BookModel, inContext c: NSManagedObjectContext) {
+        //elimino el registro de booktag que tenga como nombre el formado por y que el libro sea el del parametro
+        let query = NSFetchRequest(entityName: BookTagModel.entityName())
+        query.predicate = NSPredicate(format: "name == %@", b.title! + t)
+        //busco y deberia aparecer solo 1 registro
+        do {
+            let result = try c.executeFetchRequest(query)
+            switch(result.count){
+            case 0:
+                return
+            case 1:
+                //me cepillo el registro
+                //if let r = result[0] as? BookTagModel {
+                //    c.deleteObject(r)
+                c.deleteObject(result[0] as! BookTagModel)
+                do {
+                    try c.save()
+                }    catch {
+                    print ("error al grabar en clase BookTagModel")
+                }
+                
+                //}
+                return
+                
+            default:
+                print("Encontrados mas de un tag, al borrar no deberia suceder")
+                return
+            }
+        } catch {
+            //error, pues devuelvo nil
+            return
+        }
+        
+    }
+
 
 }

@@ -121,12 +121,20 @@ class DetailViewController: UIViewController {
         if (book!.isFavorite == true) {
             //es favorito y va a dejar de serlo
             self.favoriteButton.setTitle("Favorito", forState: UIControlState.Normal)
+            BookTagModel.removeTag(tag: FAVORITE_TAG, fromBook: self.book!, inContext: stack.context)
             self.book!.isFavorite = false
         } else {
             //no es favorito y ahora lo va a ser
             self.favoriteButton.setTitle("Quitar Favorito", forState: UIControlState.Normal)
             TagModel.addTag(tag: FAVORITE_TAG, book: self.book!, context: stack.context)
             self.book!.isFavorite = true
+        }
+        
+        //grabo
+        do {
+            try stack.context.save()
+        }    catch {
+            print ("error al grabar en boton favorite")
         }
 
     }

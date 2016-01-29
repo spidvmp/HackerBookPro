@@ -27,22 +27,13 @@ public class TagModel : _TagModel {
         } else {
             self.proxyForSorting = t
         }
-        //incluyo book a los libros del tag
-//        let bk = self.books as! NSMutableSet
-//        bk.addObject(b)
-//        self.books = bk
-        
-        //como es tomany, saco lo que hay y añado este
-//        let tg = b.tags as! NSMutableSet
-//        tg.addObject(self)
-//        b.tags = tg
-        
+       
     }
     
     //MARK: - Metodos de clase de Tag
     class func addTag(tag t: String, book b:BookModel, context c: NSManagedObjectContext) {
         /*
-        utilzo este metodo para crear un tag de un libro. Esto supone buscar a ver si ya existe el tag y no repetirlo, una vez que tenemos el objeto tag, creo una entidad intermedia BOOKTAG que sirve para romper la relacion N-N que se generaria con los libros, asi que BOOKTAG con tag tiene una relacion de 1 TAG N BOOKTAG y 1 BOOKTAG tiene 1 tag y por otro lado BOOKTAG se conecta con los libros en una relacion similar, un BOOKTAG tiene 1 libro y un libro tiene N BOOKTAG
+        utilizo este metodo para crear un tag de un libro. Esto supone buscar a ver si ya existe el tag y no repetirlo, una vez que tenemos el objeto tag, creo una entidad intermedia BOOKTAG que sirve para romper la relacion N-N que se generaria con los libros, asi que BOOKTAG con tag tiene una relacion de 1 TAG N BOOKTAG y 1 BOOKTAG tiene 1 tag y por otro lado BOOKTAG se conecta con los libros en una relacion similar, un BOOKTAG tiene 1 libro y un libro tiene N BOOKTAG
 
         */
         //primero busco si existe el tag
@@ -64,7 +55,8 @@ public class TagModel : _TagModel {
         bookTag.book = b
 
     }
-    
+
+ 
     class func booksWithTagLike(tag t:String, context c:NSManagedObjectContext) -> BookModelArray? {
         //devuelve un array con los libros cuyo tag coincida con lo pedido, es para el search
         let query = NSFetchRequest(entityName: TagModel.entityName())
@@ -116,5 +108,6 @@ public class TagModel : _TagModel {
         
         
     }
+
     
 }
