@@ -20,6 +20,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     //me genero un stack para acceder a la BD
     var stack : AGTSimpleCoreDataStack!
     
+    //cargo el userdefults y asi no lo vuelvo a cargar 
+    let def = NSUserDefaults.standardUserDefaults()
      
 
 
@@ -36,19 +38,39 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         self.searchController.hidesNavigationBarDuringPresentation = false
         //añado el scope para seleccionar donde se busca
         searchController.searchBar.scopeButtonTitles = ["Titulo", "Tag", "Autor"]
-
+        //el delegado
         searchController.searchBar.delegate = self
-        
+        //se lo coloco a la tabla
         self.tableView.tableHeaderView = searchController.searchBar
         
-        //inicializo el array del filttro de la busqueda
+        //creo el boton para cambiar la vista de la tabla de tags a alfabetico, no le doy valor xq se actualizara en el willappear
+        let menu_button = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain , target: self, action: "cambiaVista")
+        self.navigationItem.rightBarButtonItem = menu_button
+        
+        //inicializo el array del filtro de la busqueda
         self.filteredArray = NSMutableArray()
         
+        //cargo la ultima configuracion del estilo
+        
+        self.orderByTags = def.boolForKey(LAST_STYLE)
+        print(orderByTags)
+        
+        //segun sea el orden por tag o alfabeticamente, hago una busqueda diferente
+        if orderByTags {
+            let fettag = NSFetchRequest(entityName: BookTagModel.entityName())
+            let stag = (NSSortDescriptor(key: "tag.proxyForSorting", ascending: true))
+            fettag.sortDescriptors = [stag]
+            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fettag, managedObjectContext: stack.context, sectionNameKeyPath: "tag.tag", cacheName: nil)
 
-        let fet = NSFetchRequest(entityName: BookModel.entityName())
-        let s = (NSSortDescriptor(key: "title", ascending: true))
-        fet.sortDescriptors = [s]
-        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+            
+        } else {
+            //orden alfabetico
+            
+            let fet = NSFetchRequest(entityName: BookModel.entityName())
+            let s = (NSSortDescriptor(key: "title", ascending: true))
+            fet.sortDescriptors = [s]
+            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        }
         
         //registro las celda personalizada
         let celdaNib = UINib(nibName: BookCell.cellId(), bundle: nil)
@@ -212,6 +234,39 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("ShowBook", sender: indexPath)
+    }
+    
+    //MARK: - Actions
+    func cambiaVista() {
+        orderByTags = !orderByTags
+        //guardo el ultimo estilo de vista mostrado
+        def.setBool(self.orderByTags, forKey: LAST_STYLE)
+        
+        if orderByTags {
+            self.navigationItem.rightBarButtonItem!.title = "Alfa"
+        } else {
+            self.navigationItem.rightBarButtonItem!.title = "Tags"
+        }
+        
+        if orderByTags {
+            let fettag = NSFetchRequest(entityName: BookTagModel.entityName())
+            let stag = (NSSortDescriptor(key: "tag.proxyForSorting", ascending: true))
+            fettag.sortDescriptors = [stag]
+            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fettag, managedObjectContext: stack.context, sectionNameKeyPath: "tag.tag", cacheName: nil)
+            
+            
+        } else {
+            //orden alfabetico
+            
+            let fet = NSFetchRequest(entityName: BookModel.entityName())
+            let s = (NSSortDescriptor(key: "title", ascending: true))
+            fet.sortDescriptors = [s]
+            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fet, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        }
+        
+        
+        tableView.reloadData()
+        
     }
 
     // MARK: - Segues

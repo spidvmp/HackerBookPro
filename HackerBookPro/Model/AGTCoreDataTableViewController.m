@@ -26,6 +26,8 @@
         //inicializo el searchcontroller
         _searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
         
+        //comenzamos mostrando por tag
+        _orderByTags = YES;
     }
     return self;
 }
@@ -80,8 +82,11 @@
     //en caso de que haya una busqueda activa, solo hay una seccion
     if ( self.searchController.active)
         return 1;
-    else
-        return [[self.fetchedResultsController sections] count];
+    else if ( self.orderByTags )
+            return [[self.fetchedResultsController sections] count];
+        else
+            return 1;
+            
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -91,7 +96,11 @@
     if ( self.searchController.active ) {
         return self.filteredArray.count;
     } else {
-        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+        if ( self.orderByTags ){
+            return [[self.fetchedResultsController sections] count];
+        } else {
+            return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+        }
     }
 }
 

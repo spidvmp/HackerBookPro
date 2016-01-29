@@ -15,6 +15,7 @@ import UIKit
     var window: UIWindow?
     var stack : AGTSimpleCoreDataStack!
 
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -33,8 +34,7 @@ import UIKit
         
         //comprobamos si es la primera vez y hay que bajar el json
         checkDownloadedJSON()
-     
-      
+       
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
@@ -103,9 +103,7 @@ import UIKit
     func checkDownloadedJSON () {
         //comprueba si ya se ha bajado la primera vez el json, si es que no, se lo baja, lo trata y lo guarda en coredata. Las imagenes se deberian ir cargando segun se necesitasen
         let def = NSUserDefaults.standardUserDefaults()
-        //print("Puesto a piñon fijo que es la primera vez")
-        
-        
+
         if !def.boolForKey(FIRST_TIME) {
             
             //es la primera vez, me tengo que bajar todo y tratarlo
