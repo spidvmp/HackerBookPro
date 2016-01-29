@@ -1,5 +1,5 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to .AuthorModel.swift instead.
+// Make changes to AuthorModel.swift instead.
 
 import CoreData
 

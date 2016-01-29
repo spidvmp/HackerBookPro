@@ -1,23 +1,24 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to CoverModel.swift instead.
+// Make changes to BookTagModel.swift instead.
 
 import CoreData
 
-public enum CoverModelAttributes: String {
-    case photoData = "photoData"
+public enum BookTagModelAttributes: String {
+    case name = "name"
 }
 
-public enum CoverModelRelationships: String {
+public enum BookTagModelRelationships: String {
     case book = "book"
+    case tag = "tag"
 }
 
 @objc public
-class _CoverModel: NSManagedObject {
+class _BookTagModel: NSManagedObject {
 
     // MARK: - Class methods
 
     public class func entityName () -> String {
-        return "CoverImage"
+        return "BookTag"
     }
 
     public class func entity(managedObjectContext: NSManagedObjectContext!) -> NSEntityDescription! {
@@ -31,16 +32,16 @@ class _CoverModel: NSManagedObject {
     }
 
     public convenience init(managedObjectContext: NSManagedObjectContext!) {
-        let entity = _CoverModel.entity(managedObjectContext)
+        let entity = _BookTagModel.entity(managedObjectContext)
         self.init(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
     }
 
     // MARK: - Properties
 
     @NSManaged public
-    var photoData: NSData?
+    var name: String?
 
-    // func validatePhotoData(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validateName(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
 
@@ -48,6 +49,11 @@ class _CoverModel: NSManagedObject {
     var book: BookModel?
 
     // func validateBook(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
+    @NSManaged public
+    var tag: TagModel?
+
+    // func validateTag(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
 }
 

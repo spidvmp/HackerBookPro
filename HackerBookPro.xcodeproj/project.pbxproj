@@ -53,6 +53,8 @@
 		2BE2A2B51C3930260025EE94 /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B41C3930260025EE94 /* TagModel.swift */; };
 		2BE2A2B71C39309D0025EE94 /* _TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2A2B61C39309D0025EE94 /* _TagModel.swift */; };
 		2BE50FDE1C479D1700F8B99C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE50FDD1C479D1700F8B99C /* placeholder.png */; };
+		2BE9FB281C5B8DBA000113DF /* _BookTagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9FB271C5B8DBA000113DF /* _BookTagModel.swift */; };
+		2BE9FB2A1C5B8DCA000113DF /* BookTagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9FB291C5B8DCA000113DF /* BookTagModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,8 @@
 		2BE2A2B41C3930260025EE94 /* TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagModel.swift; path = Model/TagModel.swift; sourceTree = "<group>"; };
 		2BE2A2B61C39309D0025EE94 /* _TagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _TagModel.swift; path = Model/_TagModel.swift; sourceTree = "<group>"; };
 		2BE50FDD1C479D1700F8B99C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Resources/placeholder.png; sourceTree = "<group>"; };
+		2BE9FB271C5B8DBA000113DF /* _BookTagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _BookTagModel.swift; path = Model/_BookTagModel.swift; sourceTree = "<group>"; };
+		2BE9FB291C5B8DCA000113DF /* BookTagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookTagModel.swift; path = Model/BookTagModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 		2B9825F11C33E5670004F1AE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				2BE9FB271C5B8DBA000113DF /* _BookTagModel.swift */,
 				2B5A5EA11C54B46C00875D97 /* _LocationModel.swift */,
 				2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */,
 				2BE083B41C3A8CC400E17827 /* _AnnotationModel.swift */,
@@ -219,6 +224,7 @@
 		2BDCCEC11C33F323009C4F25 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2BE9FB291C5B8DCA000113DF /* BookTagModel.swift */,
 				2BE083BA1C3A8CD400E17827 /* AnnotationModel.swift */,
 				2BE083BB1C3A8CD400E17827 /* CoverModel.swift */,
 				2BE2A2B41C3930260025EE94 /* TagModel.swift */,
@@ -343,6 +349,7 @@
 				2BE2A2B01C3918FF0025EE94 /* _AuthorModel.swift in Sources */,
 				2BDCCECB1C3419A6009C4F25 /* AuthorModel.swift in Sources */,
 				2B73DBD71C5A8CF500B732F9 /* UIImage+RoundedCorner.m in Sources */,
+				2BE9FB2A1C5B8DCA000113DF /* BookTagModel.swift in Sources */,
 				2B103F511C491FD800CDDA7E /* UIKitExtension.swift in Sources */,
 				2BAA38821C58270D00A8D3DD /* NoteController.swift in Sources */,
 				2BE083BD1C3A8CD400E17827 /* CoverModel.swift in Sources */,
@@ -368,6 +375,7 @@
 				2BDCCECF1C3419EE009C4F25 /* PhotoModel.swift in Sources */,
 				2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */,
 				2BDEEB801C499F5E00C89B31 /* PdfView.swift in Sources */,
+				2BE9FB281C5B8DBA000113DF /* _BookTagModel.swift in Sources */,
 				2B7330281C56353800B5730F /* AGTCoreDataCollectionViewController.m in Sources */,
 				2BE2A2B11C3918FF0025EE94 /* _BookModel.swift in Sources */,
 				2B5A5EA21C54B46C00875D97 /* _LocationModel.swift in Sources */,

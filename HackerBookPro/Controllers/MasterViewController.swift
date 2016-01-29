@@ -18,9 +18,9 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     var objects = [AnyObject]()
     
     //me genero un stack para acceder a la BD
-    //let stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
     var stack : AGTSimpleCoreDataStack!
     
+     
 
 
     override func viewDidLoad() {

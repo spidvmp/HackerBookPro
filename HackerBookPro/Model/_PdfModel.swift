@@ -1,5 +1,5 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to .PdfModel.swift instead.
+// Make changes to PdfModel.swift instead.
 
 import CoreData
 
