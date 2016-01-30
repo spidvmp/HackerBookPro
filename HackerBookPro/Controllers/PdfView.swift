@@ -83,8 +83,9 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
             
         } else {
             //tengo el fichero cargado, asi que lo muestro
-            if let a = self.book!.pdf?.pdfData {
+            if let a = self.book!.pdf!.pdfData {
                 showPDF(a)
+
             }
         }
         
@@ -99,7 +100,7 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     func showPDF(data : NSData) {
 
         pdfWebView.loadData(data, MIMEType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() )
-        
+
     }
     
 //    func bookDidChange(not : NSNotification ){
