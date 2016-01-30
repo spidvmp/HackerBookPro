@@ -18,6 +18,8 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     
     var stack : AGTSimpleCoreDataStack!
     
+    
+    
     var book : BookModel? {
         //observador de propiedades, sirve para saber cuando se ha modificado una propiedad
         //willSet se llama antes de asignarse la variable y didSet despues de asignarse, asi que en willSet libro es nil y en didSet ya tiene valor
@@ -43,8 +45,7 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
         
         self.pdfWebView.delegate = self
         
-        //muestra el pdf
-        showPDF()
+
         
         //me apunto a a las notificaciones de cambio de libro
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "bookDidChange:", name: BOOK_DID_CHANGE, object: nil)
@@ -62,6 +63,19 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     func updateUI(){
         //me han pasado el libro,
         self.title = book?.title
+        //compruebo si tengo el pdf bajado
+        if self.book!.pdf?.pdfData == nil {
+            //hay que bajarselo
+            let async = AsyncDownload()
+            //me bajo el fichero, lo tengo en book.urlPdf
+            async.downloadFile(urlString: (self.book?.pdfUrl)!)
+            async.delegate = self
+            
+        } else {
+            //tengo el fichero cargado, asi que lo muestro
+            showPDF((self.book!.pdf?.pdfData)!)
+        }
+        
         
     }
     
@@ -70,32 +84,40 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
         // Dispose of any resources that can be recreated.
     }
     
-    func showPDF() {
-//        let dirPaths =   NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-//        let docsDir = dirPaths[0]
-//        let pdf = NSURL(fileURLWithPath: docsDir.stringByAppendingString((libro?.pdfPath)!))
-//        let pdfreq = NSURLRequest(URL: pdf)
-//        pdfWebView.loadRequest(pdfreq)
+    func showPDF(data : NSData) {
+
+        pdfWebView.loadData(data, MIMEType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL(fileURLWithPath: "http://a.com") )
         
     }
     
-    func bookDidChange(not : NSNotification ){
-        //libro = not.object as? NCTBook
-//        if let dic = not.userInfo as? Dictionary<String, NCTBook> {
-//            libro = dic["book"]!
-//        }
-        
-        showPDF()
-        
-    }
+//    func bookDidChange(not : NSNotification ){
+//        //libro = not.object as? NCTBook
+////        if let dic = not.userInfo as? Dictionary<String, NCTBook> {
+////            libro = dic["book"]!
+////        }
+//        
+//        showPDF()
+//        
+//    }
     
     //MARK: - AsyncDownload Protocol
     func downLoadDidFinish(data : NSData) {
-        //ha terminado de bajar
-        let pdf = NSData(data: data)
+        //ha terminado de bajar, lo guardo en su sitio de coredata
+        self.book!.pdf?.pdfData = data
+        //grabo
+        do {
+            try self.book?.managedObjectContext?.save()
+        } catch {
+            print("Error al grabar el pdf")
+        }
         
-        
-        
+        //lo muestro
+        showPDF(data)
+
+    }
+    
+    func downLoadDidFail(urlString: String) {
+        print("Error al cargar \(urlString)")
     }
     
 

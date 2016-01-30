@@ -129,8 +129,9 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
             cell.cover.image = img
         } else {
             //hay que bajarse la imagen
-            //downloadImage(object.imageUrl, id: object.objectID)
-            //observo el notification
+            /*
+                No es la mejor forma pero funciona, he visto por internet que el metodo es similar. no tengo mucho tiempo para hacer pruebas y usar AsyncDownload
+            */
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
                 
                 if let url = NSURL(string:object.imageUrl!) {

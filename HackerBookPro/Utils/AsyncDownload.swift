@@ -15,10 +15,7 @@ import Foundation
 /*
 Procedimiento para bajar ficheros de forma asincrona, cuando se lo baje, envia una notificacion
 */
-enum AsyncDownloadTypes {
-    case UIImage
-    case PDF
-}
+
 
 class AsyncDownload: NSObject {
     
@@ -64,7 +61,7 @@ class AsyncDownload: NSObject {
         
     }
     
-    func downloadFile(urlString u: String, type : AsyncDownloadTypes) {
+    func downloadFile(urlString u: String) {
         print("entro en download")
         if let url = NSURL(string: u) {
             //let request = NSURLRequest(URL: url)
@@ -86,10 +83,16 @@ class AsyncDownload: NSObject {
                 if error == nil {
 
                     //tengo los datos en data, se los paso al delegado, ciompruebo que responde al selector
-                    if ((self.delegate != nil) && (self.delegate?.respondsToSelector(Selector("downLoadDidFinish")))!) {
+                    if ((self.delegate != nil) && (self.delegate?.respondsToSelector(Selector("downLoadDidFinish:")))!) {
                         self.delegate?.downLoadDidFinish(data!)
                     }
 
+                } else {
+                    //hubo error, le envio que ha fallado
+                    if ((self.delegate != nil) && (self.delegate?.respondsToSelector(Selector("downLoadDidFail:")))!) {
+                        //ha fallado, le devuelvo el string que me han pedido
+                        self.delegate?.downLoadDidFail(u)
+                    }
                 }
             })
             task.resume()
@@ -110,6 +113,8 @@ class AsyncDownload: NSObject {
 }
 //MARK: - Protocol
 protocol AsyncDownloadProtocol: NSObjectProtocol {
-    //Se ha termiando de bajar
+    //Se ha termiando de bajar, devuelvo el data tal y como se ha bajado, luego que cada uno lo transforme como necesitte
     func downLoadDidFinish(data: NSData)
+    //si falla devuelvo este metodo que envia la url que se ha pedido
+    func downLoadDidFail(urlString: String)
 }

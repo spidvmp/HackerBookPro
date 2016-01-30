@@ -14,6 +14,8 @@ public class PdfModel: _PdfModel {
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
+    
+
 
 //    var pdf:  {
 //        set(img){

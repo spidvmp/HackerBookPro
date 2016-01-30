@@ -242,14 +242,14 @@
 		2BDCCEDE1C352E11009C4F25 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2BDCCEDF1C352E38009C4F25 /* Defines.swift */,
+				2B200A171C4AA11D00B79502 /* AsyncDownload.swift */,
 				2B73DBD21C5A8CF500B732F9 /* UIImage+Alpha.h */,
 				2B73DBD31C5A8CF500B732F9 /* UIImage+Alpha.m */,
 				2B73DBD41C5A8CF500B732F9 /* UIImage+RoundedCorner.h */,
 				2B73DBD51C5A8CF500B732F9 /* UIImage+RoundedCorner.m */,
 				2B73DBCF1C5A8B0700B732F9 /* UIImage+Resize.h */,
 				2B73DBD01C5A8B0700B732F9 /* UIImage+Resize.m */,
-				2BDCCEDF1C352E38009C4F25 /* Defines.swift */,
-				2B200A171C4AA11D00B79502 /* AsyncDownload.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
