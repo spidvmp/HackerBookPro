@@ -20,6 +20,13 @@ import UIKit
         // Override point for customization after application launch.
         
         print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
+        
+        
+        
+        //downloadFile("asdf")
+        
+        
+        
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
         
@@ -104,11 +111,11 @@ import UIKit
     func checkDownloadedJSON () {
         //comprueba si ya se ha bajado la primera vez el json, si es que no, se lo baja, lo trata y lo guarda en coredata. Las imagenes se deberian ir cargando segun se necesitasen
         let def = NSUserDefaults.standardUserDefaults()
-
+        
         if !def.boolForKey(FIRST_TIME) {
             
-            //es la primera vez, me tengo que bajar todo y tratarlo
-            //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
+            
+            
             if let arrayLibros = self.downloadJSON() {
                 //aqui tengo un array de Book con todos los datos, ahora deberia guardar  en coredata
                 for l in arrayLibros {
@@ -126,12 +133,15 @@ import UIKit
                 }
                 
             }
+            
+            //es la primera vez, me tengo que bajar todo y tratarlo
+            //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
+            
             //}
             //es la primera y unica vez que se supone que pasara por aqui. Lo marcomo como que ya ha pasado
             def.setBool(true, forKey: FIRST_TIME)
-            //ademas pongo por defecto un valor al utlimo libro leido para que aparezca algo. Pongo el primer libro que se sacara del array de libros, asi que el 0
-            //def.setInteger(0, forKey: LAST_BOOK)
-
+            
+            
         } else {
             print("Tengo los datos en BD")
         }

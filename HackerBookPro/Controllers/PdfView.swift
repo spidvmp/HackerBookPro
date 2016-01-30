@@ -6,10 +6,13 @@
 //  Copyright © 2016 Nicatec Software. All rights reserved.
 //
 //http://code.tutsplus.com/tutorials/reading-displaying-pdf-documents--mobile-11145
+//http://sketchytech.blogspot.com.es/2015/05/adventures-in-pdf-swift-and-pdfkit.htmlp
+//https://github.com/mobfarm/FastPdfKit
 
 import UIKit
 
-class PdfView: UIViewController, UIWebViewDelegate {
+
+class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
 
     @IBOutlet weak var pdfWebView: UIWebView!
     
@@ -51,7 +54,7 @@ class PdfView: UIViewController, UIWebViewDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+
     }
     
     
@@ -83,6 +86,15 @@ class PdfView: UIViewController, UIWebViewDelegate {
 //        }
         
         showPDF()
+        
+    }
+    
+    //MARK: - AsyncDownload Protocol
+    func downLoadDidFinish(data : NSData) {
+        //ha terminado de bajar
+        let pdf = NSData(data: data)
+        
+        
         
     }
     

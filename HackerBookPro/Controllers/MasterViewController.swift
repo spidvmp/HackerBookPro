@@ -28,7 +28,6 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //defino el controlador de busqueda
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchBar.sizeToFit()
@@ -74,7 +73,6 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
-
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -133,7 +131,6 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
             //hay que bajarse la imagen
             //downloadImage(object.imageUrl, id: object.objectID)
             //observo el notification
-        //    NSNotificationCenter.defaultCenter().addObserver(self, selector: "Imageuploaded:", name: IMAGE_DID_FINISH_DOWNLOAD, object: nil)
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
                 
                 if let url = NSURL(string:object.imageUrl!) {
@@ -142,7 +139,6 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                         //print("Bajando \(url)")
                         if let image = UIImage(data: data) {
                             //tengo la imagen, la grabo en coredata
-                            //object.cover?.image = image
                             
                             dispatch_async(dispatch_get_main_queue()) {
                                 //tengo la imagen, la grabo en coredata
