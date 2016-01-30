@@ -135,7 +135,17 @@ class NoteController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    //MARK: - Input Accesory
+    @IBAction func socialSharing(sender: AnyObject) {
+        //compratir nota con la red social
+        let txt = annotation?.text as String!
+        let google:NSURL = NSURL(string:"http://google.com/")!
+        //let share = [txt, google]
+        let activityViewController = UIActivityViewController(activityItems: [txt,google], applicationActivities: nil)
+        self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
+        
+    }
+
+    //MARK: - Input Accesory para el teclado
     func inputAccessoryViewCreator() -> UIToolbar {
         let tool = UIToolbar(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 40.0))
         let hide = UIBarButtonItem(title: "Cerrar", style: UIBarButtonItemStyle.Done , target: self, action: "hideKeyboard")

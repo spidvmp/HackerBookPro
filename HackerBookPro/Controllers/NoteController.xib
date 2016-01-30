@@ -58,7 +58,11 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="rTa-Kj-5tD"/>
-                        <barButtonItem title="Item" id="xLe-tf-UW3"/>
+                        <barButtonItem systemItem="action" id="xLe-tf-UW3">
+                            <connections>
+                                <action selector="socialSharing:" destination="-1" id="mJc-b0-NeI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="s6H-KH-FKn"/>
                         <barButtonItem systemItem="trash" id="0kn-Aw-u7g">
                             <connections>
