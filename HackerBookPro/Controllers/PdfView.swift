@@ -18,6 +18,10 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     
     var stack : AGTSimpleCoreDataStack!
     
+    //muestro una progreso
+    let hud = ProgressHUD(text:"Downloading")
+    //saber si esta bajando algo o no
+    var downloading : Bool = false
     
     
     var book : BookModel? {
@@ -55,6 +59,10 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        //si estoy bajando algo, he de quitar el HUD
+        if downloading {
+            self.hud.removeFromSuperview()
+        }
 
     }
     
@@ -70,10 +78,14 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
             //me bajo el fichero, lo tengo en book.urlPdf
             async.downloadFile(urlString: (self.book?.pdfUrl)!)
             async.delegate = self
+            //muestro el
+            //self.view.addSubview(hud)
             
         } else {
             //tengo el fichero cargado, asi que lo muestro
-            showPDF((self.book!.pdf?.pdfData)!)
+            if let a = self.book!.pdf?.pdfData {
+                showPDF(a)
+            }
         }
         
         
@@ -86,7 +98,7 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     
     func showPDF(data : NSData) {
 
-        pdfWebView.loadData(data, MIMEType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL(fileURLWithPath: "http://a.com") )
+        pdfWebView.loadData(data, MIMEType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() )
         
     }
     
@@ -111,6 +123,10 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
             print("Error al grabar el pdf")
         }
         
+        //termino de bajar, quito el hud
+        //downloading = false
+        //hud.removeFromSuperview()
+        
         //lo muestro
         showPDF(data)
 
@@ -118,6 +134,9 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     
     func downLoadDidFail(urlString: String) {
         print("Error al cargar \(urlString)")
+        //oculto el hud
+//        downloading = false
+//        self.hud.removeFromSuperview()
     }
     
 

@@ -11,6 +11,7 @@
 		2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B200A171C4AA11D00B79502 /* AsyncDownload.swift */; };
 		2B5A5EA01C54B3B600875D97 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A5E9F1C54B3B600875D97 /* LocationModel.swift */; };
 		2B5A5EA21C54B46C00875D97 /* _LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A5EA11C54B46C00875D97 /* _LocationModel.swift */; };
+		2B694E1D1C5D360E00E82264 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B694E1C1C5D360E00E82264 /* ProgressHUD.swift */; };
 		2B72F6BF1C3AD70B00F72899 /* _PdfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */; };
 		2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B72F6C11C3B0B4600F72899 /* BookCell.swift */; };
 		2B72F6C41C3B0B4600F72899 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B72F6C21C3B0B4600F72899 /* BookCell.xib */; };
@@ -62,6 +63,7 @@
 		2B200A171C4AA11D00B79502 /* AsyncDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncDownload.swift; path = Utils/AsyncDownload.swift; sourceTree = "<group>"; };
 		2B5A5E9F1C54B3B600875D97 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationModel.swift; path = Model/LocationModel.swift; sourceTree = "<group>"; };
 		2B5A5EA11C54B46C00875D97 /* _LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _LocationModel.swift; path = Model/_LocationModel.swift; sourceTree = "<group>"; };
+		2B694E1C1C5D360E00E82264 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = Utils/ProgressHUD.swift; sourceTree = "<group>"; };
 		2B72F6BE1C3AD70B00F72899 /* _PdfModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _PdfModel.swift; path = Model/_PdfModel.swift; sourceTree = "<group>"; };
 		2B72F6C11C3B0B4600F72899 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookCell.swift; path = Cell/BookCell.swift; sourceTree = "<group>"; };
 		2B72F6C21C3B0B4600F72899 /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookCell.xib; path = Cell/BookCell.xib; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				2BDCCEDF1C352E38009C4F25 /* Defines.swift */,
 				2B200A171C4AA11D00B79502 /* AsyncDownload.swift */,
+				2B694E1C1C5D360E00E82264 /* ProgressHUD.swift */,
 				2B73DBD21C5A8CF500B732F9 /* UIImage+Alpha.h */,
 				2B73DBD31C5A8CF500B732F9 /* UIImage+Alpha.m */,
 				2B73DBD41C5A8CF500B732F9 /* UIImage+RoundedCorner.h */,
@@ -366,6 +369,7 @@
 				2B5A5EA01C54B3B600875D97 /* LocationModel.swift in Sources */,
 				2BAA38861C5838EC00A8D3DD /* PhotoController.swift in Sources */,
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
+				2B694E1D1C5D360E00E82264 /* ProgressHUD.swift in Sources */,
 				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
 				2B9825DD1C33E19E0004F1AE /* MasterViewController.swift in Sources */,
 				2B200A181C4AA11D00B79502 /* AsyncDownload.swift in Sources */,

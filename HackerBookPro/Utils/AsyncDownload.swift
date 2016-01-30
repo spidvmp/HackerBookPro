@@ -62,7 +62,7 @@ class AsyncDownload: NSObject {
     }
     
     func downloadFile(urlString u: String) {
-        print("entro en download")
+
         if let url = NSURL(string: u) {
             //let request = NSURLRequest(URL: url)
             
@@ -81,7 +81,7 @@ class AsyncDownload: NSObject {
             //lo mismo pero pasando la url en vez del request
             let task = session.dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
                 if error == nil {
-
+                    print("Termina de bajar sin error")
                     //tengo los datos en data, se los paso al delegado, ciompruebo que responde al selector
                     if ((self.delegate != nil) && (self.delegate?.respondsToSelector(Selector("downLoadDidFinish:")))!) {
                         self.delegate?.downLoadDidFinish(data!)
