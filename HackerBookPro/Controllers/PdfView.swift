@@ -19,7 +19,7 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     var stack : AGTSimpleCoreDataStack!
     
     //muestro una progreso
-    let hud = ProgressHUD(text:"Downloading")
+    let hud = ProgressHUD(text:"Download")
     //saber si esta bajando algo o no
     var downloading : Bool = false
     
@@ -34,40 +34,25 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
             updateUI()
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //compruebo si tengo el pdf, si no lo tengo lo bajo usando AsyncDownload
-        
-        
-        // Do any additional setup after loading the view.
-    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.pdfWebView.delegate = self
-        
-
-        
-        //me apunto a a las notificaciones de cambio de libro
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "bookDidChange:", name: BOOK_DID_CHANGE, object: nil)
-        
-        
+        showPDF(self.book?.pdf?.pdfData)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         //si estoy bajando algo, he de quitar el HUD
         if downloading {
-            self.hud.removeFromSuperview()
+            dispatch_async(dispatch_get_main_queue()) {
+                self.hud.removeFromSuperview()
+            }
         }
-
     }
-    
-    
-    
+
     func updateUI(){
         //me han pasado el libro,
         self.title = book?.title
@@ -79,17 +64,9 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
             async.downloadFile(urlString: (self.book?.pdfUrl)!)
             async.delegate = self
             //muestro el
-            //self.view.addSubview(hud)
-            
-        } else {
-            //tengo el fichero cargado, asi que lo muestro
-            if let a = self.book!.pdf!.pdfData {
-                showPDF(a)
+            self.view.addSubview(hud)
 
-            }
         }
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,21 +74,15 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
         // Dispose of any resources that can be recreated.
     }
     
-    func showPDF(data : NSData) {
-
-        pdfWebView.loadData(data, MIMEType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() )
+    func showPDF(data : NSData?) {
+        //compruebo que tengo el dato en coredata
+        if let a = data {
+            pdfWebView.loadData(a, MIMEType: "application/pdf", textEncodingName: "UTF-8", baseURL: NSURL() )
+        }
 
     }
     
-//    func bookDidChange(not : NSNotification ){
-//        //libro = not.object as? NCTBook
-////        if let dic = not.userInfo as? Dictionary<String, NCTBook> {
-////            libro = dic["book"]!
-////        }
-//        
-//        showPDF()
-//        
-//    }
+
     
     //MARK: - AsyncDownload Protocol
     func downLoadDidFinish(data : NSData) {
@@ -125,9 +96,13 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
         }
         
         //termino de bajar, quito el hud
-        //downloading = false
-        //hud.removeFromSuperview()
-        
+        downloading = false
+
+        //para quitar el hud hay que hacerlo de estaforma, si no viene autolayout y tira la aplicacion en modo Yoda
+        dispatch_async(dispatch_get_main_queue()) {
+            //self.activity.removeFromSuperview()
+            self.hud.removeFromSuperview()
+        }
         //lo muestro
         showPDF(data)
 
@@ -135,9 +110,12 @@ class PdfView: UIViewController, UIWebViewDelegate, AsyncDownloadProtocol {
     
     func downLoadDidFail(urlString: String) {
         print("Error al cargar \(urlString)")
+
         //oculto el hud
-//        downloading = false
-//        self.hud.removeFromSuperview()
+        downloading = false
+        dispatch_async(dispatch_get_main_queue()) {
+            self.hud.removeFromSuperview()
+        }
     }
     
 
