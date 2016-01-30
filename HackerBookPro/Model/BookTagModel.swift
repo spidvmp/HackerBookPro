@@ -39,8 +39,8 @@ public class BookTagModel: _BookTagModel {
                 c.deleteObject(r)
                 do {
                     try r.managedObjectContext!.save()
-                }    catch {
-                    print ("error al grabar en clase BookTagModel")
+                }    catch let error {
+                    print ("error al borrar en clase BookTagModel \(error)")
                 }
                 
                 //}

@@ -27,7 +27,7 @@
     <entity name="BookTag" representedClassName="BookTagModel" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="bookTags" inverseEntity="Book" syncable="YES"/>
-        <relationship name="tag" maxCount="1" deletionRule="Cascade" destinationEntity="Tag" inverseName="bookTags" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="tag" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="bookTags" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="CoverImage" representedClassName="CoverModel" syncable="YES">
         <attribute name="photoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
@@ -50,17 +50,17 @@
     <entity name="Tag" representedClassName="TagModel" syncable="YES">
         <attribute name="proxyForSorting" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="tag" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="bookTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tag" inverseEntity="BookTag" syncable="YES"/>
+        <relationship name="bookTags" toMany="YES" deletionRule="Cascade" destinationEntity="BookTag" inverseName="tag" inverseEntity="BookTag" syncable="YES"/>
     </entity>
     <elements>
         <element name="Annotation" positionX="-18" positionY="-450" width="128" height="148"/>
         <element name="Author" positionX="-317" positionY="-450" width="128" height="75"/>
         <element name="Book" positionX="-162" positionY="-279" width="128" height="180"/>
-        <element name="BookTag" positionX="-252" positionY="-252" width="128" height="90"/>
+        <element name="BookTag" positionX="-380" positionY="-297" width="128" height="88"/>
         <element name="CoverImage" positionX="16" positionY="-93" width="128" height="73"/>
         <element name="Location" positionX="142" positionY="-420" width="128" height="105"/>
-        <element name="PdfContainer" positionX="-495" positionY="-333" width="128" height="73"/>
+        <element name="PdfContainer" positionX="-389" positionY="-100" width="128" height="73"/>
         <element name="PhotoContainer" positionX="36" positionY="-201" width="128" height="73"/>
-        <element name="Tag" positionX="-648" positionY="-189" width="128" height="90"/>
+        <element name="Tag" positionX="-648" positionY="-189" width="128" height="88"/>
     </elements>
 </model>
