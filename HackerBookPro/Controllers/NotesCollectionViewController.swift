@@ -30,7 +30,7 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         let new = UIBarButtonItem(title: "Nueva Nota", style: .Plain, target: self, action: "newNoteAction")
         self.navigationItem.rightBarButtonItem = new
 
-        //self.collectionView?.backgroundColor = UIColor.whiteColor()
+        self.collectionView?.backgroundColor = UIColor.whiteColor()
     }
     
     

@@ -28,6 +28,7 @@ class BookCell: UITableViewCell {
         // Initialization code
         self.cover.layer.masksToBounds = true
         self.cover.layer.cornerRadius = 8
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

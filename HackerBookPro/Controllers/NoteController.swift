@@ -54,6 +54,8 @@ class NoteController: UIViewController {
         //asigno al textView y al label un boton para cerrar el teclado
         self.textTField.inputAccessoryView = inputAccessoryViewCreator()
         
+        self.view.backgroundColor = UIColor.defaultColorHacker()
+        
         
     }
     
@@ -89,6 +91,7 @@ class NoteController: UIViewController {
 
             if let x = self.textTField {
                 x.text = a.text
+                x.layer.cornerRadius = 8
             }
             
             if let i = self.photoView {
@@ -98,10 +101,12 @@ class NoteController: UIViewController {
                 } else {
                     i.image = UIImage(named: "emptyPic.jpg")
                 }
+                i.layer.cornerRadius = 8
                 
             }
             if let ad = self.address {
                 ad.text = "Address & location owm fomdoi woimowimdpf oiwmp fipweirpfoiwmep dompweoirm dfg"
+                ad.layer.cornerRadius = 8
             }
             
         }
