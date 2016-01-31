@@ -16,6 +16,9 @@ let JSON_URL = "https://t.co/K9ziV0z3SJ"
 
 //clave para la primera vez de carga de datos usado en USERDEFAULTS
 let FIRST_TIME = "firsTime"
+//clave para ultimo libro leido
+let LAST_BOOK_READ = "lastbookread"
 
 //nombre que va a tener el tag de favorito
 let FAVORITE_TAG = "Favorito"
+

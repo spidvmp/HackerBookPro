@@ -20,10 +20,15 @@ class DetailViewController: UIViewController {
     
     var stack : AGTSimpleCoreDataStack!
     
+    //cargo el userdefults y asi no lo vuelvo a cargar
+    let def = NSUserDefaults.standardUserDefaults()
+    
     var book: BookModel? {
         didSet {
             // Update the view.
             self.configureView()
+            //Han seleccionado un libro, lo guardo en Userdefaults
+            saveBookInUserDefaults()
         }
     }
 
@@ -139,5 +144,24 @@ class DetailViewController: UIViewController {
 
     }
     
+    //MARK: Acceso a Userdefaults
+    func saveBookInUserDefaults() {
+        
+        //obtengo el NSData del UIR
+        if let data = archiveURIRepresentation() {
+            //gtabo en userdefaults
+            def.setObject(data, forKey: LAST_BOOK_READ)
+        }
+    }
+    
+    func archiveURIRepresentation() -> NSData? {
+        if let uri = self.book?.objectID.URIRepresentation() {
+            return NSKeyedArchiver.archivedDataWithRootObject(uri)
+        } else {
+            return nil
+        }
+
+    }
+
 }
 
