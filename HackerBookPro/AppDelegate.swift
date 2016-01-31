@@ -37,11 +37,10 @@ import UIKit
 //        let def = NSUserDefaults.standardUserDefaults()
 //        def.setBool(false, forKey: FIRST_TIME)
 
-        
-        print("JSON")
+
         //comprobamos si es la primera vez y hay que bajar el json
         checkDownloadedJSON()
-        print("TErmina")
+
        
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
@@ -67,7 +66,6 @@ import UIKit
         //grabo los datos en BD
         do {
             try stack.context.save()
-            print ("grabado en resignActive")
         }    catch {
             print ("error al grabar")
         }
@@ -127,7 +125,6 @@ import UIKit
                 //lo suyo es grabar todo coredata
                 do {
                     try self.stack.context.save()
-                    print ("grabado")
                 }    catch {
                     print ("error al grabar")
                 }

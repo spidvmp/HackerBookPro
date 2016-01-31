@@ -29,17 +29,10 @@ class NoteController: UIViewController {
             
         }
     }
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = UIRectEdge.None
-        
-
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,12 +44,14 @@ class NoteController: UIViewController {
         //como entro, pongo la salida a foto a falso
         exitToTakeAPic = false
         
-        //asigno al textView y al label un boton para cerrar el teclado
-        self.textTField.inputAccessoryView = inputAccessoryViewCreator()
+        //asigno al textView y al label un boton para cerrar el teclado, si es ipad no
+        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone {
+            self.textTField.inputAccessoryView = inputAccessoryViewCreator()
+            self.titleTField.inputAccessoryView = inputAccessoryViewCreator()
+        }
         
         self.view.backgroundColor = UIColor.defaultColorHacker()
-        
-        
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -105,7 +100,7 @@ class NoteController: UIViewController {
                 
             }
             if let ad = self.address {
-                ad.text = "Address & location owm fomdoi woimowimdpf oiwmp fipweirpfoiwmep dompweoirm dfg"
+                ad.text = "Address"
                 ad.layer.cornerRadius = 8
             }
             
@@ -138,9 +133,9 @@ class NoteController: UIViewController {
     @IBAction func socialSharing(sender: AnyObject) {
         //compratir nota con la red social
         let txt = annotation?.text as String!
-        let google:NSURL = NSURL(string:"http://google.com/")!
+        //let google:NSURL = NSURL(string:"http://google.com/")!
         //let share = [txt, google]
-        let activityViewController = UIActivityViewController(activityItems: [txt,google], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [txt], applicationActivities: nil)
         self.navigationController?.presentViewController(activityViewController, animated: true, completion: nil)
         
     }
@@ -156,7 +151,8 @@ class NoteController: UIViewController {
     }
     
     func hideKeyboard() {
-        self.textTField.endEditing(true)
+        //self.textTField.endEditing(true)
+        self.view.endEditing(true)
     }
 
 
