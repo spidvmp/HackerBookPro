@@ -22,7 +22,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     
     //cargo el userdefults y asi no lo vuelvo a cargar 
     let def = NSUserDefaults.standardUserDefaults()
-     
+    
+
 
 
     override func viewDidLoad() {
@@ -70,13 +71,13 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         
         //compruebo si es la primera vez
         if !def.boolForKey(FIRST_TIME) {
-            print("Hay que bajarse todo, quito delegado a la tabla")
 
-
-            
+            /*
+            Hago el proceso de bajar con bloques. No se si es asi como se pide, de momento me ha servido para entender el funcionamiento. Para poner un activityView habria que ponerlo en el willappear y se estaria comprobando algo constantemente para un proceso que solo se hace 1 vez y tarda muy poco, compensa?
+            */
             checkDownloadedJSON({ (bookArray) -> Void in
                 //se supone que se ha bajado todo y lo ha procesado, nos ha devuelto un array con los libros para grabarlos en core data, o puede haber llegado vacio si hubo error
-                print("entro en el bloque de finalizacion para guardar")
+
                 if let arr = bookArray {
                     //tengo datos, los grabo
                     for l in arr {
@@ -96,7 +97,6 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                 //y ahora que me he bajado esto, pues lomarco en el userdefaults
                 self.def.setBool(true, forKey: FIRST_TIME)
 
-                print("termine de guardar")
             })
             
             
@@ -108,7 +108,6 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
-        
         /* ejemplo del puto bloque
         procesando { (resultado) -> Void in
             print("tengo un array de string")
@@ -150,86 +149,39 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
 */
     
     func checkDownloadedJSON (librosEncontrados:(bookArray: [Book]?) -> Void) {
-        //un bloque que llama a luna funciona q se baja el JOSN y lo procesa, una vez que lo tenga procesado se lo devuelve para que se grabe en primer plano
-//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
-//            print("entro en el dispatch")
-            librosEncontrados(bookArray: self.downloadJSON())
-            
-//        })
+        //un bloque que llama a una funciona q se baja el JOSN y lo procesa, una vez que lo tenga procesado se lo devuelve para que se grabe en primer plano
         
-
+        librosEncontrados(bookArray: self.downloadJSON())
         
-//
-//            if let arrayLibros = self.downloadJSON() {
-//                //aqui tengo un array de Book con todos los datos, ahora deberia guardar  en coredata
-//                for l in arrayLibros {
-//                    //esto guarda en coredata todo lo referente al libro, en la estructura que tenga que ser
-//                    l.saveToCoreData(context: self.stack.context)
-//                    
-//                }
-//                
-//                //lo suyo es grabar todo coredata
-//                do {
-//                    try self.stack.context.save()
-//                }    catch {
-//                    print ("error al grabar")
-//                }
-//                
-//            }
-//            
-//            //es la primera vez, me tengo que bajar todo y tratarlo
-//            //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
-//            
-//            //}
-//            //es la primera y unica vez que se supone que pasara por aqui. Lo marcomo como que ya ha pasado
-//            def.setBool(true, forKey: FIRST_TIME)
-//            
-        
-//        } else {
-//            print("Tengo los datos en BD")
-//        }
     }
-        func downloadJSON() -> [Book]? {
-            //me bajo el json de forma sincrona
-            print("Empiezo a bajar")
-            //necesito un array de los libros estructurados, que podria dar error si no hay nada
-            var resultStructBooks : [StructBook]? = nil
-            var resultBooksArray: [Book]? = nil
-            
-            let url = NSURL(string: JSON_URL)!
-            //me bajo los datos, se los enchufo al JSONSerializartion y si todo va bien devuelvo un JSONArray
-            do {
-                if let data = NSData(contentsOfURL: url),
-                    libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
-                        
-                        //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
-                        resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
-                        
-                        //ahora transformo el array de Struct en array de NCTBook
-                        resultBooksArray = decodeStructBooksToBooksArray(books: resultStructBooks!)
-                        
-                }
-            } catch {
-                print("Error al descargar el json")
+    func downloadJSON() -> [Book]? {
+        //me bajo el json de forma sincrona
+        print("Empiezo a bajar")
+        //necesito un array de los libros estructurados, que podria dar error si no hay nada
+        var resultStructBooks : [StructBook]? = nil
+        var resultBooksArray: [Book]? = nil
+        
+        let url = NSURL(string: JSON_URL)!
+        //me bajo los datos, se los enchufo al JSONSerializartion y si todo va bien devuelvo un JSONArray
+        do {
+            if let data = NSData(contentsOfURL: url),
+                libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
+                    
+                    //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
+                    resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
+                    
+                    //ahora transformo el array de Struct en array de NCTBook
+                    resultBooksArray = decodeStructBooksToBooksArray(books: resultStructBooks!)
+                    
             }
-            print("termine de bajar, devualvo los libros")
-            //return resultStructBooks
-            return resultBooksArray
+        } catch {
+            print("Error al descargar el json")
         }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        print("termine de bajar, devualvo los libros")
+        //return resultStructBooks
+        return resultBooksArray
+    }
+ 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -244,13 +196,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-/*
-    func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
-*/
+
 
     // MARK: - Table View
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
