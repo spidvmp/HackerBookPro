@@ -19,10 +19,6 @@ class NoteCollectionCell: UICollectionViewCell {
         self.contentView.backgroundColor = UIColor.defaultColorHacker()
         self.title.backgroundColor = UIColor.defaultColorHacker()
         self.modification.backgroundColor = UIColor.defaultColorHacker()
-        //self.title.tintColor = UIColor.whiteColor()
-        //self.modification.tintColor = UIColor.whiteColor()
-        
-
     }
 
 

@@ -19,7 +19,6 @@ class BookCell: UITableViewCell {
         didSet {
             self.cover.image = coverImage
         }
-    
     }
 
     
@@ -34,7 +33,6 @@ class BookCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
     //esto seria un metodo de clase

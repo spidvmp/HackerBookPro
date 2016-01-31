@@ -15,7 +15,6 @@ public class PhotoModel: _PhotoModel {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
 
-    
     var image: UIImage? {
         set(img){
             //Me asignan un valor, lo guardo como NSData
@@ -38,10 +37,7 @@ public class PhotoModel: _PhotoModel {
             else {
                 return nil
             }
-            
         }
     }
-    
 
-    
 }

@@ -127,8 +127,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         let newPhotoSize = CGSizeMake(chosenImage.size.width * 0.20, chosenImage.size.height * 0.20)
         //se la coloco al coredata
         self.nota.photo?.image = chosenImage.resizedImage(newPhotoSize, interpolationQuality: CGInterpolationQuality.Medium)
-        
-        
+
         //ya hanseleccionado la foto, desactivo el que me fui a por algo
         exitToTakeAPic = false
 

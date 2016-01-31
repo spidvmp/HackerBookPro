@@ -96,12 +96,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                 
                 //y ahora que me he bajado esto, pues lomarco en el userdefaults
                 self.def.setBool(true, forKey: FIRST_TIME)
-
-
             })
-            
-            
-            
+   
         }
         
     }
@@ -168,7 +164,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
 
@@ -242,45 +238,18 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                                             cell.cover.image = image
                                         })
                                 })
-                                
-                                
-                                
-                                
+  
                             }
                         }
                     }
                 }
                 
             })
-            
-            
-            
-            
-            
-            
-            
+
         }
 
         return cell
     }
-
-//    func Imageuploaded(notification: NSNotification) -> Void {
-//        print(notification)
-//        //saco el info
-//        let info = notification.userInfo
-//        
-//    }
-/*
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-*/
-/*
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-*/
-
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -307,8 +276,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         if let v = view as?UITableViewHeaderFooterView {
             v.backgroundView?.backgroundColor = UIColor.defaultColorHacker()
         }
-        
-        
+
     }
 
     // MARK: - Segues

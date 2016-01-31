@@ -74,9 +74,7 @@ public class BookModel : _BookModel {
 
         //genero un array con todos los tags que hay en el libro, con esto solo saco el tag que es un string y se guarda en arr que es un [String]
         //if let arr = self.tags.allObjects as? TagModelArray {
-        
 
-        
         if let arrBookTag = self.bookTags.allObjects as? BookTagModelArray {
             //tengo un array de los booktag intermedios. he de sacar el array de los tags que tiene
             let arr = arrBookTag.map({$0.tag!})

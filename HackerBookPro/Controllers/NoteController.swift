@@ -18,6 +18,9 @@ class NoteController: UIViewController {
 
     
     //modelo de datos a tratar. Cuando llegue aqui esta creado en coredata
+    /*
+    Se podia haber hecho mejor el diseño, pero me ha faltado tiempo
+    */
     
     var stack : AGTSimpleCoreDataStack!
     //tengo un bool para que si nos vamos a la camara, no grabe el modelo
@@ -74,7 +77,6 @@ class NoteController: UIViewController {
             }    catch {
                 print ("error al grabar en el modal")
             }
-            
         }
     }
     

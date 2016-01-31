@@ -24,13 +24,7 @@ public class AuthorModel: _AuthorModel {
         let au = self.books as! NSMutableSet
         au.addObject(b)
         self.books = au
-        
-        //la relacion es to many, asi que saco lo que hay y añado este
-//        let aut = b.authors as! NSMutableSet
-//        aut.addObject(self)
-//        b.authors = aut
-
-        
+  
     }
     
     //MARK: - Metodos de clase de Autor
@@ -44,18 +38,6 @@ public class AuthorModel: _AuthorModel {
         }
         
         b.addAuthorsObject(author)
-        
-//        //ahora tenemos la entidad autor, o existeia o la ha creado, se lo añado al libro
-//        //la relacion es to many, asi que saco lo que hay y añado este
-//        let aut = b.authors as! NSMutableSet
-//        if let authorCoreData = author {
-//            //no es nil, hay autor
-//            aut.addObject(authorCoreData)
-//            b.authors = aut
-//        }
-        
-        
-        
     }
     
     class func booksWithAuthorLike(author a:String, context c:NSManagedObjectContext) -> BookModelArray? {

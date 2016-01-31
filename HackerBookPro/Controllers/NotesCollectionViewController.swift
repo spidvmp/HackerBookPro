@@ -57,9 +57,7 @@ class NotesCollectionViewController: AGTCoreDataCollectionViewController {
         fmt.dateStyle = NSDateFormatterStyle.MediumStyle
         let d = note.modificationDate!
         cell.modification.text = fmt.stringFromDate(d!)
-        
-        
-        
+
         return cell
         
     }

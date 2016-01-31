@@ -32,11 +32,6 @@ import UIKit
 //        def.setBool(false, forKey: FIRST_TIME)
 
 
-        //comprobamos si es la primera vez y hay que bajar el json
-        //checkDownloadedJSON()
-
-       
-        
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
@@ -51,9 +46,7 @@ import UIKit
         mast.stack = self.stack
         //le paso tambien el stack al detail para que busque en caso de que tenga que sacar el libro del userdefaults
         detail.stack = self.stack
-        
-        
-        
+
         return true
     }
 
@@ -67,9 +60,6 @@ import UIKit
         }    catch {
             print ("error al grabar")
         }
-//        stack.saveWithErrorBlock { (NSError!) -> Void in
-//            print("Error al grabar")
-//        }
         
     }
 
@@ -102,77 +92,6 @@ import UIKit
         return false
     }
     
-    
-    //MARK: - Bajar JSON
-//    func checkDownloadedJSON () {
-//        //comprueba si ya se ha bajado la primera vez el json, si es que no, se lo baja, lo trata y lo guarda en coredata. Las imagenes se deberian ir cargando segun se necesitasen
-//        let def = NSUserDefaults.standardUserDefaults()
-//        
-//        if !def.boolForKey(FIRST_TIME) {
-//            
-//            
-//            
-//            if let arrayLibros = self.downloadJSON() {
-//                //aqui tengo un array de Book con todos los datos, ahora deberia guardar  en coredata
-//                for l in arrayLibros {
-//                    //esto guarda en coredata todo lo referente al libro, en la estructura que tenga que ser
-//                    l.saveToCoreData(context: self.stack.context)
-//                    
-//                }
-//                
-//                //lo suyo es grabar todo coredata
-//                do {
-//                    try self.stack.context.save()
-//                }    catch {
-//                    print ("error al grabar")
-//                }
-//                
-//            }
-//            
-//            //es la primera vez, me tengo que bajar todo y tratarlo
-//            //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
-//            
-//            //}
-//            //es la primera y unica vez que se supone que pasara por aqui. Lo marcomo como que ya ha pasado
-//            def.setBool(true, forKey: FIRST_TIME)
-//            
-//            
-//        } else {
-//            print("Tengo los datos en BD")
-//        }
-//        
-//        
-//    }
-//    
-//    
-//    //func downloadJSON() -> [StructBook]? {
-//    func downloadJSON() -> [Book]? {
-//        //me bajo el json de forma sincrona
-//        
-//        //necesito un array de los libros estructurados, que podria dar error si no hay nada
-//        var resultStructBooks : [StructBook]? = nil
-//        var resultBooksArray: [Book]? = nil
-//        
-//        let url = NSURL(string: JSON_URL)!
-//        //me bajo los datos, se los enchufo al JSONSerializartion y si todo va bien devuelvo un JSONArray
-//        do {
-//            if let data = NSData(contentsOfURL: url),
-//                libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
-//                    
-//                    //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
-//                    resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
-//                    
-//                    //ahora transformo el array de Struct en array de NCTBook
-//                    resultBooksArray = decodeStructBooksToBooksArray(books: resultStructBooks!)
-//                    
-//            }
-//        } catch {
-//            print("Error al descargar el json")
-//        }
-//        //return resultStructBooks
-//        return resultBooksArray
-//    }
-
 
 }
 
