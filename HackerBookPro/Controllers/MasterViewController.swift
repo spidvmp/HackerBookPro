@@ -68,12 +68,167 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         self.tableView.separatorColor = UIColor.defaultColorHacker()
         
         
+        //compruebo si es la primera vez
+        if !def.boolForKey(FIRST_TIME) {
+            print("Hay que bajarse todo, quito delegado a la tabla")
+
+
+            
+            checkDownloadedJSON({ (bookArray) -> Void in
+                //se supone que se ha bajado todo y lo ha procesado, nos ha devuelto un array con los libros para grabarlos en core data, o puede haber llegado vacio si hubo error
+                print("entro en el bloque de finalizacion para guardar")
+                if let arr = bookArray {
+                    //tengo datos, los grabo
+                    for l in arr {
+                        //esto guarda en coredata todo lo referente al libro, en la estructura que tenga que ser
+                        l.saveToCoreData(context: self.stack.context)
+                        
+                    }
+                    
+                    //lo suyo es grabar todo coredata
+                    do {
+                        try self.stack.context.save()
+                    }    catch {
+                        print ("error al grabar")
+                    }
+                }
+                
+                //y ahora que me he bajado esto, pues lomarco en el userdefaults
+                self.def.setBool(true, forKey: FIRST_TIME)
+
+                print("termine de guardar")
+            })
+            
+            
+            
+        }
+        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        
+        /* ejemplo del puto bloque
+        procesando { (resultado) -> Void in
+            print("tengo un array de string")
+            print(resultado)
+        }
+        
+        hardProcessingWithString("Hola") { (result) -> Void in
+            print("ha terminado \(result)")
+        }
+    */
     }
+    
+    
+    
+    
+    /*
+    ejemplo probando los putos bloques
+    func procesando(heFinalizado:(resultado: [String]) -> Void) {
+        
+        print("Hago lo que sea, no me han mandado ningun parametro")
+        //tengo que devolver un array de string
+        let a = ["hola","adios","como","estas"]
+        
+        //he terminado, le devuelvo la pelota a quinme ha llamado con el resultado
+        heFinalizado(resultado: a)
+    }
+    
+
+    func hardProcessingWithString(input: String, completion: (result: Int) -> Void) {
+        var a = 3
+        print(a)
+        let b = 5
+        a = a*b*a
+        print(a)
+        print(input)
+        
+        completion(result: a)
+    }
+*/
+    
+    func checkDownloadedJSON (librosEncontrados:(bookArray: [Book]?) -> Void) {
+        //un bloque que llama a luna funciona q se baja el JOSN y lo procesa, una vez que lo tenga procesado se lo devuelve para que se grabe en primer plano
+//        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), { () -> Void in
+//            print("entro en el dispatch")
+            librosEncontrados(bookArray: self.downloadJSON())
+            
+//        })
+        
+
+        
+//
+//            if let arrayLibros = self.downloadJSON() {
+//                //aqui tengo un array de Book con todos los datos, ahora deberia guardar  en coredata
+//                for l in arrayLibros {
+//                    //esto guarda en coredata todo lo referente al libro, en la estructura que tenga que ser
+//                    l.saveToCoreData(context: self.stack.context)
+//                    
+//                }
+//                
+//                //lo suyo es grabar todo coredata
+//                do {
+//                    try self.stack.context.save()
+//                }    catch {
+//                    print ("error al grabar")
+//                }
+//                
+//            }
+//            
+//            //es la primera vez, me tengo que bajar todo y tratarlo
+//            //dowloadJSON se baja el JSON trata los datos, devuelve un array de StructBook
+//            
+//            //}
+//            //es la primera y unica vez que se supone que pasara por aqui. Lo marcomo como que ya ha pasado
+//            def.setBool(true, forKey: FIRST_TIME)
+//            
+        
+//        } else {
+//            print("Tengo los datos en BD")
+//        }
+    }
+        func downloadJSON() -> [Book]? {
+            //me bajo el json de forma sincrona
+            print("Empiezo a bajar")
+            //necesito un array de los libros estructurados, que podria dar error si no hay nada
+            var resultStructBooks : [StructBook]? = nil
+            var resultBooksArray: [Book]? = nil
+            
+            let url = NSURL(string: JSON_URL)!
+            //me bajo los datos, se los enchufo al JSONSerializartion y si todo va bien devuelvo un JSONArray
+            do {
+                if let data = NSData(contentsOfURL: url),
+                    libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
+                        
+                        //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
+                        resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
+                        
+                        //ahora transformo el array de Struct en array de NCTBook
+                        resultBooksArray = decodeStructBooksToBooksArray(books: resultStructBooks!)
+                        
+                }
+            } catch {
+                print("Error al descargar el json")
+            }
+            print("termine de bajar, devualvo los libros")
+            //return resultStructBooks
+            return resultBooksArray
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
