@@ -97,6 +97,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
                 //y ahora que me he bajado esto, pues lomarco en el userdefaults
                 self.def.setBool(true, forKey: FIRST_TIME)
 
+
             })
             
             
@@ -104,6 +105,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         }
         
     }
+    
+
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -148,39 +151,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     }
 */
     
-    func checkDownloadedJSON (librosEncontrados:(bookArray: [Book]?) -> Void) {
-        //un bloque que llama a una funciona q se baja el JOSN y lo procesa, una vez que lo tenga procesado se lo devuelve para que se grabe en primer plano
-        
-        librosEncontrados(bookArray: self.downloadJSON())
-        
-    }
-    func downloadJSON() -> [Book]? {
-        //me bajo el json de forma sincrona
-        print("Empiezo a bajar")
-        //necesito un array de los libros estructurados, que podria dar error si no hay nada
-        var resultStructBooks : [StructBook]? = nil
-        var resultBooksArray: [Book]? = nil
-        
-        let url = NSURL(string: JSON_URL)!
-        //me bajo los datos, se los enchufo al JSONSerializartion y si todo va bien devuelvo un JSONArray
-        do {
-            if let data = NSData(contentsOfURL: url),
-                libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
-                    
-                    //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
-                    resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
-                    
-                    //ahora transformo el array de Struct en array de NCTBook
-                    resultBooksArray = decodeStructBooksToBooksArray(books: resultStructBooks!)
-                    
-            }
-        } catch {
-            print("Error al descargar el json")
-        }
-        print("termine de bajar, devualvo los libros")
-        //return resultStructBooks
-        return resultBooksArray
-    }
+ 
  
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -190,6 +161,9 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
             //he de quitar el search
             searchController.active = false
         }
+        
+        //sea lo que sea, grabo, si ha bajadoo imagenes de la celda, pues se graban, si no, pues ya se ocupara de no grabar nada
+        _ = try? self.stack.context.save()
     }
 
     override func didReceiveMemoryWarning() {
@@ -204,7 +178,7 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
 
         let cell = tableView.dequeueReusableCellWithIdentifier(BookCell.cellId() , forIndexPath: indexPath) as! BookCell
         
-        let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
+        //let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
         
         //estoy buscando el booktag, asi que saco la informacion a traves del BookTag
         var booktag : BookTagModel  //para los tags
@@ -306,13 +280,13 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         return 1
     }
 */
-/*
+
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
-*/
+
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             objects.removeAtIndex(indexPath.row)
@@ -323,6 +297,8 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //quito la seleccion que se queda en gris en el ipad
+        
         performSegueWithIdentifier("ShowBook", sender: indexPath)
     }
     
@@ -391,6 +367,39 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
             
         tableView.reloadData()
      
+    }
+    
+    //MARK: - Download data
+    
+    func checkDownloadedJSON (librosEncontrados:(bookArray: [Book]?) -> Void) {
+        //un bloque que llama a una funciona q se baja el JOSN y lo procesa, una vez que lo tenga procesado se lo devuelve para que se grabe en primer plano
+        
+        librosEncontrados(bookArray: self.downloadJSON())
+        
+    }
+    func downloadJSON() -> [Book]? {
+        //me bajo el json de forma sincrona
+        //necesito un array de los libros estructurados, que podria dar error si no hay nada
+        var resultStructBooks : [StructBook]? = nil
+        var resultBooksArray: [Book]? = nil
+        
+        let url = NSURL(string: JSON_URL)!
+        //me bajo los datos, se los enchufo al JSONSerializartion y si todo va bien devuelvo un JSONArray
+        do {
+            if let data = NSData(contentsOfURL: url),
+                libros = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? JSONArray {
+                    
+                    //tengo un JSONArray de libros sin tratar, me devuelve un array de StructBook
+                    resultStructBooks = decodeJSONArrayToStructBookArray(books: libros)
+                    
+                    //ahora transformo el array de Struct en array de NCTBook
+                    resultBooksArray = decodeStructBooksToBooksArray(books: resultStructBooks!)
+            }
+        } catch {
+            print("Error al descargar el json")
+        }
+
+        return resultBooksArray
     }
 
 }

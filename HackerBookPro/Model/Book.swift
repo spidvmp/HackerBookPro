@@ -47,6 +47,9 @@ class Book : NSObject {
 
             _ = t.map({TagModel.addTag(tag: $0, book: b, context: c)})
         }
+        
+        //grabo el libro como ultimo en Userdefaults, asi por lo menos comienza con algun libro por defecto
+        saveBookInUserDefaults(b)
 
     }
     

@@ -21,12 +21,6 @@ import UIKit
         
         print(NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0])
         
-        
-        
-        //downloadFile("asdf")
-        
-        
-        
         //creamos el stack del coredata
         stack = AGTSimpleCoreDataStack(modelName: DATA_BASE)
         
@@ -51,8 +45,12 @@ import UIKit
         //he de acceder al masterViewController para pasarle el stack
         //Master esta en el elemento 0 de los controladores de splitViewController
         let mastNav = splitViewController.viewControllers[0] as! UINavigationController
+        let detailNav = splitViewController.viewControllers[1] as! UINavigationController
         let mast = mastNav.viewControllers[0] as! MasterViewController
+        let detail = detailNav.viewControllers[0] as! DetailViewController
         mast.stack = self.stack
+        //le paso tambien el stack al detail para que busque en caso de que tenga que sacar el libro del userdefaults
+        detail.stack = self.stack
         
         
         

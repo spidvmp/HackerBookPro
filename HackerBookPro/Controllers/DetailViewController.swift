@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
             // Update the view.
             self.configureView()
             //Han seleccionado un libro, lo guardo en Userdefaults
-            saveBookInUserDefaults()
+            saveBookInUserDefaults(book!)
         }
     }
 
@@ -71,9 +71,13 @@ class DetailViewController: UIViewController {
 
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         // Do any additional setup after loading the view, typically from a nib.
+        //si es ipad, aparece esta pantalla sin libro, asi que si no tiene libro hay que cargar el que esta en el userdefaults
+        if let b = checkIfLoadBookFromUserDefaults(self.book) {
+            book = b
+        }
         self.configureView()
     }
 
@@ -144,24 +148,28 @@ class DetailViewController: UIViewController {
 
     }
     
-    //MARK: Acceso a Userdefaults
-    func saveBookInUserDefaults() {
-        
-        //obtengo el NSData del UIR
-        if let data = archiveURIRepresentation() {
-            //gtabo en userdefaults
-            def.setObject(data, forKey: LAST_BOOK_READ)
-        }
-    }
     
-    func archiveURIRepresentation() -> NSData? {
-        if let uri = self.book?.objectID.URIRepresentation() {
-            return NSKeyedArchiver.archivedDataWithRootObject(uri)
-        } else {
+    func checkIfLoadBookFromUserDefaults(book: BookModel?) -> BookModel? {
+        //esto solo sucedera si es ipad, comprueb si hay algo en userdefaults y lo lee y lo devuelve, si no devuelve nil
+        guard (book == nil) else {
+            //tengo valor, no hago nada
             return nil
         }
+        
+        //si estamos aqui es que book es nil, he de cargar los datos de userdefaults
+        //obtenemos el uri
+        if let uriDefault = def.objectForKey(LAST_BOOK_READ) ,
+            let uri = NSKeyedUnarchiver.unarchiveObjectWithData(uriDefault as! NSData),
+            let uriId = self.stack.context.persistentStoreCoordinator?.managedObjectIDForURIRepresentation(uri as! NSURL){
 
+                //si estoy aqui es que tengo algo, asi que teniendo el uri, busco el libro al que corresponde y lo devuelvo
+                if let b = try? BookModel.bookWithID(uriId, context: self.stack.context) {
+                    return b
+                }
+        }
+        return nil
     }
 
 }
+
 

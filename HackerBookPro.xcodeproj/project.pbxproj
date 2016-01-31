@@ -56,6 +56,7 @@
 		2BE50FDE1C479D1700F8B99C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE50FDD1C479D1700F8B99C /* placeholder.png */; };
 		2BE9FB281C5B8DBA000113DF /* _BookTagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9FB271C5B8DBA000113DF /* _BookTagModel.swift */; };
 		2BE9FB2A1C5B8DCA000113DF /* BookTagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9FB291C5B8DCA000113DF /* BookTagModel.swift */; };
+		2BFE08631C5E75850046D41C /* AccessUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE08621C5E75850046D41C /* AccessUserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		2BE50FDD1C479D1700F8B99C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Resources/placeholder.png; sourceTree = "<group>"; };
 		2BE9FB271C5B8DBA000113DF /* _BookTagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = _BookTagModel.swift; path = Model/_BookTagModel.swift; sourceTree = "<group>"; };
 		2BE9FB291C5B8DCA000113DF /* BookTagModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookTagModel.swift; path = Model/BookTagModel.swift; sourceTree = "<group>"; };
+		2BFE08621C5E75850046D41C /* AccessUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessUserDefaults.swift; path = Utils/AccessUserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 			children = (
 				2BDCCEDF1C352E38009C4F25 /* Defines.swift */,
 				2B200A171C4AA11D00B79502 /* AsyncDownload.swift */,
+				2BFE08621C5E75850046D41C /* AccessUserDefaults.swift */,
 				2B694E1C1C5D360E00E82264 /* ProgressHUD.swift */,
 				2B73DBD21C5A8CF500B732F9 /* UIImage+Alpha.h */,
 				2B73DBD31C5A8CF500B732F9 /* UIImage+Alpha.m */,
@@ -368,6 +371,7 @@
 				2BDCCEC71C33FB29009C4F25 /* AGTSimpleCoreDataStack.m in Sources */,
 				2B5A5EA01C54B3B600875D97 /* LocationModel.swift in Sources */,
 				2BAA38861C5838EC00A8D3DD /* PhotoController.swift in Sources */,
+				2BFE08631C5E75850046D41C /* AccessUserDefaults.swift in Sources */,
 				2B9825F41C33E5930004F1AE /* Hacker.xcdatamodeld in Sources */,
 				2B694E1D1C5D360E00E82264 /* ProgressHUD.swift in Sources */,
 				2B72F6C31C3B0B4600F72899 /* BookCell.swift in Sources */,
