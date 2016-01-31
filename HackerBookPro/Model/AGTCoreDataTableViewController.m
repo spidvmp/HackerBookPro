@@ -99,8 +99,12 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    //devuelvo el titulo con la letra mayuscula
-	return [[[[self.fetchedResultsController sections] objectAtIndex:section] name] capitalizedString];
+    //devuelvo el titulo con la letra mayuscula siempre que no estemos buscando
+    if ( self.searchController.active) {
+        return @"Resultados";
+    } else {
+        return [[[[self.fetchedResultsController sections] objectAtIndex:section] name] capitalizedString];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index

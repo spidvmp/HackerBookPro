@@ -207,18 +207,22 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         let scope = searchController.searchBar.scopeButtonTitles![searchController.searchBar.selectedScopeButtonIndex]
         
         //estoy buscando el booktag, asi que saco la informacion a traves del BookTag
-        var booktag : BookTagModel
+        var booktag : BookTagModel  //para los tags
         var object : BookModel
 
         //obtengo el libro que hay que mostrar, segun sea de coredata o de la busqueda
         if  self.searchController.active && self.searchController.searchBar.text != nil {
-            booktag = self.filteredArray[indexPath.row] as! BookTagModel
+            //es busqueda, asi que el filter es un array de BookModel
+            object = self.filteredArray[indexPath.row] as! BookModel
+
         } else {
+            //en el fetch tengo un array de BookTagModel, tengo que obtener el libro en uestion
             booktag = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookTagModel
+            //ahora tengo el booktag, de aqui sale el libro
+            object = booktag.book!
         }
         
-        //ahora tengo el booktag, de aqui sale el libro
-        object = booktag.book!
+       
         //pongo los valores
         cell.title.text = object.title
         cell.tags.text = object.tagsString()
@@ -286,12 +290,12 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
         return cell
     }
 
-    func Imageuploaded(notification: NSNotification) -> Void {
-        print(notification)
-        //saco el info
-        let info = notification.userInfo
-        
-    }
+//    func Imageuploaded(notification: NSNotification) -> Void {
+//        print(notification)
+//        //saco el info
+//        let info = notification.userInfo
+//        
+//    }
 /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -336,15 +340,16 @@ class MasterViewController: AGTCoreDataTableViewController, UISearchControllerDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowBook" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object : BookTagModel
+                let object : BookModel
                 if searchController.active && searchController.searchBar.text != "" {
-                    object = filteredArray[indexPath.row] as! BookTagModel
+                    object = filteredArray[indexPath.row] as! BookModel
 
                 } else {
-                    object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookTagModel
+                    let booktag = self.fetchedResultsController.objectAtIndexPath(indexPath) as! BookTagModel
+                    object = booktag.book!
                 }
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.book = object.book
+                controller.book = object
                 controller.stack = self.stack
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true

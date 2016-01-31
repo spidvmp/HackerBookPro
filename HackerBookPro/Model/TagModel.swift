@@ -8,6 +8,7 @@
 
 
 typealias TagModelArray = [TagModel]
+typealias SetBookModel = Set<BookModel>
 
 @objc(TagModel)
 public class TagModel : _TagModel {
@@ -61,23 +62,32 @@ public class TagModel : _TagModel {
         //devuelve un array con los libros cuyo tag coincida con lo pedido, es para el search
         let query = NSFetchRequest(entityName: TagModel.entityName())
         
-        //array de NSSortDescriptors
+        //array de NSSortDescriptors, busco toos los tags que coincidan con lo seleccionado
         query.sortDescriptors = [NSSortDescriptor(key: "tag", ascending: true)]
         query.predicate = NSPredicate(format: "tag contains [cd] %@", t)
         
         do {
-            let res = try c.executeFetchRequest(query) as? TagModelArray
-            //ahora con todos los tags he de recorreme todos los libros que tienen cada tag
-            var booksSet = Set<BookModel>()
-            for each in res! {
-                //inseto los libros en el conjunto para evitar que se repitan
- //               _ = each.books.map({booksSet.insert($0 as! BookModel)})
+            if let res = try c.executeFetchRequest(query) as? TagModelArray {
+                //en res tengo los tags que coinciden, he de obtener los libros, asi que tengo que pasar por la entidad intermedia de BookTag
+                var booksSet : SetBookModel = Set()
+                //me recorro el resultado. res es de tipo TagModel, ha buscado en tags
+                for each in res {
+                    //ahora del tag he de obtener cuantos libros tiene este tag, eso esta en la relacion con BookTag, asi que necesito el booktag al que apunta
+                    //booktags es un NSSet de todos los libros que tiene el tag (uno en concreto, me estoy recorriendo todos los tags que encontro y de ahi todos los libros)
+                    let booktags = each.bookTags
+                    
+                    //ahora inseto los libros en elñ conjunto de libros, es un Set para evitar repetidos
+                    //_ = booktags.map({booksSet.insert($0.book as! BookModel)})
+                    
+                    //inseto los libros en el conjunto para evitar que se repitan
+                    //_ = each.books.map({booksSet.insert($0 as! BookModel)})
+                }
+                //ahora obtengo el array de libros
+                let arr = booksSet.map({$0})
+                return arr
             }
-            //ahora obtengo el array de libros
-            let arr = booksSet.map({$0})
-            return arr
-            
-            
+            //no hay res, asi que retirn nil
+            return nil
         } catch {
             return nil
         }
