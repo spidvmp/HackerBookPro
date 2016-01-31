@@ -78,6 +78,7 @@ public class TagModel : _TagModel {
                     
                     //ahora inseto los libros en elñ conjunto de libros, es un Set para evitar repetidos
                     //_ = booktags.map({booksSet.insert($0.book as! BookModel)})
+                    _ = booktags.map({booksSet.insert($0.book!! as BookModel)})
                     
                     //inseto los libros en el conjunto para evitar que se repitan
                     //_ = each.books.map({booksSet.insert($0 as! BookModel)})
